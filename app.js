@@ -13,15 +13,6 @@ var routes = require('./routes/index');
 
 var look = require('./routes/filter/look');
 
-
-/**
- * browserSync
- */
-//var gulp        = require('gulp');
-//var browserSync = require('browser-sync').create();
-
-//var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -80,38 +71,21 @@ app.use(function (err, req, res, next) {
     });
 });
 
-
-/**
- * 启动
- */
-
-
-var server = app.listen(3000, function () {
-
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-});
-
-
-
-
-//// 静态服务器
-//gulp.task('browser-sync', function() {
-//    browserSync.init({
-//        server: {
-//            baseDir: "./views/login/*.html"
-//        }
-//    });
-//});
 //
-//// 代理
+///**
+// * 启动
+// */
 //
-//gulp.task('browser-sync', function() {
-//    browserSync.init({
-//        proxy: "http://localhost:3000"
-//    });
+//
+//var server = app.listen(3000, function () {
+//
+//  var host = server.address().address;
+//  var port = server.address().port;
+//
+//  console.log('Example app listening at http://%s:%s', host, port);
 //});
+
+
+
 
 module.exports = app;
