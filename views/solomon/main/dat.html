@@ -1,0 +1,261 @@
+<!-- Page -->
+<div class="page animsition" id="content-box">
+
+    <div class="page-header">
+        <h1 class="page-title">
+            SIP Domain and Transport
+        </h1>
+    </div>
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <!-- left Table Begin -->
+                    <div class="col-md-6">
+                        <!-- Example Bordered Table -->
+                        <div class="example-wrap">
+                            <h4>SIP Domin</h4>
+
+                            <p>
+                                describe...
+                            </p>
+
+                            <div class="form-inline padding-bottom-15">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button id="addRowBtn" class="btn btn-outline btn-primary btn-sm"
+                                                    data-toggle="modal" data-target="#modal-add-domain">
+                                                <i class="icon wb-plus" aria-hidden="true"></i>
+                                                Add Domin
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="example table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Domain</th>
+                                            <th>Setting</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Lunar probe project</td>
+                                            <td class="text-nowrap">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                                        data-toggle="tooltip" data-original-title="Delete">
+                                                    <i class="icon wb-close" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Example Bordered Table -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-add-domain" aria-hidden="true"
+                             aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" style="display: none;">
+                            <div class="modal-dialog modal-center">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title">Add Domain</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="example-grid">
+
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">New Domain: </label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" name="name"
+                                                               placeholder="domain" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-9 col-sm-offset-3">
+                                                        <button type="button" class="btn btn-primary">Add</button>
+                                                        <button type="reset" class="btn btn-default btn-outline">Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
+                    </div>
+                    <!-- left Table END -->
+                    <!-- right Table Begin -->
+                    <div class="col-md-6">
+                        <!-- Example Bordered Table -->
+                        <div class="example-wrap">
+                            <h4>Transports</h4>
+
+                            <p>
+                                describe...
+                            </p>
+
+                            <div class="form-inline padding-bottom-15">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button id="addTransport" class="btn btn-outline btn-primary btn-sm"
+                                                    data-toggle="modal" data-target="#modal-add-transport">
+                                                <i class="icon wb-plus" aria-hidden="true"></i>
+                                                Add Transport
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="example table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Domain</th>
+                                            <th>Setting</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Lunar probe project</td>
+                                            <td class="text-nowrap">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                                        data-toggle="tooltip" data-original-title="Delete">
+                                                    <i class="icon wb-close" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- End Example Bordered Table -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-add-transport" aria-hidden="true"
+                             aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" style="display: none;">
+                            <div class="modal-dialog modal-center">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title">Add Domain</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="example-wrap">
+
+
+                                            <div class="example">
+                                                <form class="form-horizontal">
+                                                    <h6 class="example-title">Transport:</h6>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Protocol: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <select class="bs-select-hidden"
+                                                                    name="modal-transport-select">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Port: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" name="email"
+                                                                   placeholder="port" autocomplete="off">
+                                                        </div>
+                                                    </div>
+
+                                                    <h6 class="example-title">TLS/WSS Settings::</h6>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Certificate file: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" name="email"
+                                                                   placeholder="Certificate file" autocomplete="off">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Private key file: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" name="email"
+                                                                   placeholder="port" autocomplete="off">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Root certificate file: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" name="email"
+                                                                   placeholder="port" autocomplete="off">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Certificate Private Key Password: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" name="email"
+                                                                   placeholder="port" autocomplete="off">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Client Verification: </label>
+
+                                                        <div class="col-sm-9">
+                                                            <select class="bs-select-hidden"
+                                                                    name="modal-transport-select">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-sm-9 col-sm-offset-3">
+                                                            <button type="button" class="btn btn-primary">Submit
+                                                            </button>
+                                                            <button type="reset" class="btn btn-default btn-outline">
+                                                                Reset
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
+                    </div>
+                    <!-- right Table END -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page -->

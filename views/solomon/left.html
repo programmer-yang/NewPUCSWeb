@@ -4,7 +4,7 @@
             <div>
                 <ul class="site-menu">
                     <li class="site-menu-category">Main</li>
-                    <li class="site-menu-item has-sub active">
+                    <li class="site-menu-item has-sub active" data-role="menu" data-menu="h">
                         <a href="javascript:void(0)" data-slug="dashboard">
                             <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                             <span class="site-menu-title">Home</span>
@@ -19,61 +19,68 @@
                             <span class="site-menu-arrow"></span>
                         </a>
                         <ul class="site-menu-sub">
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/menu-collapsed.html"
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)"
+                                   data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Call Manager Information</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item" data-role="menu" data-menu="dat">
+                                <a class="animsition-link" href="javascript:void(0)"
                                    data-slug="layout-menu-collapsed">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Domains and transports</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/menu-expended.html"
+                            <li class="site-menu-item" data-role="menu" data-menu="e">
+                                <a class="animsition-link" href="javascript:void(0)"
                                    data-slug="layout-menu-expended">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Extensions</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/grids.html" data-slug="layout-grids">
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)" data-slug="layout-grids">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">System Extensions</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/headers.html" data-slug="layout-headers">
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)" data-slug="layout-headers">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">VoIP Providers/Trunks</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/panel-transition.html"
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)"
                                    data-slug="layout-panel-transition">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Inbound Rules</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/boxed.html" data-slug="layout-boxed">
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)" data-slug="layout-boxed">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Outbound Rules</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/two-columns.html"
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)"
                                    data-slug="layout-two-columns">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Ring Groups</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/menubar-flipped.html"
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)"
                                    data-slug="layout-menubar-flipped">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Call Sessions</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../layouts/menubar-native-scrolling.html"
+                            <li class="site-menu-item" data-role="menu" data-menu="cmi">
+                                <a class="animsition-link" href="javascript:void(0)"
                                    data-slug="layout-menubar-native-scrolling">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Call History</span>
@@ -83,37 +90,31 @@
                         </ul>
                     </li>
 
-                    <li class="site-menu-item has-sub">
+                    <li class="site-menu-item has-sub" data-role="menu" data-menu="cmi">
                         <a href="javascript:void(0)" data-slug="dashboard">
                             <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                             <span class="site-menu-title">Media Server</span>
                         </a>
                     </li>
-                    <li class="site-menu-item has-sub">
+                    <li class="site-menu-item has-sub" data-role="menu" data-menu="cmi">
                         <a href="javascript:void(0)" data-slug="dashboard">
                             <i class="site-menu-icon wb-desktop" aria-hidden="true"></i>
                             <span class="site-menu-title">Conference Server</span>
                         </a>
                     </li>
-                    <li class="site-menu-item has-sub">
+                    <li class="site-menu-item has-sub" data-role="menu" data-menu="cmi">
                         <a href="javascript:void(0)" data-slug="dashboard">
                             <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
                             <span class="site-menu-title">Digital Receptionist</span>
                         </a>
                     </li>
-                    <li class="site-menu-item has-sub">
-                        <a href="javascript:void(0)" data-slug="dashboard">
-                            <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
-                            <span class="site-menu-title">Digital Receptionist</span>
-                        </a>
-                    </li>
-                    <li class="site-menu-item has-sub">
+                    <li class="site-menu-item has-sub" data-role="menu" data-menu="cmi">
                         <a href="javascript:void(0)" data-slug="dashboard">
                             <i class="site-menu-icon wb-stats-bars" aria-hidden="true"></i>
                             <span class="site-menu-title">Settings</span>
                         </a>
                     </li>
-                    <li class="site-menu-item has-sub">
+                    <li class="site-menu-item has-sub" data-role="menu" data-menu="cmi">
                         <a href="javascript:void(0)" data-slug="dashboard">
                             <i class="site-menu-icon wb-help" aria-hidden="true"></i>
                             <span class="site-menu-title">Help</span>
@@ -121,10 +122,8 @@
                     </li>
 
 
-
-
                     <li class="site-menu-category">API</li>
-                    <li class="site-menu-item">
+                    <li class="site-menu-item" data-role="menu" data-menu="api">
                         <a class="animsition-link" data-slug="angular" id="menu-api-a">
                             <!--<i class="site-menu-icon wb-pie-chart" aria-hidden="true"></i>-->
                             <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>

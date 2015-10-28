@@ -2,8 +2,11 @@ var express = require('express');
 var router = express.Router();
 var login = require('./login/login');
 
+var callManager = require('./menu/CallManager');
+var domansAndTransports = require('./menu/DomainsAndTransports');
 
-var api = require('./api/api');
+
+var api = require('./menu/api');
 var error = require('./error/error');
 
 
@@ -28,8 +31,19 @@ router.post('/login',login.loginPost);
 /**
  * 首页请求
  */
-
 router.get('/main',login.mainGet);
+
+/**
+ * CallManager Information Show Page
+ */
+router.get('/callManager/information', callManager.cmiGet);
+/**
+ * DomainsAndTransports show Page
+ */
+router.get('/callManager/setting', domansAndTransports.dtGet);
+
+
+
 
 
 /**
