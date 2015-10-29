@@ -34,15 +34,9 @@ $.components.register("mMenu", {
             contentBox.replaceWith(content);
         }
         if (typeof callback === 'function')
-            callback();
-        //$(document).on("before.run");
-        //cye-workaround-body
-        //cye-workaround-body-image
-        var newHeight = $('#content-box', body).css('height');
+            callback($('#content-box', body));
         $('#content-box').animsition('init').animsition('pageIn');
-        //console.log(newHeight+'      6666666666666');
-        //$('#cye-workaround-body').css('height',newHeight);
-        //$('cye-workaround-body-image').css('height',newHeight);
+
     },
     holdMenu: function (li, _this) {
 
@@ -86,15 +80,44 @@ $.components.register("mMenu", {
         dat: function (_this) {
             $.get('/callManager/setting', function (data) {
                 var bodyClass = 'site-menubar-unfold';
-                _this.changeContent(bodyClass, data, function () {
+                _this.changeContent(bodyClass, data, function (contentBox) {
+
                     //初始化Bootstrap Select
-                    //$('#modal-transport-protocol').selectpicker({style:'btn dropdown-toggle btn-select'});
-                    var selects = $('[name=modal-transport-select]',_this);
-                    console.log(selects)
+                    var selects = $('[name=modal-transport-select]',contentBox);
+                    selects.each(function(key){
+                        $(selects[key]).selectpicker({style:'btn dropdown-toggle btn-select'});
+                    });
+
+                    //动态跳转group高度（提示文本换行情况）
+                    var groups = $('.form-group', contentBox);
+                    groups.each(function(key){
+                        var group = $(groups[key]);
+                        var label = $('label', group);
+                        if (typeof label.html() != 'undefined') {
+                            if(label.html().replace(/(\s)|(\t)/g,'').length > 25 && label.html().indexOf(' ')>0) {
+                                //console.log(label.html().replace(/(\s)|(\t)/g,''));
+                                $('.col-sm-8', group).css('padding-top','7.5px');
+                            }
+                        }
+                    });
+
+                    //初始化文件上传事件
+                    var inputFiles = $('.input-group.input-group-file', contentBox);
+
+                    inputFiles.each(function(key){
+                        var inputFileBox = $(inputFiles[key]);
+                        var inpuText = $('[type=text]', inputFileBox);
+                        var inputFile = $('[type=file]', inputFileBox);
+                        inputFile.on('change', function(){
+                            var url = $(this).val();
+                            if(typeof url != 'undefined' && url.length > 0)
+                                inpuText.val(url);
+                        });
 
 
-                    console.log('*********** ' +
-                        '解决select初始化问题');
+
+                    });
+
 
                 });
             });
