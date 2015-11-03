@@ -14,7 +14,6 @@ $.components.register("mMenu", {
             });
         });
 
-
         //绑定API单击事件
         //$('#menu-api-a', menuBox).on('click', function () {
         //
@@ -30,12 +29,19 @@ $.components.register("mMenu", {
             //contentBox.html(content);
         }
         if (content != null && typeof content != 'undefined') {
-            contentBox.html('');
-            contentBox.replaceWith(content);
+            contentBox.html(content);
+            //contentBox.replaceWith(content);
         }
+        //if (typeof callback === 'function')
+        //    callback($('#content-box', body));
+        //$('#content-box').animsition('init').animsition('pageIn');
+
+        //page animsition
+        var content = $('.page.animsition',contentBox);
+
         if (typeof callback === 'function')
-            callback($('#content-box', body));
-        $('#content-box').animsition('init').animsition('pageIn');
+            callback(content);
+        content.animsition('init').animsition('pageIn');
 
     },
     holdMenu: function (li, _this) {
@@ -54,6 +60,12 @@ $.components.register("mMenu", {
                 break;
             case 'dat':
                 _this.menuDescribe['dat'](_this);
+                break;
+            case 'ex':
+                _this.menuDescribe['ex'](_this);
+                break;
+            case 'sex':
+                _this.menuDescribe['sex'](_this);
                 break;
         }
 
@@ -114,11 +126,42 @@ $.components.register("mMenu", {
                                 inpuText.val(url);
                         });
 
-
-
                     });
 
 
+
+                    $('#testLogBut').on('click',function(){
+                        $.get('/callManager/setting/transports', function (data) {
+                            _this.changeContent(undefined, data, function (contentBox) {
+                                //...
+                            });
+                        });
+                    });
+
+
+                });
+            });
+        },
+        ex: function(_this){
+            $.get('/callManager/extensions', function (data) {
+                _this.changeContent(undefined, data, function (contentBox) {
+                    $.getScript('/javascripts/plugins/responsive-tabs.js', function(){
+
+                        //初始化Bootstrap Select
+                        var selects = $('[name=modal-transport-select]',contentBox);
+                        selects.each(function(key){
+                            $(selects[key]).selectpicker({style:'btn dropdown-toggle btn-select'});
+                        });
+
+                    });
+                });
+            });
+        },
+        sex: function (_this) {
+
+            $.get('/callManager/systemExtensions', function (data) {
+                _this.changeContent(undefined, data, function (contentBox) {
+                    //...
                 });
             });
         }
