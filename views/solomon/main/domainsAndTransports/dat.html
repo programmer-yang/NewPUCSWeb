@@ -6,13 +6,13 @@
             SIP Domain and Transport
         </h1>
     </div>
-    <div class="page-content">
-        <div class="panel">
-            <div class="panel-body container-fluid">
-                <div class="row row-lg">
-                    <!-- left Table Begin -->
-                    <div class="col-md-6">
-                        <!-- Example Bordered Table -->
+    <div class="page-content container-fluid">
+        <div class="row">
+            <!-- left Table Begin -->
+            <div class="col-lg-6 col-sm-6">
+                <!-- Example Bordered Table -->
+                <div class="panel">
+                    <div class="panel-body">
                         <div class="example-wrap">
                             <h4>SIP Domin</h4>
 
@@ -55,51 +55,55 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Example Bordered Table -->
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal-add-domain" aria-hidden="true"
-                             aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" style="display: none;">
-                            <div class="modal-dialog modal-center">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        <h4 class="modal-title">Add Domain</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="example-grid">
+                    </div>
+                </div>
+                <!-- End Example Bordered Table -->
+                <!-- Modal -->
+                <div class="modal fade" id="modal-add-domain" aria-hidden="true"
+                     aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" style="display: none;">
+                    <div class="modal-dialog modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title">Add Domain</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="example-grid">
 
-                                            <form class="form-horizontal">
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">New Domain: </label>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">New Domain: </label>
 
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="name"
-                                                               placeholder="domain" autocomplete="off">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-sm-9 col-sm-offset-3">
-                                                        <button type="button" class="btn btn-primary">Add</button>
-                                                        <button type="reset" class="btn btn-default btn-outline">Reset
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="name"
+                                                       placeholder="domain" autocomplete="off">
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9 col-sm-offset-3">
+                                                <button type="button" class="btn btn-primary">Add</button>
+                                                <button type="reset" class="btn btn-default btn-outline">Reset
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
                                 </div>
                             </div>
                         </div>
-                        <!-- End Modal -->
                     </div>
-                    <!-- left Table END -->
-                    <!-- right Table Begin -->
-                    <div class="col-md-6">
-                        <!-- Example Bordered Table -->
+                </div>
+                <!-- End Modal -->
+            </div>
+            <!-- left Table END -->
+            <!-- right Table Begin -->
+            <div class="col-lg-6 col-sm-6">
+                <!-- Example Bordered Table -->
+                <div class="panel">
+                    <div class="panel-body">
                         <div class="example-wrap">
                             <h4>Transports</h4>
 
@@ -111,18 +115,6 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <!-- 屏蔽蒙版模式加载
-                                            <button id="addTransport" class="btn btn-outline btn-primary btn-sm"
-                                                          data-toggle="modal" data-target="#modal-add-transport">
-                                            <i class="icon wb-plus" aria-hidden="true"></i>
-                                            Add Transport
-                                        </button>
-                                             END -->
-                                            <button id="addTransport" class="btn btn-outline btn-primary btn-sm"
-                                                    data-toggle="modal" data-target="#modal-add-transport">
-                                                <i class="icon wb-plus" aria-hidden="true"></i>
-                                                Add Transport
-                                            </button>
                                             <button id="testLogBut" class="btn btn-outline btn-primary btn-sm">
                                                 <i class="icon wb-plus" aria-hidden="true"></i>
                                                 Add Transport
@@ -150,146 +142,11 @@
 
 
                         </div>
-                        <!-- End Example Bordered Table -->
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal-add-transport" aria-hidden="true"
-                             aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" style="display: none;">
-                            <div class="modal-dialog modal-center">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        <h4 class="modal-title">Add Transport</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="example-wrap">
-
-
-                                            <div class="example">
-                                                <form class="form-horizontal" name="form-transports-add">
-                                                    <h6 class="example-title">Transport:</h6>
-
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 control-label">Protocol: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <select class="bs-select-hidden"
-                                                                    name="modal-transport-select">
-                                                                <option value="1">UDP</option>
-                                                                <option value="2">TCP</option>
-                                                                <option value="3">TLS</option>
-                                                                <option value="4">WS</option>
-                                                                <option value="5">WSS</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 control-label">Port: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" name="email"
-                                                                   placeholder="port" autocomplete="off">
-                                                        </div>
-                                                    </div>
-
-                                                    <h6 class="example-title">TLS/WSS Settings:</h6>
-
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 control-label">Certificate file: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <div class="input-group input-group-file">
-                                                                <input type="text" class="form-control" readonly="">
-                                                                    <span class="input-group-btn">
-                                                                      <span class="btn btn-outline btn-file">
-                                                                        <i class="icon wb-upload"
-                                                                           aria-hidden="true"></i>
-                                                                        <input type="file" multiple="">
-                                                                      </span>
-                                                                    </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 control-label">Private key file: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <div class="input-group input-group-file">
-                                                                <input type="text" class="form-control" readonly="">
-                                                                    <span class="input-group-btn">
-                                                                      <span class="btn btn-outline btn-file">
-                                                                        <i class="icon wb-upload"
-                                                                           aria-hidden="true"></i>
-                                                                        <input type="file" multiple="">
-                                                                      </span>
-                                                                    </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 control-label">Root certificate
-                                                            file: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <div class="input-group input-group-file">
-                                                                <input type="text" class="form-control" readonly="">
-                                                                    <span class="input-group-btn">
-                                                                      <span class="btn btn-outline btn-file">
-                                                                        <i class="icon wb-upload"
-                                                                           aria-hidden="true"></i>
-                                                                        <input type="file" multiple="">
-                                                                      </span>
-                                                                    </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                        <label class="col-sm-4 control-label">Certificate Private Key
-                                                            Password: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" name="email"
-                                                                   placeholder="port" autocomplete="off">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 control-label">Client
-                                                            Verification: </label>
-
-                                                        <div class="col-sm-8">
-                                                            <select class="bs-select-hidden"
-                                                                    name="modal-transport-select">
-                                                                <option value="1">None</option>
-                                                                <option value="2">Optional</option>
-                                                                <option value="3">Mandatory</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-9 col-sm-offset-3">
-                                                            <button type="button" class="btn btn-primary">Submit
-                                                            </button>
-                                                            <button type="reset" class="btn btn-default btn-outline">
-                                                                Reset
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Modal -->
                     </div>
-                    <!-- right Table END -->
                 </div>
+                <!-- End Example Bordered Table -->
             </div>
+            <!-- right Table END -->
         </div>
     </div>
 </div>
