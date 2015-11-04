@@ -155,10 +155,28 @@ $.components.register("mMenu", {
                 _this.changeContent(undefined, data, function (contentBox) {
                     $.getScript('/javascripts/plugins/responsive-tabs.js', function () {
 
-                        //初始化Bootstrap Select
-                        var selects = $('[name=modal-transport-select]', contentBox);
-                        selects.each(function (key) {
-                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
+
+
+
+                        //绑定add Extensions 事件
+
+                        $('#btn-add-extension').on('click', function(){
+                            $.get('/callManager/extensions/setting', function (data) {
+                                _this.changeContent(undefined, data, function (contentBox) {
+
+                                    //初始化Bootstrap Select
+                                    var selects = $('[name=modal-transport-select]', contentBox);
+                                    selects.each(function (key) {
+                                        $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
+                                    });
+
+                                    //绑定返回事件
+                                    $('#but-cancel,#a-return', contentBox).on('click', function () {
+                                        _this.menuDescribe['ex'](_this);
+                                    });
+
+                                });
+                            });
                         });
 
                     });

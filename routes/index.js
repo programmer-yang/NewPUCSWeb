@@ -48,6 +48,7 @@ router.get('/callManager/setting/transports', doMainsAndTransports.updateTranspo
  * Extensions show Page
  */
 router.get('/callManager/extensions', extensions.exGet);
+router.get('/callManager/extensions/setting', extensions.addExtensionsGet);
 /**
  * System Extensions show Page
  */

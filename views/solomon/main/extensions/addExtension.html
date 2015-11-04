@@ -1,0 +1,65 @@
+<div class="page animsition">
+
+    <div class="page-header">
+        <ol class="breadcrumb">
+            <li><a href="javascript:void(0)" id="a-return">Extensions</a></li>
+            <li class="active">Add Domain</li>
+        </ol>
+        <h1 class="page-title">
+            Add Transport
+        </h1>
+
+    </div>
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <form class="form-horizontal" name="form-transports-add">
+                    <div class="col-lg-12">
+                        <div class="example-wrap">
+                            <div class="nav-tabs-horizontal">
+                                <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
+                                    <li class="active" role="presentation">
+                                        <a data-toggle="tab" href="#exampleTabsOne"
+                                           aria-controls="exampleTabsOne" role="tab">General</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#exampleTabsTwo"
+                                           aria-controls="exampleTabsTwo" role="tab">Voice
+                                            Mail</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#exampleTabsThree"
+                                           aria-controls="exampleTabsThree" role="tab">Forwarding
+                                            Rules</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content padding-top-10">
+                                    <% include modal-general.html %>
+                                    <% include modal-voice-mail.html %>
+                                    <% include modal-forwarding-rules.html %>
+                                </div>
+                            </div>
+                            <div class="example-wrap">
+                                <div class="col-lg-5 col-sm-offset-7">
+                                    <button type="button" class="btn btn-default btn-outline" id="but-cancel">
+                                        Cancel
+                                    </button>
+                                    <button type="reset" class="btn btn-default btn-outline">
+                                        Reset
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-outline">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
