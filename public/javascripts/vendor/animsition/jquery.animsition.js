@@ -228,6 +228,7 @@
       var $this = $(this);
 
       if($this.data(namespace) == undefined){
+        return;
         $this.animsition('init');
       }
 

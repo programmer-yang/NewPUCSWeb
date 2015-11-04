@@ -3,7 +3,7 @@ var router = express.Router();
 var login = require('./login/login');
 
 var callManager = require('./menu/callManager');
-var doMansAndTransports = require('./menu/domainsAndTransports');
+var doMainsAndTransports = require('./menu/domainsAndTransports');
 var extensions = require('./menu/extensions');
 var systemExtensions = require('./menu/systemExtensions');
 
@@ -42,8 +42,8 @@ router.get('/callManager/information', callManager.cmiGet);
 /**
  * DomainsAndTransports show Page
  */
-router.get('/callManager/setting', doMansAndTransports.dtGet);
-router.get('/callManager/setting/transports', doMansAndTransports.updateTransportGet);
+router.get('/callManager/setting', doMainsAndTransports.dtGet);
+router.get('/callManager/setting/transports', doMainsAndTransports.updateTransportGet);
 /**
  * Extensions show Page
  */

@@ -35,3 +35,27 @@
         width: 300px;
     }
 }
+
+/* 解决内容box高度问题 */
+.my-page {
+    position: relative;
+    min-height: -webkit-calc(100% - 44px);
+    min-height:         calc(100% - 44px);
+    background: #f1f4f5;
+}
+
+/* 为实现左侧菜单底部不预留空间 */
+.my-site-menubar-body {
+    height: 100%;
+    /*height: -webkit-calc(100% - 76px);*/
+    /*height:         calc(100% - 76px);*/
+    height: -webkit-calc(100% - 0px);
+    height:         calc(100% - 0px);
+}
+.css-menubar.site-menubar-native .my-site-menubar-body {
+    overflow-y: scroll;
+}
+.site-menubar-unfold.site-menubar-native .my-site-menubar-body {
+    overflow-y: scroll;
+}
+/* END */

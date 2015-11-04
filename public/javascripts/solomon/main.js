@@ -37,11 +37,12 @@ $.components.register("mMenu", {
         //$('#content-box').animsition('init').animsition('pageIn');
 
         //page animsition
-        var content = $('.page.animsition',contentBox);
+        var content = $('.page.animsition', contentBox);
 
         if (typeof callback === 'function')
             callback(content);
         content.animsition('init').animsition('pageIn');
+
 
     },
     holdMenu: function (li, _this) {
@@ -94,46 +95,53 @@ $.components.register("mMenu", {
                 var bodyClass = 'site-menubar-unfold';
                 _this.changeContent(bodyClass, data, function (contentBox) {
 
-                    //初始化Bootstrap Select
-                    var selects = $('[name=modal-transport-select]',contentBox);
-                    selects.each(function(key){
-                        $(selects[key]).selectpicker({style:'btn dropdown-toggle btn-select'});
-                    });
 
-                    //动态跳转group高度（提示文本换行情况）
-                    var groups = $('.form-group', contentBox);
-                    groups.each(function(key){
-                        var group = $(groups[key]);
-                        var label = $('label', group);
-                        if (typeof label.html() != 'undefined') {
-                            if(label.html().replace(/(\s)|(\t)/g,'').length > 25 && label.html().indexOf(' ')>0) {
-                                //console.log(label.html().replace(/(\s)|(\t)/g,''));
-                                $('.col-sm-8', group).css('padding-top','7.5px');
-                            }
-                        }
-                    });
-
-                    //初始化文件上传事件
-                    var inputFiles = $('.input-group.input-group-file', contentBox);
-
-                    inputFiles.each(function(key){
-                        var inputFileBox = $(inputFiles[key]);
-                        var inpuText = $('[type=text]', inputFileBox);
-                        var inputFile = $('[type=file]', inputFileBox);
-                        inputFile.on('change', function(){
-                            var url = $(this).val();
-                            if(typeof url != 'undefined' && url.length > 0)
-                                inpuText.val(url);
-                        });
-
-                    });
-
-
-
-                    $('#testLogBut').on('click',function(){
+                    /**
+                     * Add Transports
+                     */
+                    $('#testLogBut', contentBox).on('click', function (contentBox) {
                         $.get('/callManager/setting/transports', function (data) {
                             _this.changeContent(undefined, data, function (contentBox) {
-                                //...
+
+                                //初始化Bootstrap Select
+                                var selects = $('[name=modal-transport-select]', contentBox);
+                                selects.each(function (key) {
+                                    $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
+                                });
+
+                                //动态跳转group高度（提示文本换行情况）
+                                var groups = $('.form-group', contentBox);
+                                groups.each(function (key) {
+                                    var group = $(groups[key]);
+                                    var label = $('label', group);
+                                    if (typeof label.html() != 'undefined') {
+                                        if (label.html().replace(/(\s)|(\t)/g, '').length > 25 && label.html().indexOf(' ') > 0) {
+                                            //console.log(label.html().replace(/(\s)|(\t)/g,''));
+                                            $('.col-sm-8', group).css('padding-top', '7.5px');
+                                        }
+                                    }
+                                });
+
+                                //初始化文件上传事件
+                                var inputFiles = $('.input-group.input-group-file', contentBox);
+                                inputFiles.each(function (key) {
+                                    var inputFileBox = $(inputFiles[key]);
+                                    var inpuText = $('[type=text]', inputFileBox);
+                                    var inputFile = $('[type=file]', inputFileBox);
+                                    inputFile.on('change', function () {
+                                        var url = $(this).val();
+                                        if (typeof url != 'undefined' && url.length > 0)
+                                            inpuText.val(url);
+                                    });
+
+                                });
+
+                                //绑定返回事件
+                                $('#but-cancel,#a-return', contentBox).on('click', function () {
+                                    _this.menuDescribe['dat'](_this);
+                                });
+
+
                             });
                         });
                     });
@@ -142,15 +150,15 @@ $.components.register("mMenu", {
                 });
             });
         },
-        ex: function(_this){
+        ex: function (_this) {
             $.get('/callManager/extensions', function (data) {
                 _this.changeContent(undefined, data, function (contentBox) {
-                    $.getScript('/javascripts/plugins/responsive-tabs.js', function(){
+                    $.getScript('/javascripts/plugins/responsive-tabs.js', function () {
 
                         //初始化Bootstrap Select
-                        var selects = $('[name=modal-transport-select]',contentBox);
-                        selects.each(function(key){
-                            $(selects[key]).selectpicker({style:'btn dropdown-toggle btn-select'});
+                        var selects = $('[name=modal-transport-select]', contentBox);
+                        selects.each(function (key) {
+                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
                         });
 
                     });
