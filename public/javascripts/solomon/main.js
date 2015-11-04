@@ -153,32 +153,34 @@ $.components.register("mMenu", {
         ex: function (_this) {
             $.get('/callManager/extensions', function (data) {
                 _this.changeContent(undefined, data, function (contentBox) {
-                    $.getScript('/javascripts/plugins/responsive-tabs.js', function () {
+
+                    /*
+                    选项卡折叠事件暂不添加，待有需求时添加即可
+                      现在只有3个选项卡，手机屏幕现实没太大问题，如果将来要继续添加或者别的地方有使用到多个，可以参考这里的代码
+                     */
+                    //$.getScript('/javascripts/plugins/responsive-tabs.js', function () {
+                    //    //。。。
+                    //});
 
 
+                    //绑定add Extensions 事件
+                    $('#btn-add-extension').on('click', function(){
+                        $.get('/callManager/extensions/setting', function (data) {
+                            _this.changeContent(undefined, data, function (contentBox) {
 
-
-                        //绑定add Extensions 事件
-
-                        $('#btn-add-extension').on('click', function(){
-                            $.get('/callManager/extensions/setting', function (data) {
-                                _this.changeContent(undefined, data, function (contentBox) {
-
-                                    //初始化Bootstrap Select
-                                    var selects = $('[name=modal-transport-select]', contentBox);
-                                    selects.each(function (key) {
-                                        $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                                    });
-
-                                    //绑定返回事件
-                                    $('#but-cancel,#a-return', contentBox).on('click', function () {
-                                        _this.menuDescribe['ex'](_this);
-                                    });
-
+                                //初始化Bootstrap Select
+                                var selects = $('[name=modal-transport-select]', contentBox);
+                                selects.each(function (key) {
+                                    $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
                                 });
+
+                                //绑定返回事件
+                                $('#but-cancel,#a-return', contentBox).on('click', function () {
+                                    _this.menuDescribe['ex'](_this);
+                                });
+
                             });
                         });
-
                     });
                 });
             });
