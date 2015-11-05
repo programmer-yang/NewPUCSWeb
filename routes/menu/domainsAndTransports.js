@@ -1,12 +1,12 @@
 function dtGet (req, res, next) {
 
     console.log('56666666');
-    res.render('solomon/main/doMainsAndTransports/dat');
+    res.render('solomon/content/domainsAndTransports/dat');
 
 }
 
 function updateTransportGet (req, res, next) {
-    res.render('solomon/main/doMainsAndTransports/addTransport');
+    res.render('solomon/content/domainsAndTransports/addTransport');
 }
 
 

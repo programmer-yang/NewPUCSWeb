@@ -38,12 +38,25 @@ $.components.register("mMenu", {
 
         //page animsition
         var content = $('.page.animsition', contentBox);
+        content.animsition('init').animsition('pageIn');
 
         if (typeof callback === 'function')
             callback(content);
-        content.animsition('init').animsition('pageIn');
 
 
+        //统一绑定返回事件
+        var _this = this;
+        $('[data-return]', content).on('click', function(){
+            _this.menuDescribe[$(this).attr('data-return')](_this);
+        });
+
+    },
+    get: function (url, callback, className) {
+
+        var _this = this;
+        $.get(url, function (data) {
+            _this.changeContent(className, data, callback);
+        })
     },
     holdMenu: function (li, _this) {
 
@@ -67,6 +80,9 @@ $.components.register("mMenu", {
                 break;
             case 'sex':
                 _this.menuDescribe['sex'](_this);
+                break;
+            case 'vpt':
+                _this.menuDescribe['vpt'](_this);
                 break;
         }
 
@@ -110,17 +126,17 @@ $.components.register("mMenu", {
                                 });
 
                                 //动态跳转group高度（提示文本换行情况）
-                                var groups = $('.form-group', contentBox);
-                                groups.each(function (key) {
-                                    var group = $(groups[key]);
-                                    var label = $('label', group);
-                                    if (typeof label.html() != 'undefined') {
-                                        if (label.html().replace(/(\s)|(\t)/g, '').length > 25 && label.html().indexOf(' ') > 0) {
-                                            //console.log(label.html().replace(/(\s)|(\t)/g,''));
-                                            $('.col-sm-8', group).css('padding-top', '7.5px');
-                                        }
-                                    }
-                                });
+                                //var groups = $('.form-group', contentBox);
+                                //groups.each(function (key) {
+                                //    var group = $(groups[key]);
+                                //    var label = $('label', group);
+                                //    if (typeof label.html() != 'undefined') {
+                                //        if (label.html().replace(/(\s)|(\t)/g, '').length > 25 && label.html().indexOf(' ') > 0) {
+                                //            //console.log(label.html().replace(/(\s)|(\t)/g,''));
+                                //            $('.col-sm-8', group).css('padding-top', '7.5px');
+                                //        }
+                                //    }
+                                //});
 
                                 //初始化文件上传事件
                                 var inputFiles = $('.input-group.input-group-file', contentBox);
@@ -134,11 +150,6 @@ $.components.register("mMenu", {
                                             inpuText.val(url);
                                     });
 
-                                });
-
-                                //绑定返回事件
-                                $('#but-cancel,#a-return', contentBox).on('click', function () {
-                                    _this.menuDescribe['dat'](_this);
                                 });
 
 
@@ -192,6 +203,52 @@ $.components.register("mMenu", {
                     //...
                 });
             });
+        },
+        vpt: function (_this) {
+
+            $.get('/callManager/vpt', function(data){
+                _this.changeContent(undefined, data, function(contentBox){
+
+                    //绑定Add事件
+                    $('#add-provider', contentBox).on('click', function(){
+
+                    });
+
+
+                })
+            });
+
+            _this.get('/callManager/vpt', function(contentBox){
+                //绑定Add事件
+                $('#add-provider', contentBox).on('click', function () {
+                    _this.get('/callManager/vpt/setting/provider',function(contentBox){
+
+                        //初始化Bootstrap Select
+                        var selects = $('[data-select=my-select]', contentBox);
+                        selects.each(function (key) {
+                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
+                        });
+
+                        //绑定返回事件
+                        $('#but-cancel,#a-return', contentBox).on('click', function () {
+                            _this.menuDescribe['vpt'](_this);
+
+
+                            console.log(' ********************** ');
+                            console.log(' extensions 里的ejs模板名称需要修改 ok');
+                            console.log(' voip 选项卡页面内容还未开始修改 ok');
+                            console.log(' 绑定返回事件是否需要写成公共方法需要思考 ');
+
+
+
+
+
+
+                        });
+                    });
+                });
+            });
+
         }
     }
 });

@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 var login = require('./login/login');
 
-var callManager = require('./menu/callManager');
+var callManager = require('./menu/CallManager');
 var doMainsAndTransports = require('./menu/domainsAndTransports');
 var extensions = require('./menu/extensions');
 var systemExtensions = require('./menu/systemExtensions');
+var voIPProvidersAndTrunks = require('./menu/voIPProvidersAndTrunks');
 
 
 var api = require('./menu/api');
@@ -36,23 +37,29 @@ router.post('/login',login.loginPost);
 router.get('/main',login.mainGet);
 
 /**
- * CallManager Information Show Page
+ * CallManager Information
  */
 router.get('/callManager/information', callManager.cmiGet);
 /**
- * DomainsAndTransports show Page
+ * DomainsAndTransports
  */
 router.get('/callManager/setting', doMainsAndTransports.dtGet);
 router.get('/callManager/setting/transports', doMainsAndTransports.updateTransportGet);
 /**
- * Extensions show Page
+ * Extensions
  */
 router.get('/callManager/extensions', extensions.exGet);
 router.get('/callManager/extensions/setting', extensions.addExtensionsGet);
 /**
- * System Extensions show Page
+ * System Extensions
  */
 router.get('/callManager/systemExtensions', systemExtensions.sexGet);
+
+/**
+ * VoIP Providers Trunks
+ */
+router.get('/callManager/vpt', voIPProvidersAndTrunks.vptGet);
+router.get('/callManager/vpt/setting/provider', voIPProvidersAndTrunks.addProviderGet);
 
 
 

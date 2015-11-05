@@ -2,7 +2,7 @@
 
     <div class="page-header">
         <ol class="breadcrumb">
-            <li><a href="javascript:void(0)" id="a-return">Extensions</a></li>
+            <li><a href="javascript:void(0)" data-return="ex">Extensions</a></li>
             <li class="active">Add Domain</li>
         </ol>
         <h1 class="page-title">
@@ -34,14 +34,14 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content padding-top-10">
-                                    <% include modal-general.html %>
-                                    <% include modal-voice-mail.html %>
-                                    <% include modal-forwarding-rules.html %>
+                                    <% include addExtensionGeneral.html %>
+                                    <% include addExtensionVoiceMail.html %>
+                                    <% include addExtensionForwardingRules.html %>
                                 </div>
                             </div>
                             <div class="example-wrap">
                                 <div class="col-lg-5 col-sm-offset-7">
-                                    <button type="button" class="btn btn-default btn-outline" id="but-cancel">
+                                    <button type="button" class="btn btn-default btn-outline" data-return="ex">
                                         Cancel
                                     </button>
                                     <button type="reset" class="btn btn-default btn-outline">

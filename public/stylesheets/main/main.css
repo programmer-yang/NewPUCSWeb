@@ -59,3 +59,17 @@
     overflow-y: scroll;
 }
 /* END */
+
+/* 选项页面H标签样式 非大写 */
+.my-example-title,
+h4.my-example-title {
+    font-size: 14px;
+}
+
+/* Extensions 页面选项内容input长度控制 */
+
+.my-input {
+    width: 220px;
+    display: initial;
+}
+

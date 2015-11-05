@@ -1,6 +1,6 @@
 function sexGet (req, res, next) {
 
-    res.render('solomon/main/systemExtensions/sex');
+    res.render('solomon/content/systemExtensions/sex');
 
 }
 

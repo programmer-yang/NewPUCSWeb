@@ -1,12 +1,12 @@
 function exGet (req, res, next) {
 
-    res.render('solomon/main/extensions/ex');
+    res.render('solomon/content/extensions/ex');
 
 }
 
 function addExtensionsGet (req, res, next) {
 
-    res.render('solomon/main/extensions/addExtension');
+    res.render('solomon/content/extensions/addExtension');
 
 }
 
