@@ -73,3 +73,72 @@ h4.my-example-title {
     display: initial;
 }
 
+/* 选项页面内容样式 */
+
+.my-page-header + .page-content {
+    padding-top: 0;
+}
+.page-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 26px;
+}
+.page-title > .icon {
+    margin-right: .3em;
+}
+.page-description {
+    color: #a3afb7;
+}
+.my-page-header {
+    position: relative;
+    padding: 10px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: transparent;
+    border-bottom: none;
+}
+.my-page-header-actions {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    margin: auto;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.my-page-header-actions .btn-icon {
+    margin-left: 6px;
+}
+.my-page-header-actions > * {
+    margin-bottom: 0;
+}
+.my-page-header .breadcrumb {
+    padding: 0;
+    margin: 0;
+}
+.my-page-header-bordered {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-bottom: 1px solid transparent;
+}
+.my-page-header-tabs {
+    padding-bottom: 0;
+}
+.my-page-header-tabs .nav-tabs-line {
+    margin-top: 5px;
+    border-bottom-color: transparent;
+}
+.my-page-header-tabs .nav-tabs-line > li > a {
+    padding: 5px 20px;
+}
+
+.my-form-group {
+    margin-bottom: 5px;
+}
+.my-col-sm-8 {
+    width: 66.66666667%;
+}
+

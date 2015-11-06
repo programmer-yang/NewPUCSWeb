@@ -1,31 +1,31 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
+    <div class="my-page-header">
         <ol class="breadcrumb">
             <li><a href="javascript:void(0)" data-return="dat">SIP Domain and Transport</a></li>
             <li class="active">Add Transport</li>
         </ol>
-        <h1 class="page-title">
-            Add Transport
-        </h1>
     </div>
     <div class="page-content">
-        <div class="panel">
-            <div class="panel-body container-fluid">
-                <div class="example-wrap">
-                    <div class="col-sm-2">
+        <div class="panel my-col-sm-8">
+            <div class="row row-lg">
 
-                    </div>
-                    <div class="col-sm-7">
+                <div class="col-sm-12 col-md-10">
+                    <!-- Example Horizontal Form -->
+                    <div class="example-wrap padding-left-20">
+                        <h4 class="example-title">Add Transport</h4>
+
+                        <p>
+                            Transport:
+                        </p>
+
                         <div class="example">
-                            <form class="form-horizontal" name="form-transports-add">
-                                <h6 class="example-title">Transport:</h6>
+                            <form class="form-horizontal">
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-3 control-label">Protocol </label>
 
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">Protocol: </label>
-
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <select class="bs-select-hidden"
                                                 name="modal-transport-select">
                                             <option value="1">UDP</option>
@@ -36,91 +36,90 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">Port: </label>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-3 control-label">Port </label>
 
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control my-input" name="email"
                                                placeholder="port" autocomplete="off">
                                     </div>
                                 </div>
+                                <p>
+                                    TLS/WSS Settings:
+                                </p>
 
-                                <h6 class="example-title">TLS/WSS Settings:</h6>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-3 control-label">Certificate file </label>
 
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">Certificate file: </label>
-
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <div class="input-group input-group-file">
                                             <input type="text" class="form-control" readonly="">
-                                    <span class="input-group-btn">
-                                      <span class="btn btn-outline btn-file">
-                                        <i class="icon wb-upload"
-                                           aria-hidden="true"></i>
-                                        <input type="file" multiple="">
-                                      </span>
-                                    </span>
+                                            <span class="input-group-btn">
+                                              <span class="btn btn-outline btn-file">
+                                                <i class="icon wb-upload"
+                                                   aria-hidden="true"></i>
+                                                <input type="file" multiple="">
+                                              </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">Private key file: </label>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-3 control-label">Private key file </label>
 
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <div class="input-group input-group-file">
                                             <input type="text" class="form-control" readonly="">
-                                    <span class="input-group-btn">
-                                      <span class="btn btn-outline btn-file">
-                                        <i class="icon wb-upload"
-                                           aria-hidden="true"></i>
-                                        <input type="file" multiple="">
-                                      </span>
-                                    </span>
+                                            <span class="input-group-btn">
+                                              <span class="btn btn-outline btn-file">
+                                                <i class="icon wb-upload"
+                                                   aria-hidden="true"></i>
+                                                <input type="file" multiple="">
+                                              </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">Root certificate
-                                        file: </label>
 
-                                    <div class="col-sm-8">
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-3 control-label">Root certificate file </label>
+
+                                    <div class="col-sm-9">
                                         <div class="input-group input-group-file">
                                             <input type="text" class="form-control" readonly="">
-                                    <span class="input-group-btn">
-                                      <span class="btn btn-outline btn-file">
-                                        <i class="icon wb-upload"
-                                           aria-hidden="true"></i>
-                                        <input type="file" multiple="">
-                                      </span>
-                                    </span>
+                                            <span class="input-group-btn">
+                                              <span class="btn btn-outline btn-file">
+                                                <i class="icon wb-upload"
+                                                   aria-hidden="true"></i>
+                                                <input type="file" multiple="">
+                                              </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
 
-                                    <label class="col-sm-4 control-label">Certificate Private Key
-                                        Password: </label>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-3 control-label">Certificate Private Key Password </label>
 
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control my-input" name="text"
                                                placeholder="Certificate Private Key Password" autocomplete="off">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">Client
-                                        Verification: </label>
 
-                                    <div class="col-sm-8">
-                                        <select class="bs-select-hidden"
-                                                name="modal-transport-select">
+                                <div class="form-group ">
+                                    <label class="col-sm-3 control-label">Client Verification </label>
+
+                                    <div class="col-sm-9">
+                                        <select class="bs-select-hidden" name="modal-transport-select">
                                             <option value="1">None</option>
                                             <option value="2">Optional</option>
                                             <option value="3">Mandatory</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-sm-9 col-sm-offset-9">
+                                <div class="form-group my-form-group">
+                                    <div class="col-sm-9 col-sm-offset-3">
                                         <button type="button" class="btn btn-default btn-outline" data-return="dat">
                                             Cancel
                                         </button>
@@ -135,13 +134,13 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-
-                    </div>
-
+                    <!-- End Example Horizontal Form -->
                 </div>
+
             </div>
         </div>
     </div>
+
+
 </div>
 <!-- End Page -->

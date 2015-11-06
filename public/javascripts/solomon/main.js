@@ -107,90 +107,77 @@ $.components.register("mMenu", {
             });
         },
         dat: function (_this) {
-            $.get('/callManager/setting', function (data) {
-                var bodyClass = 'site-menubar-unfold';
-                _this.changeContent(bodyClass, data, function (contentBox) {
 
+            _this.get('/callManager/setting', function(contentBox){
+                /**
+                 * Add Transports
+                 */
+                $('#testLogBut', contentBox).on('click', function (contentBox) {
 
-                    /**
-                     * Add Transports
-                     */
-                    $('#testLogBut', contentBox).on('click', function (contentBox) {
-                        $.get('/callManager/setting/transports', function (data) {
-                            _this.changeContent(undefined, data, function (contentBox) {
+                    _this.get('/callManager/setting/transports', function(contentBox){
 
-                                //初始化Bootstrap Select
-                                var selects = $('[name=modal-transport-select]', contentBox);
-                                selects.each(function (key) {
-                                    $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                                });
+                        //初始化Bootstrap Select
+                        var selects = $('[name=modal-transport-select]', contentBox);
+                        selects.each(function (key) {
+                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
+                        });
 
-                                //动态跳转group高度（提示文本换行情况）
-                                //var groups = $('.form-group', contentBox);
-                                //groups.each(function (key) {
-                                //    var group = $(groups[key]);
-                                //    var label = $('label', group);
-                                //    if (typeof label.html() != 'undefined') {
-                                //        if (label.html().replace(/(\s)|(\t)/g, '').length > 25 && label.html().indexOf(' ') > 0) {
-                                //            //console.log(label.html().replace(/(\s)|(\t)/g,''));
-                                //            $('.col-sm-8', group).css('padding-top', '7.5px');
-                                //        }
-                                //    }
-                                //});
-
-                                //初始化文件上传事件
-                                var inputFiles = $('.input-group.input-group-file', contentBox);
-                                inputFiles.each(function (key) {
-                                    var inputFileBox = $(inputFiles[key]);
-                                    var inpuText = $('[type=text]', inputFileBox);
-                                    var inputFile = $('[type=file]', inputFileBox);
-                                    inputFile.on('change', function () {
-                                        var url = $(this).val();
-                                        if (typeof url != 'undefined' && url.length > 0)
-                                            inpuText.val(url);
-                                    });
-
-                                });
-
-
+                        //初始化文件上传事件
+                        var inputFiles = $('.input-group.input-group-file', contentBox);
+                        inputFiles.each(function (key) {
+                            var inputFileBox = $(inputFiles[key]);
+                            var inpuText = $('[type=text]', inputFileBox);
+                            var inputFile = $('[type=file]', inputFileBox);
+                            inputFile.on('change', function () {
+                                var url = $(this).val();
+                                if (typeof url != 'undefined' && url.length > 0)
+                                    inpuText.val(url);
                             });
                         });
+
+                        //动态跳转group高度（提示文本换行情况）
+                        var groups = $('.form-group', contentBox);
+                        groups.each(function (key) {
+                            var group = $(groups[key]);
+                            var label = $('label', group);
+                            if (typeof label.html() != 'undefined') {
+                                //if (label.html().replace(/(\s)|(\t)/g, '').length > 25 && label.html().indexOf(' ') > 0) {
+                                //    //console.log(label.html().replace(/(\s)|(\t)/g,''));
+                                //    $('.col-sm-8', group).css('padding-top', '7.5px');
+                                //}
+
+                                if(label){
+                                    if(label.height()>22){
+                                        $('.col-sm-9', group).css('margin-top','10px');
+                                    }
+                                }
+                            }
+                        });
+
                     });
-
-
                 });
             });
+
         },
         ex: function (_this) {
-            $.get('/callManager/extensions', function (data) {
-                _this.changeContent(undefined, data, function (contentBox) {
 
-                    /*
-                    选项卡折叠事件暂不添加，待有需求时添加即可
-                      现在只有3个选项卡，手机屏幕现实没太大问题，如果将来要继续添加或者别的地方有使用到多个，可以参考这里的代码
-                     */
-                    //$.getScript('/javascripts/plugins/responsive-tabs.js', function () {
-                    //    //。。。
-                    //});
+            _this.get('/callManager/extensions',function(){
 
 
-                    //绑定add Extensions 事件
-                    $('#btn-add-extension').on('click', function(){
-                        $.get('/callManager/extensions/setting', function (data) {
-                            _this.changeContent(undefined, data, function (contentBox) {
-
-                                //初始化Bootstrap Select
-                                var selects = $('[name=modal-transport-select]', contentBox);
-                                selects.each(function (key) {
-                                    $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                                });
-
-                                //绑定返回事件
-                                $('#but-cancel,#a-return', contentBox).on('click', function () {
-                                    _this.menuDescribe['ex'](_this);
-                                });
-
-                            });
+                //绑定add Extensions 事件
+                $('#btn-add-extension').on('click', function(){
+                    _this.get('/callManager/extensions/setting', function(contentBox){
+                        /*
+                         选项卡折叠事件暂不添加，待有需求时添加即可
+                         现在只有3个选项卡，手机屏幕现实没太大问题，如果将来要继续添加或者别的地方有使用到多个，可以参考这里的代码
+                         */
+                        //$.getScript('/javascripts/plugins/responsive-tabs.js', function () {
+                        //    //。。。
+                        //});
+                        //初始化Bootstrap Select
+                        var selects = $('[name=modal-transport-select]', contentBox);
+                        selects.each(function (key) {
+                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
                         });
                     });
                 });
@@ -198,52 +185,19 @@ $.components.register("mMenu", {
         },
         sex: function (_this) {
 
-            $.get('/callManager/systemExtensions', function (data) {
-                _this.changeContent(undefined, data, function (contentBox) {
-                    //...
-                });
-            });
+            _this.get('/callManager/systemExtensions');
+
         },
         vpt: function (_this) {
-
-            $.get('/callManager/vpt', function(data){
-                _this.changeContent(undefined, data, function(contentBox){
-
-                    //绑定Add事件
-                    $('#add-provider', contentBox).on('click', function(){
-
-                    });
-
-
-                })
-            });
 
             _this.get('/callManager/vpt', function(contentBox){
                 //绑定Add事件
                 $('#add-provider', contentBox).on('click', function () {
                     _this.get('/callManager/vpt/setting/provider',function(contentBox){
-
                         //初始化Bootstrap Select
                         var selects = $('[data-select=my-select]', contentBox);
                         selects.each(function (key) {
                             $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                        });
-
-                        //绑定返回事件
-                        $('#but-cancel,#a-return', contentBox).on('click', function () {
-                            _this.menuDescribe['vpt'](_this);
-
-
-                            console.log(' ********************** ');
-                            console.log(' extensions 里的ejs模板名称需要修改 ok');
-                            console.log(' voip 选项卡页面内容还未开始修改 ok');
-                            console.log(' 绑定返回事件是否需要写成公共方法需要思考 ');
-
-
-
-
-
-
                         });
                     });
                 });
