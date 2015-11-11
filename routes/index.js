@@ -7,6 +7,7 @@ var doMainsAndTransports = require('./menu/domainsAndTransports');
 var extensions = require('./menu/extensions');
 var systemExtensions = require('./menu/systemExtensions');
 var voIPProvidersAndTrunks = require('./menu/voIPProvidersAndTrunks');
+var inboundRules = require('./menu/inboundRules');
 
 
 var api = require('./menu/api');
@@ -43,13 +44,13 @@ router.get('/callManager/information', callManager.cmiGet);
 /**
  * DomainsAndTransports
  */
-router.get('/callManager/setting', doMainsAndTransports.dtGet);
-router.get('/callManager/setting/transports', doMainsAndTransports.updateTransportGet);
+router.get('/callManager/domain', doMainsAndTransports.dtGet);
+router.get('/callManager/domain/transports', doMainsAndTransports.updateTransportGet);
 /**
  * Extensions
  */
 router.get('/callManager/extensions', extensions.exGet);
-router.get('/callManager/extensions/setting', extensions.addExtensionsGet);
+router.get('/callManager/extensions/extension', extensions.addExtensionsGet);
 /**
  * System Extensions
  */
@@ -58,8 +59,14 @@ router.get('/callManager/systemExtensions', systemExtensions.sexGet);
 /**
  * VoIP Providers Trunks
  */
-router.get('/callManager/vpt', voIPProvidersAndTrunks.vptGet);
-router.get('/callManager/vpt/setting/provider', voIPProvidersAndTrunks.addProviderGet);
+router.get('/callManager/voIp', voIPProvidersAndTrunks.vptGet);
+router.get('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderGet);
+
+/**
+ * Inbound Rules
+ */
+router.get('/callManager/inbound', inboundRules.irGet);
+router.get('/callManager/inbound/rule', inboundRules.addInboundRuleGet);
 
 
 

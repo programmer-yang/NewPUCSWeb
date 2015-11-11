@@ -50,6 +50,11 @@ $.components.register("mMenu", {
             _this.menuDescribe[$(this).attr('data-return')](_this);
         });
 
+        //初始化select
+        var selects = $('[data-role=select]', content);
+        selects.each(function(key){
+            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
+        });
     },
     get: function (url, callback, className) {
 
@@ -84,6 +89,9 @@ $.components.register("mMenu", {
             case 'vpt':
                 _this.menuDescribe['vpt'](_this);
                 break;
+            case 'ir':
+                _this.menuDescribe['ir'](_this);
+                break;
         }
 
 
@@ -108,19 +116,13 @@ $.components.register("mMenu", {
         },
         dat: function (_this) {
 
-            _this.get('/callManager/setting', function(contentBox){
+            _this.get('/callManager/domain', function(contentBox){
                 /**
                  * Add Transports
                  */
                 $('#testLogBut', contentBox).on('click', function (contentBox) {
 
-                    _this.get('/callManager/setting/transports', function(contentBox){
-
-                        //初始化Bootstrap Select
-                        var selects = $('[name=modal-transport-select]', contentBox);
-                        selects.each(function (key) {
-                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                        });
+                    _this.get('/callManager/domain/transports', function(contentBox){
 
                         //初始化文件上传事件
                         var inputFiles = $('.input-group.input-group-file', contentBox);
@@ -166,7 +168,7 @@ $.components.register("mMenu", {
 
                 //绑定add Extensions 事件
                 $('#btn-add-extension').on('click', function(){
-                    _this.get('/callManager/extensions/setting', function(contentBox){
+                    _this.get('/callManager/extensions/extension', function(contentBox){
                         /*
                          选项卡折叠事件暂不添加，待有需求时添加即可
                          现在只有3个选项卡，手机屏幕现实没太大问题，如果将来要继续添加或者别的地方有使用到多个，可以参考这里的代码
@@ -174,11 +176,7 @@ $.components.register("mMenu", {
                         //$.getScript('/javascripts/plugins/responsive-tabs.js', function () {
                         //    //。。。
                         //});
-                        //初始化Bootstrap Select
-                        var selects = $('[name=modal-transport-select]', contentBox);
-                        selects.each(function (key) {
-                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                        });
+
                     });
                 });
             });
@@ -190,20 +188,32 @@ $.components.register("mMenu", {
         },
         vpt: function (_this) {
 
-            _this.get('/callManager/vpt', function(contentBox){
+            _this.get('/callManager/voIp', function(contentBox){
                 //绑定Add事件
                 $('#add-provider', contentBox).on('click', function () {
-                    _this.get('/callManager/vpt/setting/provider',function(contentBox){
-                        //初始化Bootstrap Select
-                        var selects = $('[data-select=my-select]', contentBox);
-                        selects.each(function (key) {
-                            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-                        });
+                    _this.get('/callManager/voIp/provider',function(contentBox){
+
                     });
                 });
             });
 
+        },
+        ir: function (_this) {
+            _this.get('/callManager/inbound', function(contentBox){
+
+                //绑定add Inbound Rule 事件
+                $('#add-inbound-rule', contentBox).on('click', function () {
+                    _this.get('/callManager/inbound/rule', function(contentBox){
+
+                    });
+                });
+
+
+
+
+            });
         }
+
     }
 });
 

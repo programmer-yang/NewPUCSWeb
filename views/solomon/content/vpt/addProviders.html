@@ -6,23 +6,28 @@
             <li><a href="javascript:void(0)" data-return="vpt">SIP Domain and Transport</a></li>
             <li class="active">Add Transport</li>
         </ol>
-        <h1 class="page-title">
-            Add/Edit VoIP Provider/SIP Trunk Wizard.
-        </h1>
+
     </div>
     <div class="page-content">
-        <div class="panel">
-            <div class="panel-body container-fluid">
-                <div class="example-wrap">
-                    <div class="col-sm-2">
 
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Add/Edit VoIP Provider/SIP Trunk Wizard.
+                        </h3>
                     </div>
-                    <div class="col-sm-7">
-                        <div class="example">
-                            <form class="form-horizontal" name="form-transports-add">
-                                <h6 class="my-example-title"> Choose a VoIP Provider/SIP Trunk Wizard </h6>
 
-                                <div class="form-group">
+                    <div class="panel-body container-fluid">
+                        <div class="example padding-left-20">
+                            <form class="form-horizontal" name="form-transports-add">
+                                <h5>
+                                    Choose a VoIP Provider/SIP Trunk Wizard :
+                                </h5>
+
+                                <div class="form-group my-form-group">
                                     <label class="col-sm-4 control-label">Provider Name: </label>
 
                                     <div class="col-sm-8">
@@ -31,14 +36,13 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group my-form-group">
                                     <label class="col-sm-4 control-label">
                                         Country
                                     </label>
 
                                     <div class="col-sm-8">
-                                        <select class="bs-select-hidden"
-                                                name="modal-transport-select">
+                                        <select class="bs-select-hidden" data-role="select">
                                             <option value="1">None</option>
                                             <option value="2">Optional</option>
                                             <option value="3">Mandatory</option>
@@ -76,7 +80,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group my-form-group">
                                     <label class="col-sm-4 control-label">Client
                                         Verification: </label>
 
@@ -86,7 +90,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group my-form-group">
                                     <label class="col-sm-4 control-label">
                                         Website
                                     </label>
@@ -97,30 +101,34 @@
                                         </label>
                                     </div>
                                 </div>
-                                <p>More 3rd party tested providers can be found here:<a href="http://www.portsip.com/providers.html">http://www.portsip.com/providers.html</a></p>
-                                <div class="form-group margin-top-40">
-                                    <div class="col-sm-9 col-sm-offset-9">
-                                        <button type="button" class="btn btn-default btn-outline" data-return="vpt">
+                                <p>More 3rd party tested providers can be found here:<a
+                                        href="http://www.portsip.com/providers.html">http://www.portsip.com/providers.html</a>
+                                </p>
+
+                                <div class="form-group my-form-group margin-top-30">
+                                    <div class="col-sm-9 col-sm-offset-3">
+                                        <button type="button" class="btn btn-default btn-primary btn-outline"
+                                                data-return="vpt">
                                             Cancel
                                         </button>
-                                        <button type="reset" class="btn btn-default btn-outline">
+                                        <button type="reset" class="btn btn-default btn-outline btn-primary">
                                             Reset
                                         </button>
-                                        <button type="button" class="btn btn-default btn-outline">
+                                        <button type="button" class="btn btn-default btn-outline btn-primary">
                                             Submit
                                         </button>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-
-                    </div>
-
                 </div>
             </div>
+            <div class="col-sm-5">
+            </div>
         </div>
+
     </div>
 </div>
 <!-- End Page -->

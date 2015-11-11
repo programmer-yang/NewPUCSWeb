@@ -1,143 +1,131 @@
 <div class="tab-pane" id="exampleTabsFive" role="tabpanel">
     <!-- Offline BEGIN  -->
-    <div class="example-wrap">
 
-        <div class="example">
+    <h5 class="margin-top-10">Configure how calls should be re-directed when a user is offline(Not registered)</h5>
+    <p>
+        In office hours forward calls to :
+    </p>
 
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <h5>Configure how calls should be re-directed when a user is offline(Not registered)</h5>
-                </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">Send call to voice mail</label>
 
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-in-office" checked="">
+                <label></label>
             </div>
-
-            <hr>
-            <p>
-                In office hours forward calls to
-            </p>
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Send call to voice mail</label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-in-office" checked="">
-                        <label></label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label padding-top-15">
-                    Send call to other extension
-                </label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-in-office">
-                        <label></label>
-                        <select class="bs-select-hidden margin-left-20" name="modal-transport-select">
-                            <option value="1">666|66666</option>
-                            <option value="2">888|88989</option>
-                            <option value="3">564|5649987</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label padding-top-15">
-                    Send call to other extension
-                </label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-in-office">
-                        <label></label>
-                        <input type="text" class="form-control margin-left-20 my-input" autocomplete="off" >
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Disconnect the call</label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-in-office">
-                        <label></label>
-                    </div>
-                </div>
-            </div>
-            <hr>
-
-            <p> Outside office hours forward calls to </p>
-
-
-            <div class="form-group">
-                <label class="col-sm-4 control-label">
-                    Ring anyway
-                </label>
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-outside-office" checked="">
-                        <label></label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label">
-                    Send call to voice mail
-                </label>
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-outside-office">
-                        <label></label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label padding-top-15">
-                    Send call to other extension
-                </label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-outside-office">
-                        <label></label>
-                        <select class="bs-select-hidden margin-left-20" name="modal-transport-select">
-                            <option value="1">666|66666</option>
-                            <option value="2">888|88989</option>
-                            <option value="3">564|5649987</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label padding-top-15">
-                    Send call to other extension
-                </label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-outside-office">
-                        <label></label>
-                        <input type="text" class="form-control margin-left-20 my-input" autocomplete="off" >
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Disconnect the call</label>
-
-                <div class="col-sm-8">
-                    <div class="radio-custom radio-primary">
-                        <input type="radio" name="radio-outside-office">
-                        <label></label>
-                    </div>
-                </div>
-            </div>
-
-
-            <hr>
-
-
         </div>
     </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label padding-top-15">
+            Send call to other extension
+        </label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-in-office">
+                <label></label>
+                <select class="bs-select-hidden margin-left-20" data-role="select">
+                    <option value="1">666|66666</option>
+                    <option value="2">888|88989</option>
+                    <option value="3">564|5649987</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label padding-top-15">
+            Send call to other extension
+        </label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-in-office">
+                <label></label>
+                <input type="text" class="form-control margin-left-20 my-input" autocomplete="off">
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">Disconnect the call</label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-in-office">
+                <label></label>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <p> Outside office hours forward calls to  :</p>
+
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">
+            Ring anyway
+        </label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-outside-office" checked="">
+                <label></label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">
+            Send call to voice mail
+        </label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-outside-office">
+                <label></label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label padding-top-15">
+            Send call to other extension
+        </label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-outside-office">
+                <label></label>
+                <select class="bs-select-hidden margin-left-20" data-role="select">
+                    <option value="1">666|66666</option>
+                    <option value="2">888|88989</option>
+                    <option value="3">564|5649987</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label padding-top-15">
+            Send call to other extension
+        </label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-outside-office">
+                <label></label>
+                <input type="text" class="form-control margin-left-20 my-input" autocomplete="off">
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">Disconnect the call</label>
+
+        <div class="col-sm-8">
+            <div class="radio-custom radio-primary">
+                <input type="radio" name="radio-outside-office">
+                <label></label>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
     <!-- END  -->
 </div>
