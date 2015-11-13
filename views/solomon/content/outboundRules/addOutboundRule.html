@@ -1,0 +1,218 @@
+<!-- Page -->
+<div class="page animsition">
+
+    <div class="page-header">
+        <ol class="breadcrumb">
+            <li><a href="javascript:void(0)" data-return="dat">InboundRule</a></li>
+            <li class="active">addOutboundRule</li>
+        </ol>
+    </div>
+    <div class="page-content">
+
+        <div class="row">
+            <div class="col-sm-8 my-setting-box">
+                <div class="panel ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Create / Edit an outbound rule to configure on which VoIP provider,SIP Trunk the outbound
+                            calls should be place on.
+                        </h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <!-- Example Horizontal Form -->
+                        <div class="example padding-left-20">
+                            <form class="form-horizontal">
+                                <h5>
+                                    Outbound rule:
+                                </h5>
+
+                                <div class="form-group my-form-group">
+
+                                    <label class="col-sm-4 control-label">Outbound rule name</label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-7 padding-left-0">
+                                            <input type="text" class="form-control" placeholder="placeholder">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <p>
+                                    Apply this rule to these calls.
+                                </p>
+
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">Calls to numbers starting with prefix</label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-7 padding-left-0">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">Calls from extension(s)</label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-7 padding-left-0">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group ">
+                                    <label class="col-sm-4 control-label">Calls to number with length of</label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-7 padding-left-0">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <h5>
+                                    Make outbound calls on :
+                                </h5>
+                                <p>
+                                    Configure up to 3 routes fore calls,the second and third route will be used as backup.For each route,digits can be stripped
+                                    or added.
+                                </p>
+
+                                <div class="form-group margin-bottom-0">
+                                    <label class="col-sm-3 control-label"></label>
+
+                                    <div class="col-sm-7 padding-left-0">
+                                        <div class="col-sm-4 ">
+                                            <p class="text-center">
+                                                Provider/SIP Trunk
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <p class="text-center">
+                                                Strip Digits
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <p class="text-center">
+                                                Prepend
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group margin-bottom-5">
+                                    <label class="col-sm-3 control-label">Route 1</label>
+
+                                    <div class="col-sm-7 padding-left-0">
+                                        <div class="col-sm-4 ">
+                                            <select data-role="select">
+                                                <option>abc</option>
+                                                <option>def</option>
+                                                <option>def</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <select data-role="select">
+                                                <option>abc</option>
+                                                <option>def</option>
+                                                <option>def</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group margin-bottom-5">
+                                    <label class="col-sm-3 control-label">Route 2</label>
+
+                                    <div class="col-sm-7 padding-left-0">
+                                        <div class="col-sm-4 ">
+                                            <select data-role="select">
+                                                <option>abc</option>
+                                                <option>def</option>
+                                                <option>def</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <select data-role="select">
+                                                <option>abc</option>
+                                                <option>def</option>
+                                                <option>def</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group margin-bottom-5">
+                                    <label class="col-sm-3 control-label">Route 3</label>
+
+                                    <div class="col-sm-7 padding-left-0">
+                                        <div class="col-sm-4 ">
+                                            <select data-role="select">
+                                                <option>abc</option>
+                                                <option>def</option>
+                                                <option>def</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <select data-role="select">
+                                                <option>abc</option>
+                                                <option>def</option>
+                                                <option>def</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group my-form-group margin-top-30">
+                                    <div class="col-sm-8 col-sm-offset-4 padding-left-0">
+                                        <button type="button" class="btn btn-default btn-primary btn-outline"
+                                                data-return="or">
+                                            Cancel
+                                        </button>
+                                        <button type="reset" class="btn btn-default btn-outline btn-primary">
+                                            Reset
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-outline btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End Example Horizontal Form -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-5">
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<!-- End Page -->

@@ -8,6 +8,7 @@ var extensions = require('./menu/extensions');
 var systemExtensions = require('./menu/systemExtensions');
 var voIPProvidersAndTrunks = require('./menu/voIPProvidersAndTrunks');
 var inboundRules = require('./menu/inboundRules');
+var outboundRules = require('./menu/outboundRules');
 
 
 var api = require('./menu/api');
@@ -67,6 +68,12 @@ router.get('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderGet);
  */
 router.get('/callManager/inbound', inboundRules.irGet);
 router.get('/callManager/inbound/rule', inboundRules.addInboundRuleGet);
+
+/**
+ * Outbound Rules
+ */
+router.get('/callManager/outbound', outboundRules.orGet);
+router.get('/callManager/outbound/rule', outboundRules.addOutboundRuleGet);
 
 
 

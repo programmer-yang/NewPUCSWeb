@@ -154,5 +154,25 @@ h4.my-example-title {
     }
 
 }
+.my-setting-box{
+    width: 66.66666667%;
+}
+
+@media (max-width: 1366px){
+
+    .my-setting-box {
+        width: 91.66666667%;
+    }
+
+}
+@media (max-width: 768px){
+
+    .my-setting-box {
+        width: 100%;
+    }
+
+}
+
+
 
 

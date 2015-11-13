@@ -51,10 +51,7 @@ $.components.register("mMenu", {
         });
 
         //初始化select
-        var selects = $('[data-role=select]', content);
-        selects.each(function(key){
-            $(selects[key]).selectpicker({style: 'btn dropdown-toggle btn-select'});
-        });
+        $('[data-role=select]', content).selectpicker({style: 'btn dropdown-toggle btn-select'});
     },
     get: function (url, callback, className) {
 
@@ -91,6 +88,9 @@ $.components.register("mMenu", {
                 break;
             case 'ir':
                 _this.menuDescribe['ir'](_this);
+                break;
+            case 'or':
+                _this.menuDescribe['or'](_this);
                 break;
         }
 
@@ -205,9 +205,43 @@ $.components.register("mMenu", {
                 $('#add-inbound-rule', contentBox).on('click', function () {
                     _this.get('/callManager/inbound/rule', function(contentBox){
 
+
+                        /**
+                         * 修改布局后正常情况下不会出现自动换行了
+                         */
+                        //挑战group高度
+                        //var groups = $('.form-group', contentBox);
+                        //groups.each(function(key){
+                        //    var group = groups[key];
+                        //
+                        //    var label = $('label', group);
+                        //    if(label.height() > 0 ) {
+                        //        console.log(label.height());
+                        //        var top = (label.height()/22-1) * 10 ;
+                        //        $('.col-sm-8', group).css('margin-top',top+'px');
+                        //    }
+                        //});
+
                     });
                 });
 
+
+
+
+            });
+        },
+        or: function(_this) {
+            _this.get('/callManager/outbound', function(contentBox) {
+
+                $('#add-outbound-rule', contentBox).on('click', function(){
+
+
+                   _this.get('/callManager/outbound/rule', function(contentBox) {
+
+
+
+                   });
+                });
 
 
 
