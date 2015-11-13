@@ -92,6 +92,9 @@ $.components.register("mMenu", {
             case 'or':
                 _this.menuDescribe['or'](_this);
                 break;
+            case 'rg':
+                _this.menuDescribe['rg'](_this);
+                break;
         }
 
 
@@ -230,7 +233,7 @@ $.components.register("mMenu", {
 
             });
         },
-        or: function(_this) {
+        or: function (_this) {
             _this.get('/callManager/outbound', function(contentBox) {
 
                 $('#add-outbound-rule', contentBox).on('click', function(){
@@ -245,6 +248,17 @@ $.components.register("mMenu", {
 
 
 
+            });
+        },
+        rg: function (_this) {
+            _this.get('/callManager/ringGroups', function(contentBox){
+                $('#add-ring-group', contentBox).on('click', function(){
+
+                    _this.get('/callManager/ringGroups/ringGroup', function(contentBox) {
+                        //....
+                    });
+
+                });
             });
         }
 
