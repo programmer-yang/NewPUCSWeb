@@ -95,6 +95,12 @@ $.components.register("mMenu", {
             case 'rg':
                 _this.menuDescribe['rg'](_this);
                 break;
+            case 'cs':
+                _this.menuDescribe['cs'](_this);
+                break;
+            case 'ch':
+                _this.menuDescribe['ch'](_this);
+                break;
         }
 
 
@@ -259,6 +265,16 @@ $.components.register("mMenu", {
                     });
 
                 });
+            },'site-menubar-unfold');
+        },
+        cs: function (_this) {
+            _this.get('/callManager/callSessions', function(contentBox){
+                //...
+            });
+        },
+        ch: function (_this) {
+            _this.get('/callManager/callHistory', function(contentBox){
+                //....
             });
         }
 

@@ -10,6 +10,8 @@ var voIPProvidersAndTrunks = require('./menu/voIPProvidersAndTrunks');
 var inboundRules = require('./menu/inboundRules');
 var outboundRules = require('./menu/outboundRules');
 var ringGroups = require('./menu/ringGroups');
+var callSessions = require('./menu/callSessions');
+var callHistory = require('./menu/callHistory');
 
 
 var api = require('./menu/api');
@@ -81,6 +83,16 @@ router.get('/callManager/outbound/rule', outboundRules.addOutboundRuleGet);
  */
 router.get('/callManager/ringGroups', ringGroups.rgGet);
 router.get('/callManager/ringGroups/ringGroup', ringGroups.addRingGroupGet);
+
+/**
+ * Call Sessions
+ */
+router.get('/callManager/callSessions', callSessions.csGet);
+
+/**
+ * Call History
+ */
+router.get('/callManager/callHistory', callHistory.chGet);
 
 
 

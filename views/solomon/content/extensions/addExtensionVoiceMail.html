@@ -9,13 +9,14 @@
     </p>
 
     <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Extension
-            Number </label>
+        <label class="col-sm-4 control-label">Extension Number </label>
 
-        <div class="col-sm-6">
-            <div class="checkbox-custom checkbox-default">
-                <input type="checkbox">
-                <label></label>
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <div class="checkbox-custom checkbox-default">
+                    <input type="checkbox">
+                    <label></label>
+                </div>
             </div>
         </div>
         <div class="col-sm-2"></div>
@@ -25,10 +26,12 @@
             Disable Voicemail PIN Authertication
         </label>
 
-        <div class="col-sm-6 margin-top-10">
-            <div class="checkbox-custom checkbox-default">
-                <input type="checkbox">
-                <label></label>
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <div class="checkbox-custom checkbox-default">
+                    <input type="checkbox">
+                    <label></label>
+                </div>
             </div>
         </div>
         <div class="col-sm-2"></div>
@@ -38,10 +41,10 @@
             PIN Number
         </label>
 
-        <div class="col-sm-8">
-            <input type="text" class="form-control my-input"
-                   placeholder="PIN Number"
-                   autocomplete="off">
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="PIN Number" autocomplete="off">
+            </div>
         </div>
     </div>
     <div class="form-group my-form-group">
@@ -49,10 +52,12 @@
             Play Call ID
         </label>
 
-        <div class="col-sm-6">
-            <div class="checkbox-custom checkbox-default">
-                <input type="checkbox">
-                <label></label>
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <div class="checkbox-custom checkbox-default">
+                    <input type="checkbox">
+                    <label></label>
+                </div>
             </div>
         </div>
         <div class="col-sm-2"></div>
@@ -62,12 +67,14 @@
             Read Out Date/time of message
         </label>
 
-        <div class="col-sm-8">
-            <select class="bs-select-hidden" data-role="select">
-                <option value="1">Do not read</option>
-                <option value="2">Read in AM/PM format</option>
-                <option value="3">Read in 24-hour format</option>
-            </select>
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <select class="bs-select-hidden" data-role="select">
+                    <option value="1">Do not read</option>
+                    <option value="2">Read in AM/PM format</option>
+                    <option value="3">Read in 24-hour format</option>
+                </select>
+            </div>
         </div>
     </div>
     <div class="form-group my-form-group">
@@ -75,21 +82,15 @@
             Email Options
         </label>
 
-        <div class="col-sm-8">
-            <select class="bs-select-hidden" data-role="select">
-                <option value="1">No email
-                    notification
-                </option>
-                <option value="2">Send email
-                    notification
-                </option>
-                <option value="3">Send voice mail as
-                    attachment
-                </option>
-                <option value="4">Send as attachment
-                    and delete from voice mailbox
-                </option>
-            </select>
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <select class="bs-select-hidden" data-role="select">
+                    <option value="1">No email notification</option>
+                    <option value="2">Send email notification</option>
+                    <option value="3">Send voice mail as attachment</option>
+                    <option value="4">Send as attachment and delete from voice mailbox</option>
+                </select>
+            </div>
         </div>
     </div>
 
@@ -103,68 +104,73 @@
 
     <div class="form-group my-form-group">
 
-        <div class="col-sm-12 padding-bottom-10">
-            <button class="btn btn-outline btn-primary btn-sm">
-                <i class="icon wb-plus" aria-hidden="true"></i>
-                Add New
-            </button>
-        </div>
-        <div class="col-sm-12">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>greeting_1.wav</td>
-                    <td>
-                        <button type="button" class="btn btn-icon btn-pure btn-default">
-                            <i class="icon wb-play" aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-pure btn-primary"><i class="icon wb-lock"
-                                                                                           aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
-                                                                                           aria-hidden="true"></i>
-                        </button>
+        <div class="col-sm-8 col-md-offset-2">
+            <div class="col-sm-12 padding-bottom-10">
+                <button class="btn btn-outline btn-primary btn-sm">
+                    <i class="icon wb-plus" aria-hidden="true"></i>
+                    Add New
+                </button>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>greeting_1.wav</td>
+                        <td>
+                            <button type="button" class="btn btn-icon btn-pure btn-default">
+                                <i class="icon wb-play" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-pure btn-primary"><i class="icon wb-lock"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
+                                                                                               aria-hidden="true"></i>
+                            </button>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>greeting_1.wav</td>
-                    <td>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"
-                                                                                           aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"
-                                                                                           aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
-                                                                                           aria-hidden="true"></i>
-                        </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>greeting_1.wav</td>
+                        <td>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
+                                                                                               aria-hidden="true"></i>
+                            </button>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>greeting_1.wav</td>
-                    <td>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"
-                                                                                           aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"
-                                                                                           aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
-                                                                                           aria-hidden="true"></i>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>greeting_1.wav</td>
+                        <td>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
+
+
     </div>
 
     <div class="form-group my-form-group">
@@ -173,13 +179,14 @@
             Enable play greeting
         </label>
 
-        <div class="col-sm-6">
-            <div class="checkbox-custom checkbox-default">
-                <input type="checkbox">
-                <label></label>
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <div class="checkbox-custom checkbox-default">
+                    <input type="checkbox">
+                    <label></label>
+                </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
     </div>
 
     <hr/>
