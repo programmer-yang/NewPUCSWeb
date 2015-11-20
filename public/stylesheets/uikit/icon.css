@@ -20,10 +20,10 @@
   height: 14px;
 }
 .panel-body .row {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  /*-webkit-user-select: none;*/
+     /*-moz-user-select: none;*/
+      /*-ms-user-select: none;*/
+          /*user-select: none;*/
 }
 .icondemo-wrap {
   position: relative;

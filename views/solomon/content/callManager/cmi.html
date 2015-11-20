@@ -8,19 +8,142 @@
     </div>
     <div class="page-content container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <!-- Page Widget -->
-                <div class="widget widget-shadow text-center">
-                    <h2>abc</h2>
-                    <h2>abc</h2>
-                </div>
-                <!-- End Page Widget -->
-            </div>
+            <div class="col-sm-12 col-md-3">
 
-            <div class="col-md-6">
-                <!-- Panel -->
-                <h2>abc</h2>
-                <!-- End Panel -->
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group list-group-dividered list-group-full">
+                            <li class="list-group-item ">
+                                <small class="label label-round label-info pull-right">Completed</small>
+                                <p>Status :</p>
+                            </li>
+                            <li class="list-group-item ">
+                                <span class="pull-right">192.168.1.78</span>
+
+                                <p>Domain :</p>
+                            </li>
+                            <li class="list-group-item ">
+                                <span class="pull-right">192.168.1.78</span>
+
+                                <p>Transport :</p>
+                            </li>
+                            <li class="list-group-item ">
+                                <span class="pull-right">5060</span>
+
+                                <p>UDP :</p>
+                            </li>
+                            <li class="list-group-item ">
+                                <span class="pull-right"></span>
+
+                                <p>DNS Servers :</p>
+                            </li>
+                            <li class="list-group-item ">
+                                <span class="pull-right"></span>
+
+                                <p>primary DNS :</p>
+                            </li>
+                            <li class="list-group-item ">
+                                <span class="pull-right"></span>
+
+                                <p>secondary DNS :</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-sm-12 col-md-9">
+
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 class="panel-title">Chart</h3>
+                            </div>
+                            <div class="col-sm-3 col-md-offset-3 text-right">
+                                <div class="margin-10">
+                                    <select data-role="select">
+                                        <option value="0">No Refresh</option>
+                                        <option value="1">20 seconds</option>
+                                        <option value="2">60 seconds</option>
+                                        <option value="3">3 minutes</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <h4>Statistics</h4>
+
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="example-wrap margin-lg-0">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p>
+                                                Current calls :
+                                                <span class="counter-number red-600" id="current-calls-number">0</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="example" name="chart-line-box">
+                                        <canvas id="line-calls" style="height:150px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <div class="example-wrap margin-lg-0">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="counter text-left">
+                                                <p>
+                                                    Online extensions :
+                                                    <span class="counter-number red-600" id="current-extensions-number">0</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="example" name="chart-line-box">
+                                        <canvas id="line-extensions" style="height: 150px"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <h4>Resource Utilization</h4>
+
+                            <div class="example-wrap margin-lg-0">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>CPU : <span class="counter-number red-600" id="current-cpu-number">0</span></p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>Memory : <span class="counter-number red-600" id="current-memory-number">0</span></p>
+                                    </div>
+                                </div>
+
+                                <div class="example" name="chart-line-box">
+                                    <canvas id="line-resource" style="height: 220px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>

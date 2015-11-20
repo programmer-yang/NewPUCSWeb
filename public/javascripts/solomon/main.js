@@ -46,7 +46,7 @@ $.components.register("mMenu", {
 
         //统一绑定返回事件
         var _this = this;
-        $('[data-return]', content).on('click', function(){
+        $('[data-return]', content).on('click', function () {
             _this.menuDescribe[$(this).attr('data-return')](_this);
         });
 
@@ -118,20 +118,177 @@ $.components.register("mMenu", {
             });
         },
         cmi: function (_this) {
-            $.get('/callManager/information', function (data) {
-                _this.changeContent(undefined, data, function () {
+
+            _this.resources.cmi = _this.resources.cmi || {};
+
+            _this.resources.cmi.refreshTime = _this.resources.cmi.refreshTime || 5000;
+            _this.resources.cmi.timers = _this.resources.cmi.timers || [];
+            //_this.resources.cmi.charts = _this.resources.cmi.charts || [];
+
+            var charts = {};
+
+
+            function getTime() {
+                var date = new Date();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                return hours + ':' + minutes + ':' + seconds;
+            }
+
+            function updateChart(contentBox) {
+
+                if (charts.callTimer) {
+                    if (charts.callTimer['datasets'][0].points.length > 10) {
+                        charts.callTimer.removeData();
+                    }
+                    var number = Math.floor(Math.random() * 20);
+                    //var time = getTime();
+
+                    $('#current-calls-number', contentBox).html(number);
+                    charts.callTimer.addData([number], '');
+                }
+                if (charts.extensionsTimer) {
+                    if (charts.extensionsTimer['datasets'][0].points.length > 10) {
+                        charts.extensionsTimer.removeData();
+                    }
+                    var number = Math.floor(Math.random() * 20);
+                    //var time = getTime();
+                    $('#current-extensions-number', contentBox).html(number);
+                    charts.extensionsTimer.addData([number], '');
+                }
+                if (charts.resourceTimer) {
+                    if (charts.resourceTimer['datasets'][0].points.length > 10) {
+                        charts.resourceTimer.removeData();
+                    }
+                    var number1 = Math.floor(Math.random() * 100);
+                    var number2 = Math.floor(Math.random() * 100);
+                    //var time = getTime();
+                    $('#current-cpu-number', contentBox).html(number1+'%');
+                    $('#current-memory-number', contentBox).html(number2+'%');
+
+                    charts.resourceTimer.addData([number1, number2], '');
+                }
+
+
+            }
+
+            function startTimers(contentBox) {
+
+                if (_this.resources.cmi.timers.length > 0) {
+                    stopTimers();
+                }
+                //if (_this.resources.cmi.charts) {
+                //    _this.resources.cmi.charts.forEach(function (chart) {
+                //        _this.resources.cmi.timers.push(setInterval(function () {
+                //            updateCalls(chart, contentBox);
+                //        }, _this.resources.cmi.refreshTime));
+                //
+                //    });
+                //}
+                _this.resources.cmi.timers.push(setInterval(function () {
+                    updateChart(contentBox);
+                }, _this.resources.cmi.refreshTime));
+
+                //updateChart(contentBox);
+            }
+
+            function stopTimers() {
+                if (_this.resources.cmi.timers && _this.resources.cmi.timers.length > 0) {
+                    _this.resources.cmi.timers.forEach(function (timer) {
+                        clearInterval(timer);
+                        //timer = null;
+                    });
+                    _this.resources.cmi.timers.length = 0;
+                }
+            }
+
+
+            _this.get('/callManager/information', function (contentBox) {
+
+
+                var chartBoxs = $('[name=chart-line-box]', contentBox);
+                //$('#exampleChartjsLine', lineBox).css('width',lineBox.width());
+
+                chartBoxs.each(function (key) {
+                    var box = $(chartBoxs[key]);
+                    $('canvas', box).css('width', box.width());
+                    //$('canvas',box).css('height', box.width()/3);
                 });
-            });
+
+
+                //首页图标初始化
+                var lineChartData = {
+                    labels: [''],
+                    scaleShowGridLines: true,
+                    scaleShowVerticalLines: false,
+                    scaleGridLineColor: "#ebedf0",
+                    datasets: [{
+                        fillColor: "rgba(98, 168, 234, .1)",
+                        strokeColor: $.colors("primary", 600),
+                        pointColor: $.colors("primary", 600),
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: $.colors("primary", 600),
+                        data: [0]
+                    }]
+                };
+                var resourceLineChartData = {
+                    labels: [''],
+                    scaleShowGridLines: true,
+                    scaleShowVerticalLines: false,
+                    scaleGridLineColor: "#ebedf0",
+                    datasets: [
+                        {
+                            fillColor: "rgba(204, 213, 219, .1)",
+                            strokeColor: $.colors("blue-grey", 300),
+                            pointColor: $.colors("blue-grey", 300),
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: $.colors("blue-grey", 300),
+                            data: [0]
+                        }, {
+                            fillColor: "rgba(98, 168, 234, .1)",
+                            strokeColor: $.colors("primary", 600),
+                            pointColor: $.colors("primary", 600),
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: $.colors("primary", 600),
+                            data: [0]
+                        }]
+                };
+
+                var callTimer = new Chart($('#line-calls')[0].getContext("2d")).Line(lineChartData);
+                var extensionsTimer = new Chart($('#line-extensions')[0].getContext('2d')).Line(lineChartData);
+                var resourceTimer = new Chart($('#line-resource')[0].getContext('2d')).Line(resourceLineChartData);
+
+                //charts.push(callTimer);
+                //charts.push(extensionsTimer);
+                //charts.push(resourceTimer);
+                charts.callTimer = callTimer;
+                charts.extensionsTimer = extensionsTimer;
+                charts.resourceTimer = resourceTimer;
+
+
+                startTimers(contentBox);
+                //stopTimers();
+
+
+            }, 'site-menubar-unfold');
         },
         dat: function (_this) {
 
-            _this.get('/callManager/domain', function(contentBox){
+            _this.get('/callManager/domain', function (contentBox) {
                 /**
                  * Add Transports
                  */
                 $('#testLogBut', contentBox).on('click', function (contentBox) {
 
-                    _this.get('/callManager/domain/transports', function(contentBox){
+                    _this.get('/callManager/domain/transports', function (contentBox) {
 
                         //初始化文件上传事件
                         var inputFiles = $('.input-group.input-group-file', contentBox);
@@ -157,9 +314,9 @@ $.components.register("mMenu", {
                                 //    $('.col-sm-8', group).css('padding-top', '7.5px');
                                 //}
 
-                                if(label){
-                                    if(label.height()>22){
-                                        $('.col-sm-9', group).css('margin-top','10px');
+                                if (label) {
+                                    if (label.height() > 22) {
+                                        $('.col-sm-9', group).css('margin-top', '10px');
                                     }
                                 }
                             }
@@ -172,12 +329,12 @@ $.components.register("mMenu", {
         },
         ex: function (_this) {
 
-            _this.get('/callManager/extensions',function(){
+            _this.get('/callManager/extensions', function () {
 
 
                 //绑定add Extensions 事件
-                $('#btn-add-extension').on('click', function(){
-                    _this.get('/callManager/extensions/extension', function(contentBox){
+                $('#btn-add-extension').on('click', function () {
+                    _this.get('/callManager/extensions/extension', function (contentBox) {
                         /*
                          选项卡折叠事件暂不添加，待有需求时添加即可
                          现在只有3个选项卡，手机屏幕现实没太大问题，如果将来要继续添加或者别的地方有使用到多个，可以参考这里的代码
@@ -197,10 +354,10 @@ $.components.register("mMenu", {
         },
         vpt: function (_this) {
 
-            _this.get('/callManager/voIp', function(contentBox){
+            _this.get('/callManager/voIp', function (contentBox) {
                 //绑定Add事件
                 $('#add-provider', contentBox).on('click', function () {
-                    _this.get('/callManager/voIp/provider',function(contentBox){
+                    _this.get('/callManager/voIp/provider', function (contentBox) {
 
                     });
                 });
@@ -208,11 +365,11 @@ $.components.register("mMenu", {
 
         },
         ir: function (_this) {
-            _this.get('/callManager/inbound', function(contentBox){
+            _this.get('/callManager/inbound', function (contentBox) {
 
                 //绑定add Inbound Rule 事件
                 $('#add-inbound-rule', contentBox).on('click', function () {
-                    _this.get('/callManager/inbound/rule', function(contentBox){
+                    _this.get('/callManager/inbound/rule', function (contentBox) {
 
 
                         /**
@@ -235,50 +392,47 @@ $.components.register("mMenu", {
                 });
 
 
-
-
             });
         },
         or: function (_this) {
-            _this.get('/callManager/outbound', function(contentBox) {
+            _this.get('/callManager/outbound', function (contentBox) {
 
-                $('#add-outbound-rule', contentBox).on('click', function(){
-
-
-                   _this.get('/callManager/outbound/rule', function(contentBox) {
+                $('#add-outbound-rule', contentBox).on('click', function () {
 
 
+                    _this.get('/callManager/outbound/rule', function (contentBox) {
 
-                   });
+
+                    });
                 });
-
 
 
             });
         },
         rg: function (_this) {
-            _this.get('/callManager/ringGroups', function(contentBox){
-                $('#add-ring-group', contentBox).on('click', function(){
+            _this.get('/callManager/ringGroups', function (contentBox) {
+                $('#add-ring-group', contentBox).on('click', function () {
 
-                    _this.get('/callManager/ringGroups/ringGroup', function(contentBox) {
+                    _this.get('/callManager/ringGroups/ringGroup', function (contentBox) {
                         //....
                     });
 
                 });
-            },'site-menubar-unfold');
+            }, 'site-menubar-unfold');
         },
         cs: function (_this) {
-            _this.get('/callManager/callSessions', function(contentBox){
+            _this.get('/callManager/callSessions', function (contentBox) {
                 //...
             });
         },
         ch: function (_this) {
-            _this.get('/callManager/callHistory', function(contentBox){
+            _this.get('/callManager/callHistory', function (contentBox) {
                 //....
             });
         }
 
-    }
+    },
+    resources: {}
 });
 
 
