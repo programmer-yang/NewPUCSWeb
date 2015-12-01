@@ -8,8 +8,17 @@ $.components.register("mMenu", {
 
 
         var lis = $('li[data-role=menu]', menuBox);
-        lis.each(function (key) {
-            $(lis[key]).on('click', function () {
+        lis.each(function () {
+            $(this).on('click', function (event) {
+
+                //event.stopPropagation();
+                //
+                if($(this).hasClass('active')||$(this).hasClass('open')){
+                    return;
+                }
+
+                lis.removeClass('active');
+                $(this).addClass('active');
                 _this.holdMenu($(this), _this);
             });
         });
@@ -101,6 +110,18 @@ $.components.register("mMenu", {
             case 'ch':
                 _this.menuDescribe['ch'](_this);
                 break;
+            case 'ms':
+                _this.menuDescribe['ms'](_this);
+                break;
+            case 'cse':
+                _this.menuDescribe['cse'](_this);
+                break;
+            case 'dr':
+                _this.menuDescribe['dr'](_this);
+                break;
+            case 'st':
+                _this.menuDescribe['st'](_this);
+                break;
         }
 
 
@@ -168,8 +189,8 @@ $.components.register("mMenu", {
                     var number1 = Math.floor(Math.random() * 100);
                     var number2 = Math.floor(Math.random() * 100);
                     //var time = getTime();
-                    $('#current-cpu-number', contentBox).html(number1+'%');
-                    $('#current-memory-number', contentBox).html(number2+'%');
+                    $('#current-cpu-number', contentBox).html(number1 + '%');
+                    $('#current-memory-number', contentBox).html(number2 + '%');
 
                     charts.resourceTimer.addData([number1, number2], '');
                 }
@@ -182,19 +203,10 @@ $.components.register("mMenu", {
                 if (_this.resources.cmi.timers.length > 0) {
                     stopTimers();
                 }
-                //if (_this.resources.cmi.charts) {
-                //    _this.resources.cmi.charts.forEach(function (chart) {
-                //        _this.resources.cmi.timers.push(setInterval(function () {
-                //            updateCalls(chart, contentBox);
-                //        }, _this.resources.cmi.refreshTime));
-                //
-                //    });
-                //}
                 _this.resources.cmi.timers.push(setInterval(function () {
                     updateChart(contentBox);
                 }, _this.resources.cmi.refreshTime));
 
-                //updateChart(contentBox);
             }
 
             function stopTimers() {
@@ -266,9 +278,6 @@ $.components.register("mMenu", {
                 var extensionsTimer = new Chart($('#line-extensions')[0].getContext('2d')).Line(lineChartData);
                 var resourceTimer = new Chart($('#line-resource')[0].getContext('2d')).Line(resourceLineChartData);
 
-                //charts.push(callTimer);
-                //charts.push(extensionsTimer);
-                //charts.push(resourceTimer);
                 charts.callTimer = callTimer;
                 charts.extensionsTimer = extensionsTimer;
                 charts.resourceTimer = resourceTimer;
@@ -428,6 +437,56 @@ $.components.register("mMenu", {
         ch: function (_this) {
             _this.get('/callManager/callHistory', function (contentBox) {
                 //....
+            });
+        },
+        ms: function (_this) {
+            _this.get('/mediaServer', function (contentBox) {
+                $('#add-server', contentBox).on('click', function () {
+                    _this.get('/mediaServer/addServer', function (contentBox) {
+                        //....
+                    })
+                });
+            });
+        },
+        cse: function (_this) {
+            _this.get('/conferenceServer', function (contentBox) {
+
+
+                //初始化Switchery
+                var options = {
+                    color: $.colors("primary", 600),
+                    size: 'small',
+                    disabled: 'false'
+                };
+                $('[data-plugin="switchery"]').each(function () {
+                    new Switchery(this, options);
+                });
+
+
+
+
+                $('#add-server', contentBox).on('click', function(){
+                    _this.get('/conferenceServer/addServer',function (contentBox) {
+                        //...
+                    });
+                });
+            });
+
+        },
+        dr: function (_this) {
+            _this.get('/digitalReceptionist', function (contentBox) {
+                $('#add-digital-receptionist', contentBox).on('click', function () {
+                    _this.get('/digitalReceptionist/addDigitalReceptionist', function (contentBox) {
+                        //..
+                    });
+
+
+                });
+            });
+        },
+        st: function (_this) {
+            _this.get('/settings', function (contentBox) {
+                $('[data-role=timepicker]', contentBox).timepicker({ 'scrollDefault': 'now',timeFormat: 'H:i'});
             });
         }
 

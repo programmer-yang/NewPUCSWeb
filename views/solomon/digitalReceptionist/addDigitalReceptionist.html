@@ -1,0 +1,490 @@
+<!-- Page -->
+<div class="page animsition">
+
+    <div class="page-header">
+        <ol class="breadcrumb">
+            <li><a href="javascript:void(0)" data-return="dr">Media Server</a></li>
+            <li class="active">Add Digital Receptionist</li>
+        </ol>
+
+    </div>
+    <div class="page-content">
+
+        <div class="row">
+            <div class="col-sm-8 my-setting-box">
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            The Digital Receptionist answers and directs calls automaticlly.
+                        </h3>
+                    </div>
+
+                    <div class="panel-body container-fluid">
+                        <div class="example padding-left-20">
+                            <form class="form-horizontal" name="form-transports-add">
+                                <h5>
+                                    General
+                                </h5>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">
+                                        Extension Number
+                                    </label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" placeholder="Extension Number"
+                                                   autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">
+                                        Password
+                                    </label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" placeholder="Password"
+                                                   autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">
+                                        Name
+                                    </label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control"
+                                                   placeholder="Name" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">
+                                        Prompt
+                                    </label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-8">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                            <span class="input-group-btn">
+                                              <span class="btn btn-outline btn-file">
+                                                <i class="icon wb-upload"
+                                                   aria-hidden="true"></i>
+                                                <input type="file" multiple="">
+                                              </span>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5>Menu Options</h5>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <p class="text-center">
+                                                Key
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <p class="text-center">
+                                                Action
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <p class="text-center">
+                                                Extension Number
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                1
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% include modelExtension.html %>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                2
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                3
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                4
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                5
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                6
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                7
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                8
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0">&nbsp;</option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">
+                                                9
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <select class="bs-select-hidden" data-role="select">
+                                                <option value="0"> </option>
+                                                <option value="1">End Call</option>
+                                                <option value="2">Connect to Extesion</option>
+                                                <option value="3">Connect to Ring Group</option>
+                                                <option value="4">Connect to Queue</option>
+                                                <option value="5">Connect to Digital Receptionist</option>
+                                                <option value="6">Transefer to Voice Mail</option>
+                                                <option value="7">Repeat Prompt</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-1 control-label"></label>
+
+                                    <div class="col-sm-10 padding-left-0">
+                                        <div class="col-sm-2 ">
+                                            <label class="col-sm-12 control-label">Timeout(s)</label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="col-sm-5 padding-0">
+                                                <input type="text" class="form-control" autocomplete="off">
+                                            </div>
+
+                                            <div class="col-sm-7 padding-right-0">
+                                                <select class="bs-select-hidden" data-role="select">
+                                                    <option value="0">&nbsp;</option>
+                                                    <option value="1">End Call</option>
+                                                    <option value="2">Connect to Extesion</option>
+                                                    <option value="3">Connect to Ring Group</option>
+                                                    <option value="4">Connect to Queue</option>
+                                                    <option value="5">Connect to Digital Receptionist</option>
+                                                    <option value="6">Transefer to Voice Mail</option>
+                                                    <option value="7">Repeat Prompt</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn"
+                                                      data-target="#extension1" data-toggle="modal">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group my-form-group margin-top-30">
+                                    <div class="col-sm-8 col-sm-offset-4">
+                                        <button type="button" class="btn btn-default btn-primary btn-outline"
+                                                data-return="dr">
+                                            Cancel
+                                        </button>
+                                        <button type="reset" class="btn btn-default btn-outline btn-primary">
+                                            Reset
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-outline btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Page -->

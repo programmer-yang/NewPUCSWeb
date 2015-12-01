@@ -3,41 +3,19 @@
 
     <div class="page-header">
         <h1 class="page-title">
-            Extensions
+            Media Server
         </h1>
     </div>
-    <div class="page-content">
+    <div class="page-content container-fluid">
         <!-- Panel -->
         <div class="panel">
             <div class="panel-body">
                 <!-- Example Responsive -->
                 <div class="example-wrap">
-
-
-                    <div class="btn-group hidden-xs" aria-label="Button group with nested dropdown" role="group">
-
-                        <button type="button" class="btn btn-outline btn-default" id="btn-add-extension">
-                            Add Extension
+                    <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
+                        <button type="button" class="btn btn-outline btn-default" id="add-server">
+                            Add Server
                         </button>
-                        <button type="button" class="btn btn-outline btn-default">Import Extension</button>
-                        <button type="button" class="btn btn-outline btn-default">Export Extension</button>
-                    </div>
-                    <div class="btn-group hidden-sm hidden-lg hidden-md" role="group">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-outline btn-default dropdown-toggle"
-                                     data-toggle="dropdown" aria-expanded="false">
-                                Menu
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="exampleGroupDrop2" role="menu">
-                                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Add Extension</a>
-                                </li>
-                                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Import
-                                    Extension</a></li>
-                                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Import
-                                    Extension</a></li>
-                            </ul>
-                        </div>
                     </div>
                     <!--
                     <h4 class="example-title">Basic</h4>
@@ -48,10 +26,10 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Extension Number</th>
                                 <th>Name</th>
-                                <th>Delete Email</th>
-                                <th>User Agent</th>
+                                <th>IP</th>
+                                <th>Port</th>
+                                <th>Session</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -59,10 +37,12 @@
                             <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>9554</td>
                                 <td>zhangsanfeng</td>
-                                <td>zhangsanfeng@gmail.com</td>
-                                <td>zhangsanfeng</td>
+                                <td>192.162.55.28</td>
+                                <td>6652</td>
+                                <td>
+                                    5562
+                                </td>
                                 <td>
                                     <span class="label label-danger">Online</span>
                                 </td>
@@ -79,12 +59,14 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>9555</td>
-                                <td>zhangsanfeng</td>
-                                <td>zhangsanfeng@gmail.com</td>
-                                <td>zhangsanfeng</td>
+                                <td>zhangsanfeng2</td>
+                                <td>192.112.122.81</td>
+                                <td>2591</td>
                                 <td>
-                                    <span class="label label-info">Offline</span>
+                                    5139
+                                </td>
+                                <td>
+                                    <span class="label label-danger">Online</span>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
@@ -99,10 +81,12 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>9558</td>
-                                <td>zhangsanfeng</td>
-                                <td>zhangsanfeng@gmail.com</td>
-                                <td>zhangsanfeng</td>
+                                <td>zhangsanfeng3</td>
+                                <td>12.212.95.81</td>
+                                <td>1395</td>
+                                <td>
+                                    5682
+                                </td>
                                 <td>
                                     <span class="label label-danger">Online</span>
                                 </td>
@@ -119,12 +103,14 @@
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>9559</td>
-                                <td>zhangsanfeng</td>
-                                <td>zhangsanfeng@gmail.com</td>
-                                <td>zhangsanfeng</td>
+                                <td>zhangsanfeng4</td>
+                                <td>172.25.21.99</td>
+                                <td>7236</td>
                                 <td>
-                                    <span class="label label-info">Offline</span>
+                                    5932
+                                </td>
+                                <td>
+                                    <span class="label label-danger">Online</span>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
@@ -143,19 +129,7 @@
                             <tr>
                                 <td colspan="7" class="footable-visible">
                                     <div class="text-right">
-                                        <ul class="pagination">
-                                            <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a>
-                                            </li>
-                                            <li class="footable-page-arrow disabled"><a data-page="prev"
-                                                                                        href="#prev">‹</a></li>
-                                            <li class="footable-page active"><a data-page="0" href="#">1</a></li>
-                                            <li class="footable-page"><a data-page="1" href="#">2</a></li>
-                                            <li class="footable-page"><a data-page="2" href="#">3</a></li>
-                                            <li class="footable-page"><a data-page="3" href="#">4</a></li>
-                                            <li class="footable-page"><a data-page="4" href="#">5</a></li>
-                                            <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
-                                            <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
-                                        </ul>
+                                        <ul class="pagination"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page"><a data-page="1" href="#">2</a></li><li class="footable-page"><a data-page="2" href="#">3</a></li><li class="footable-page"><a data-page="3" href="#">4</a></li><li class="footable-page"><a data-page="4" href="#">5</a></li><li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li></ul>
                                     </div>
                                 </td>
                             </tr>
@@ -163,8 +137,6 @@
                         </table>
 
                     </div>
-                    <!-- End Table -->
-
 
                 </div>
                 <!-- End Example Responsive -->

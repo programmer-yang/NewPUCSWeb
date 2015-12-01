@@ -41,7 +41,7 @@
     position: relative;
     min-height: -webkit-calc(100% - 44px);
     min-height:         calc(100% - 44px);
-    background: #f1f4f5;
+    background: rgb(229,229,229);
 }
 
 /* 为实现左侧菜单底部不预留空间 */

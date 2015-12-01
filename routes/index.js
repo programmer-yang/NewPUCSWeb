@@ -13,6 +13,12 @@ var ringGroups = require('./menu/ringGroups');
 var callSessions = require('./menu/callSessions');
 var callHistory = require('./menu/callHistory');
 
+var mediaServer = require('./menu/mediaServer');
+var conferenceServer = require('./menu/conferenceServer');
+var digitalReceptionist = require('./menu/digitalReceptionist');
+var settings = require('./menu/settings');
+
+
 
 var api = require('./menu/api');
 var error = require('./error/error');
@@ -95,7 +101,29 @@ router.get('/callManager/callSessions', callSessions.csGet);
 router.get('/callManager/callHistory', callHistory.chGet);
 
 
+/**
+ * Media Server
+ */
+router.get('/mediaServer', mediaServer.msGet);
+router.get('/mediaServer/addServer', mediaServer.addServer);
 
+/**
+ * Conference Server
+ *
+ */
+router.get('/conferenceServer', conferenceServer.csGet);
+router.get('/conferenceServer/addServer', conferenceServer.addServer);
+
+/**
+ * Digital Receptionist
+ */
+router.get('/digitalReceptionist', digitalReceptionist.drGet);
+router.get('/digitalReceptionist/addDigitalReceptionist', digitalReceptionist.addDigitalReceptionist);
+
+/**
+ * Settings
+ */
+router.get('/settings', settings.settingGet);
 
 /**
  * APi Get 请求
