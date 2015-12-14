@@ -52,7 +52,6 @@
                                             <input type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="form-group my-form-group">
@@ -63,9 +62,8 @@
                                             <input type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="form-group ">
+                                <div class="form-group my-form-group">
                                     <label class="col-sm-4 control-label">Calls to number with length of</label>
 
                                     <div class="col-sm-8 padding-left-0">
@@ -73,8 +71,24 @@
                                             <input type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
-
                                 </div>
+                                <div class="form-group my-form-group">
+                                    <label class="col-sm-4 control-label">Calls from extension group(s)</label>
+
+                                    <div class="col-sm-8 padding-left-0">
+                                        <div class="col-sm-7 padding-left-0">
+                                            <div class="input-group input-group-file">
+                                                <input type="text" class="form-control" readonly="">
+                                                <span class="input-group-btn" data-target="#extensionGroups" data-toggle="modal">
+                                                    <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% include modelExtensionGroups.html %>
 
 
                                 <h5>

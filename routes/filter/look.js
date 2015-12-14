@@ -56,7 +56,7 @@ function look(req, res, next) {
 
         if (b) {
             if(url === '/') {
-                res.redirect('/main');
+                res.redirect('/index');
             }else{
                 next();
             }

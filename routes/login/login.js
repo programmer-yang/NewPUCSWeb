@@ -78,7 +78,7 @@ function loginPost(req, res, next) {
 /**
  * 显示首页
  */
-function mainGet(req, res, next) {
+function indexGet(req, res, next) {
 
 
     var lg = req.cookies.lg || 'us';
@@ -110,4 +110,4 @@ function test(username, password) {
 exports.loginGet = loginGet;
 exports.loginPost = loginPost;
 
-exports.mainGet = mainGet;
+exports.indexGet = indexGet;

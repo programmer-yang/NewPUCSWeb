@@ -1,459 +1,94 @@
+<!-- Page -->
 <div class="page animsition">
+
+    <div class="page-header">
+        <h1 class="page-title">
+            Unified Communications System Information
+        </h1>
+    </div>
     <div class="page-content container-fluid">
+
         <div class="row">
-            <div class="col-md-3">
-                <!-- Page Widget -->
-                <div class="widget widget-shadow text-center">
-                    <div class="widget-header">
-                        <div class="widget-header-content">
-                            <a class="avatar avatar-lg" href="javascript:void(0)">
-                                <img src="./images/solomon/001.png" alt="...">
-                            </a>
-                            <h4 class="profile-user">Admin</h4>
+            <div class="col-md-12 padding-0">
+                <div class="col-md-4">
+                    <div class="widget widget-shadow" style="height:150px">
+                        <div class="widget-content padding-10">
+                            <h3 class="margin-0">Information</h3>
 
-                            <p class="profile-job">Root</p>
+                            <h5 class="padding-left-20">Version : <span>2.0.0</span></h5>
+                            <h5 class="padding-left-20">License : <span>200 SC Edition</span></h5>
 
-                            <p>Hello World !</p>
-
-                            <div class="profile-social">
-                                <a class="icon bd-twitter" href="javascript:void(0)"></a>
-                                <a class="icon bd-facebook" href="javascript:void(0)"></a>
-                                <a class="icon bd-dribbble" href="javascript:void(0)"></a>
-                                <a class="icon bd-github" href="javascript:void(0)"></a>
-                            </div>
-                            <button type="button" class="btn btn-primary">Follow</button>
                         </div>
-                    </div>
-                    <div class="widget-footer">
-                        <div class="row no-space">
-                            <div class="col-xs-4">
-                                <strong class="profile-stat-count">260</strong>
-                                <span>Follower</span>
-                            </div>
-                            <div class="col-xs-4">
-                                <strong class="profile-stat-count">180</strong>
-                                <span>Following</span>
-                            </div>
-                            <div class="col-xs-4">
-                                <strong class="profile-stat-count">2000</strong>
-                                <span>Tweets</span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <!-- End Page Widget -->
+                <div class="col-md-8">
+                    <div class="widget widget-shadow" style="height:150px">
+                        <div class="widget-content padding-10">
+                            <h3 class="margin-0">News</h3>
+
+                            <h5 class="padding-left-20"><a href="#">Feb 20, 2016: PortSIP released the PortSIP PBX v2.0.</a></h5>
+                            <h5 class="padding-left-20"><a href="#">Feb 22, 2016: PortSIP released the PortSIP WebRTC Gateway.</a></h5>
+                            <h5 class="padding-left-20"><a href="#">Feb 22, 2016: PortSIP released the PortSIP VoIP SDK v12.</a></h5>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-9">
-                <!-- Panel -->
-                <div class="panel">
-                    <div class="panel-body nav-tabs-animate">
-                        <ul class="nav nav-tabs nav-tabs-line" data-plugin="nav-tabs" role="tablist">
-                            <li class="active" role="presentation"><a data-toggle="tab" href="#activities"
-                                                                      aria-controls="activities"
-                                                                      role="tab">News <span
-                                    class="badge badge-danger">5</span></a></li>
-                            <li role="presentation"><a data-toggle="tab" href="#profile" aria-controls="profile"
-                                                       role="tab">Version</a></li>
-                            <li role="presentation"><a data-toggle="tab" href="#messages" aria-controls="messages"
-                                                       role="tab">Messages</a></li>
-                        </ul>
+            <div class="col-md-12">
+                <div class="col-md-6 padding-0">
 
-                        <div class="tab-content">
-                            <div class="tab-pane active animation-slide-left" id="activities" role="tabpanel">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/004.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="profile-brief">Roamer Labs Limited chose PortSIP's PERS
-                                                    solution for VoIP Anti-blocking</h4>
+                    <div class="widget widget-shadow">
+                        <div class="widget-content padding-10">
+                            <h3 class="margin-0">Current calls :
+                                <span class="counter-number red-600" id="current-calls-number">0</span>
+                            </h3>
 
-                                                <div class="profile-brief">
-                                                    <h5 class="media-heading">Admin
-                                                        <span>posted an updated</span>
-                                                    </h5>
-                                                    <small>active 14 minutes ago</small>
-                                                </div>
-                                                <div class="profile-brief">June 10, 2014 - Roamer Labs Limited a leading
-                                                    calling service provider who let's you drastically reduce roaming
-                                                    charges (up to 99%) by linking your regular phone number to a
-                                                    foreign SIM card. This allows you to use your regular numbe r for
-                                                    both incoming and outgoing calls when travelling abroad.
+                            <canvas id="line-calls" class="padding-10" style="height: 200px;width: 100%;"></canvas>
 
-                                                    Today, Roamer has chosen PortSIP's "PERS" solution to help run the
-                                                    service for UAE users, the "PERS" is a newest soltuion for VoIP
-                                                    anti-blocking, it developed by PortSIP and currently have 12
-                                                    companies running their service base on it.
-                                                </div>
-                                                <div class="profile-brief">
-                                                    <a class="icon bd-qq" href="javascript:void(0)"></a>
-                                                    <a class="icon bd-webchat" href="javascript:void(0)"></a>
-                                                    <a class="icon bd-weibo" href="http://www.portsip.com/news.html"
-                                                       target="view_window"></a>
-                                                    <a class="icon bd-dribbble" href="javascript:void(0)"></a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/002.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="profile-brief">PortSIP Releases New VoIP SDK for Mobile,
-                                                    Windows, Mac and Linux Platforms</h4>
-
-                                                <div class="profile-brief">
-                                                    <h5 class="media-heading">Admin
-                                                        <span>posted an updated</span>
-                                                    </h5>
-                                                    <small>active 14 minutes ago</small>
-                                                </div>
-                                                <div class="profile-brief">May 8, 2014 - PortSIP Solutions, Inc. a
-                                                    leading provider of video network applicaions and developer tools
-                                                    for unified visual communications over IP, 3G and emerging
-                                                    next-generation IMS networks, announced today that its released the
-                                                    all new v11.0 VoIP SDK. A wide range of new PortSIP developer
-                                                    products and solutions, from protocol stack level to comprehensive
-                                                    voice and video client frameworks, now enable visual communications
-                                                    to be embedded into all platforms such as Mobile Phones, Mobile
-                                                    Internet Devices (MID), Netbooks, Tablet PCs, Digital Picture Frames
-                                                    (DPF) and Personal Media Players (PMP).
-
-                                                    "As a pioneer in the VoIP market, PortSIP has always been dedicated
-                                                    to providing our customers with the latest technology in support of
-                                                    leading operating systems." "Today’s announcement is the latest
-                                                    example of this commitment. Our SDK solutions will enable Mobile
-                                                    Phone Vendors, Consumer Electronics Manufacturers and OEMs to
-                                                    develop the most innovative products with a short time to market and
-                                                    at lower cost."
-
-                                                    The award-winning PortSIP VoIP SDK is a powerful and highly
-                                                    versatile set of tools that dramatically accelerate SIP application
-                                                    development. It includes a suite of stacks, SDKs, add-ons and
-                                                    testing tools, allowing developers to combine components to create
-                                                    the ideal development environment for any application, provides the
-                                                    3G/LTE integration required for different operating systems and
-                                                    platforms, such as Android, iOS, Windows Windows Phone, Windows, Mac
-                                                    and Linux. It includes everything needed to incorporate visual
-                                                    communication into a device, including Signaling Protocols, Call
-                                                    Control, Application Framework and Codecs. More information can be
-                                                    found at www.portsip.com/features.html
-                                                </div>
-                                                <div class="profile-brief">
-                                                    <a class="icon bd-qq" href="javascript:void(0)"></a>
-                                                    <a class="icon bd-webchat" href="javascript:void(0)"></a>
-                                                    <a class="icon bd-weibo" href="http://www.portsip.com/news.html"
-                                                       target="view_window"></a>
-                                                    <a class="icon bd-dribbble" href="javascript:void(0)"></a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="profile-brief">PortSIP Releases new solution for VoIP
-                                                    Anti-blokcing</h4>
-
-                                                <div class="profile-brief">
-                                                    <h5 class="media-heading">Admin
-                                                        <span>posted an updated</span>
-                                                    </h5>
-                                                    <small>active 14 minutes ago</small>
-                                                </div>
-                                                <div class="profile-brief">April 22, 2014 - PortSIP today announced new
-                                                    and enhanced VoIP anti blocking solutions "PERS" to help businesses
-                                                    eliminate the fragmented, high-effort service that jeopardizes
-                                                    customer loyalty and revenue growth.
-
-                                                    PERS is a carrier-grade server which enables VoIP Anti-blocking,
-                                                    guaranteed firewall and NAT traversal for dekstop and mobile
-                                                    applications, SIP IP Phone over any network, through any firewall or
-                                                    NAT, and to any device, allow provider running the VoIP Service in
-                                                    VoIP blocking area, such as Middle east. It’s the world's most
-                                                    widely deployed VoIP Anti-blocking, NAT and firewall traversal
-                                                    solution, having been deployed to more than 15 million subscribers
-                                                    by licensees including HP, Siemens, callcentric, Nokia Siemens
-                                                    Networks, NEC, Philips, netTALK, Alibaba and more.
-                                                </div>
-                                                <div class="profile-brief">
-                                                    <a class="icon bd-qq" href="javascript:void(0)"></a>
-                                                    <a class="icon bd-webchat" href="javascript:void(0)"></a>
-                                                    <a class="icon bd-weibo" href="http://www.portsip.com/news.html"
-                                                       target="view_window"></a>
-                                                    <a class="icon bd-dribbble" href="javascript:void(0)"></a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                                <a class="btn btn-block btn-default profile-readMore" href="javascript:void(0)"
-                                   role="button">Show more</a>
-                            </div>
-
-                            <div class="tab-pane animation-slide-left" id="profile" role="tabpanel">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="media media-lg">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/002.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Terrance Arnold
-                                                    <span>posted a new blog</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">
-                                                    <div class="media">
-                                                        <a class="media-left">
-                                                            <img class="media-object"
-                                                                 src="./images/solomon/002.png" alt="...">
-                                                        </a>
-
-                                                        <div class="media-body padding-left-20">
-                                                            <h4 class="media-heading">Getting Started</h4>
-
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                                elit. Integer nec odio. Praesent libero. Sed
-                                                                cursus ante dapibus diam. Sed nisi. Nulla quis
-                                                                sem at nibh elementum imperdiet. Duis sagittis
-                                                                ipsum. Praesent mauris.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Ida Fleming
-                                                    <span>posted an updated</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">“Check if it can be corrected with overflow :
-                                                    hidden”
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Owen Hunt
-                                                    <span>posted a new note</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit.
-                                                    Integer nec odio. Praesent libero. Sed cursus ante
-                                                    dapibus diam. Sed nisi. Nulla quis sem at nibh elementum
-                                                    imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce
-                                                    nec tellus sed augue semper porta. Mauris massa.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Ida Fleming
-                                                    <span>posted an new activity comment</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">Cras sit amet nibh libero, in gravida nulla.
-                                                    Nulla vel
-                                                    metus.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Julius
-                                                    <span>uploaded 4 photos</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">
-                                                    <img class="profile-uploaded"
-                                                         src="./images/solomon/003.png" alt="...">
-                                                    <img class="profile-uploaded"
-                                                         src="./images/solomon/003.png" alt="...">
-                                                    <img class="profile-uploaded"
-                                                         src="./images/solomon/003.png" alt="...">
-                                                    <img class="profile-uploaded"
-                                                         src="./images/solomon/003.png" alt="...">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="tab-pane animation-slide-left" id="messages" role="tabpanel">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Ida Fleming
-                                                    <span>posted an updated</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">“Check if it can be corrected with overflow :
-                                                    hidden”
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media media-lg">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Terrance Arnold
-                                                    <span>posted a new blog</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">
-                                                    <div class="media">
-                                                        <a class="media-left">
-                                                            <img class="media-object"
-                                                                 src="./images/solomon/003.png" alt="...">
-                                                        </a>
-
-                                                        <div class="media-body padding-left-20">
-                                                            <h4 class="media-heading">Getting Started</h4>
-
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                                elit. Integer nec odio. Praesent libero. Sed
-                                                                cursus ante dapibus diam. Sed nisi. Nulla quis
-                                                                sem at nibh elementum imperdiet. Duis sagittis
-                                                                ipsum. Praesent mauris.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Owen Hunt
-                                                    <span>posted a new note</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit.
-                                                    Integer nec odio. Praesent libero. Sed cursus ante
-                                                    dapibus diam. Sed nisi. Nulla quis sem at nibh elementum
-                                                    imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce
-                                                    nec tellus sed augue semper porta. Mauris massa.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a class="avatar" href="javascript:void(0)">
-                                                    <img class="img-responsive" src="./images/solomon/003.png"
-                                                         alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Julius
-                                                    <span>posted an updated</span>
-                                                </h4>
-                                                <small>active 14 minutes ago</small>
-                                                <div class="profile-brief">Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit.
-                                                    Integer nec odio. Praesent libero. Sed cursus ante
-                                                    dapibus diam.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
+
                     </div>
                 </div>
-                <!-- End Panel -->
+                <div class="col-md-6">
+
+                    <div class="widget widget-shadow">
+                        <div class="widget-content padding-10">
+                            <h3 class="margin-0">Online extensions :
+                                <span class="counter-number red-600" id="current-extensions-number">0</span>
+                            </h3>
+
+                            <canvas id="line-extensions" class="padding-10" style="height: 200px;width: 100%;"></canvas>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="widget widget-shadow">
+                    <div class="widget-content padding-10">
+                        <h3 class="margin-0">Resource Utilization</h3>
+                        <div class="col-xs-6">
+                            <p>CPU : <span class="counter-number red-600" id="current-cpu-number">0</span></p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p>Memory : <span class="counter-number red-600" id="current-memory-number">0</span></p>
+                        </div>
+
+                        <canvas id="line-resource" class="padding-10" style="height: 400px;width: 100%;"></canvas>
+                    </div>
+                </div>
+
+
             </div>
         </div>
+
+        <!-- Panel -->
+        <!-- End Panel -->
     </div>
 </div>
+<!-- End Page -->

@@ -173,6 +173,12 @@
     pageIn: function(){
       var _this = this;
       var $this = $(this);
+
+      if($this.data(namespace) == undefined){
+        //$this.animsition('init');
+        return;
+
+      }
       var options = $this.data(namespace).options;
       var thisInDuration = $this.data('animsition-in-duration');
       var thisInClass = $this.data('animsition-in');

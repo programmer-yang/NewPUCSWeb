@@ -6,8 +6,6 @@ function rgGet (req, res, next) {
 }
 function addRingGroupGet (req, res, next) {
 
-    console.log('abc');
-
     res.render('solomon/content/ringGroups/addRingGroup');
 
 }

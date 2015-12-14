@@ -1,20 +1,34 @@
 <div class="tab-pane" id="exampleTabsThree" role="tabpanel">
     <!-- General BEGIN  -->
     <div class="example">
-        <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
+        <ul class="nav nav-tabs nav-tabs-line" data-plugin="nav-tabs" role="tablist">
             <li class="active" role="presentation">
-                <a data-toggle="tab" href="#exampleTabsFour"
-                   aria-controls="exampleTabsOne" role="tab">Available</a>
+                <a data-toggle="tab" href="#exampleTabsFour" aria-controls="exampleTabsFour" role="tab" aria-expanded="true">
+                    Available
+                </a>
             </li>
-            <li role="presentation" style="display: block;">
-                <a data-toggle="tab" href="#exampleTabsFive"
-                   aria-controls="exampleTabsTwo" role="tab">Offline</a>
+            <li role="presentation">
+                <a data-toggle="tab" href="#exampleTabsFive" aria-controls="exampleTabsFive" role="tab" aria-expanded="true">
+                    Offline
+                </a>
+            </li>
+            <li role="presentation">
+                <a data-toggle="tab" href="#exampleTabsDND" aria-controls="exampleTabsDND" role="tab" aria-expanded="true">
+                    Do Not Disturb
+                </a>
+            </li>
+            <li role="presentation">
+                <a data-toggle="tab" href="#exampleTabsAway" aria-controls="exampleTabsAway" role="tab" aria-expanded="true">
+                    Away
+                </a>
             </li>
         </ul>
 
         <div class="tab-content padding-top-10">
             <% include addExtensionAvailable.html %>
             <% include addExtensionOffline.html %>
+            <% include addExtensionDND.html %>
+            <% include addExtensionAway.html %>
         </div>
     </div>
     <!-- END  -->

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var login = require('./login/login');
 
+var main = require('./menu/main');
 var callManager = require('./menu/CallManager');
 var doMainsAndTransports = require('./menu/domainsAndTransports');
 var extensions = require('./menu/extensions');
@@ -15,7 +16,7 @@ var callHistory = require('./menu/callHistory');
 
 var mediaServer = require('./menu/mediaServer');
 var conferenceServer = require('./menu/conferenceServer');
-var digitalReceptionist = require('./menu/digitalReceptionist');
+var virtualReceptionist = require('./menu/virtualReceptionist');
 var settings = require('./menu/settings');
 
 
@@ -45,7 +46,13 @@ router.post('/login',login.loginPost);
 /**
  * 首页请求
  */
-router.get('/main',login.mainGet);
+router.get('/index',login.indexGet);
+
+
+/**
+ * 首页内容请求
+ */
+router.get('/main', main.mainGet);
 
 /**
  * CallManager Information
@@ -61,6 +68,9 @@ router.get('/callManager/domain/transports', doMainsAndTransports.updateTranspor
  */
 router.get('/callManager/extensions', extensions.exGet);
 router.get('/callManager/extensions/extension', extensions.addExtensionsGet);
+
+router.get('/callManager/extensions/getGroupManagement', extensions.getGroupManagement);
+router.get('/callManager/extensions/getGroupManagement/addGroup', extensions.addGroup);
 /**
  * System Extensions
  */
@@ -71,6 +81,7 @@ router.get('/callManager/systemExtensions', systemExtensions.sexGet);
  */
 router.get('/callManager/voIp', voIPProvidersAndTrunks.vptGet);
 router.get('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderGet);
+router.get('/callManager/voIp/provider/next', voIPProvidersAndTrunks.addProviderNextGet);
 
 /**
  * Inbound Rules
@@ -89,6 +100,12 @@ router.get('/callManager/outbound/rule', outboundRules.addOutboundRuleGet);
  */
 router.get('/callManager/ringGroups', ringGroups.rgGet);
 router.get('/callManager/ringGroups/ringGroup', ringGroups.addRingGroupGet);
+
+/**
+ * Digital Receptionist
+ */
+router.get('/callManager/virtualReceptionist', virtualReceptionist.vrGet);
+router.get('/callManager/virtualReceptionist/addVirtualReceptionist', virtualReceptionist.addVirtualReceptionist);
 
 /**
  * Call Sessions
@@ -113,12 +130,6 @@ router.get('/mediaServer/addServer', mediaServer.addServer);
  */
 router.get('/conferenceServer', conferenceServer.csGet);
 router.get('/conferenceServer/addServer', conferenceServer.addServer);
-
-/**
- * Digital Receptionist
- */
-router.get('/digitalReceptionist', digitalReceptionist.drGet);
-router.get('/digitalReceptionist/addDigitalReceptionist', digitalReceptionist.addDigitalReceptionist);
 
 /**
  * Settings

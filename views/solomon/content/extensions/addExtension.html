@@ -38,11 +38,27 @@
                                            aria-controls="exampleTabsThree" role="tab">Forwarding
                                             Rules</a>
                                     </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#exampleTabsOptions"
+                                           aria-controls="exampleTabsOptions" role="tab">Options</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#exampleTabsOfficeHours"
+                                           aria-controls="exampleTabsOfficeHours" role="tab">Office Hours</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#exampleTabsProvisioning"
+                                           aria-controls="exampleTabsProvisioning" role="tab">Phone Provisioning</a>
+                                    </li>
+
                                 </ul>
                                 <div class="tab-content padding-top-10">
                                     <% include addExtensionGeneral.html %>
                                     <% include addExtensionVoiceMail.html %>
                                     <% include addExtensionForwardingRules.html %>
+                                    <% include addExtensionOptions.html %>
+                                    <% include addExtensionOfficeHours.html %>
+                                    <% include addExtensionPhoneProvisioning.html %>
                                 </div>
                             </div>
 

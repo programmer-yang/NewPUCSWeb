@@ -45,38 +45,38 @@ $.components.register("animsition", {
     ]
   },
   init: function(context, callback) {
-    var options = $.components.getDefaults("animsition");
-
-    if (options.random) {
-      var li = options.inDefaults.length,
-        lo = options.outDefaults.length;
-
-      var ni = parseInt(li * Math.random(), 0),
-        no = parseInt(lo * Math.random(), 0);
-
-      options.inClass = options.inDefaults[ni];
-      options.outClass = options.outDefaults[no];
-    }
-
-    var $this = $(".animsition", context);
-
-    $this.animsition(options);
-
-    $("." + options.loadingClass).addClass('loader-' + options.loadingType);
-
-    if ($this.animsition('supportCheck', options)) {
-      if ($.isFunction(callback)) {
-        $this.one('animsition.end', function() {
-          callback.call();
-        });
-      }
-
-      return true;
-    } else {
-      if ($.isFunction(callback)) {
-        callback.call();
-      }
-      return false;
-    }
+    //var options = $.components.getDefaults("animsition");
+    //
+    //if (options.random) {
+    //  var li = options.inDefaults.length,
+    //    lo = options.outDefaults.length;
+    //
+    //  var ni = parseInt(li * Math.random(), 0),
+    //    no = parseInt(lo * Math.random(), 0);
+    //
+    //  options.inClass = options.inDefaults[ni];
+    //  options.outClass = options.outDefaults[no];
+    //}
+    //
+    //var $this = $(".animsition", context);
+    //
+    //$this.animsition(options);
+    //
+    //$("." + options.loadingClass).addClass('loader-' + options.loadingType);
+    //
+    //if ($this.animsition('supportCheck', options)) {
+    //  if ($.isFunction(callback)) {
+    //    $this.one('animsition.end', function() {
+    //      callback.call();
+    //    });
+    //  }
+    //
+    //  return true;
+    //} else {
+    //  if ($.isFunction(callback)) {
+    //    callback.call();
+    //  }
+    //  return false;
+    //}
   }
 });
