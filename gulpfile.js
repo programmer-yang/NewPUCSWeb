@@ -8,6 +8,8 @@ var minifyCss = require('gulp-minify-css');
 
 gulp.task('default', ['browser-sync'], function () {
 });
+//gulp.task('default', ['minifycss'], function () {
+//});
 
 gulp.task('browser-sync', function() {
     browserSync.init(null, {
@@ -26,6 +28,13 @@ gulp.task('browser-sync', function() {
 //    return gulp.src('public/stylesheets/site.css')    //需要操作的文件
 //        .pipe(minifyCss())   //执行压缩
 //        .pipe(gulp.dest('public/stylesheets/css'));   //输出文件夹
+//});
+
+//压缩css
+//gulp.task('minifycss',function() {
+//    return gulp.src('public/stylesheets/vendor/datetimepicker/bootstrap-datetimepicker.css')    //需要操作的文件
+//        .pipe(minifyCss())   //执行压缩
+//        .pipe(gulp.dest('public/stylesheets/vendor/datetimepicker/min/'));   //输出文件夹
 //});
 
 

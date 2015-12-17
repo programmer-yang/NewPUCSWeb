@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Disable authentication of mid-dialog requests</label>
+        <label class="col-sm-5 control-label">Disable auth-int DIGEST challenges</label>
 
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
@@ -55,7 +55,7 @@
         </div>
     </div>
     <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Disable auth-int DIGEST challenges</label>
+        <label class="col-sm-5 control-label">Disable authentication of mid-dialog requests</label>
 
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
@@ -79,36 +79,7 @@
         </div>
     </div>
     <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Statistics Log Interval</label>
-
-        <div class="col-sm-7 padding-left-0">
-            <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
-                    <option value="600">600</option>
-                    <option value="1200">1200</option>
-                    <option value="2400">2400</option>
-                    <option value="3600">3600</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label class="col-sm-3 control-label">(seconds)</label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Close the session if there no RTP packet received within</label>
-
-        <div class="col-sm-7 padding-left-0 padding-top-10">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Last Name" autocomplete="off" value="120">
-            </div>
-            <div class="col-sm-3">
-                <label class="col-sm-3 control-label">(seconds)</label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Allow to tag in registrations</label>
+        <label class="col-sm-5 control-label">Allow To tag in registrations</label>
 
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
@@ -120,7 +91,24 @@
         </div>
     </div>
     <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Enable congestion Management</label>
+        <label class="col-sm-5 control-label">Statistics Log Interval</label>
+
+        <div class="col-sm-7 padding-left-0">
+            <div class="col-sm-8">
+                <select class="bs-select-hidden" data-role="select">
+                    <option value="1">ComboBox1</option>
+                    <option value="2">ComboBox2</option>
+                    <option value="3">ComboBox3</option>
+                    <option value="4">ComboBox4</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="col-sm-3 control-label">(seconds)</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-5 control-label">Enable Congestion Management</label>
 
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
@@ -137,9 +125,10 @@
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
                 <select class="bs-select-hidden" data-role="select">
-                    <option value="1">WAIT_TIME</option>
-                    <option value="2">TIME_DEPTH</option>
-                    <option value="3">SIZE</option>
+                    <option value="1">ComboBox1</option>
+                    <option value="2">ComboBox2</option>
+                    <option value="3">ComboBox3</option>
+                    <option value="4">ComboBox4</option>
                 </select>
             </div>
         </div>
@@ -150,23 +139,90 @@
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
                 <select class="bs-select-hidden" data-role="select">
-                    <option value="80">80</option>
-                    <option value="100">100</option>
-                    <option value="200">200</option>
+                    <option value="1">ComboBox1</option>
+                    <option value="2">ComboBox2</option>
+                    <option value="3">ComboBox3</option>
+                    <option value="4">ComboBox4</option>
                 </select>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+    <h5>Dead Session Detection</h5>
+
+    <div class="form-group my-form-group">
+        <label class="col-sm-7 control-label">Close the session if there no RTP packet received within</label>
+
+        <div class="col-sm-2">
+            <input type="text" class="form-control" autocomplete="off" value="3000">
+        </div>
+        <div class="col-sm-3">
+            <label class="col-sm-3 control-label">(seconds)</label>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-5 control-label">Enable the session timer(RFC4028), this also requires the client support</label>
+
+        <div class="col-sm-7 padding-left-0">
+            <div class="col-sm-8 padding-top-10">
+                <input type="text" class="form-control" placeholder="Primary DNS server" autocomplete="off">
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-5 control-label">Sesstion Timer Duration</label>
+
+        <div class="col-sm-7 padding-left-0">
+            <div class="col-sm-8">
+                <select class="bs-select-hidden" data-role="select">
+                    <option value="1">300</option>
+                    <option value="2">301</option>
+                    <option value="3">302</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="col-sm-3 control-label">(seconds)</label>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <h5>Presence Mode</h5>
+    <div class="form-group my-form-group">
+        <label class="col-sm-5 control-label">Peer to Peer</label>
+
+        <div class="col-sm-7 padding-left-0">
+            <div class="col-sm-8">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="office-hours" checked="">
+                    <label></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-5 control-label">Presence Server (Require the client support PUBLISH)</label>
+
+        <div class="col-sm-7 padding-left-0">
+            <div class="col-sm-8 padding-top-10">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="office-hours" checked="">
+                    <label></label>
+                </div>
             </div>
         </div>
     </div>
 
     <hr>
     <h5>DNS Server</h5>
-
     <div class="form-group my-form-group">
         <label class="col-sm-5 control-label">Primary DNS server</label>
 
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Primary DNS server" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Run As User" autocomplete="off">
             </div>
         </div>
     </div>
@@ -176,69 +232,6 @@
         <div class="col-sm-7 padding-left-0">
             <div class="col-sm-8">
                 <input type="text" class="form-control" placeholder="Secondary DNS server" autocomplete="off">
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    <h5>STUN Settings</h5>
-    <p class="padding-0 margin-0">
-        If run PUCS in a LAN and want connect to the SIP Provider/Trunk,the STUN mode must set to "PROVIDER_ONLY" mode
-    </p>
-    <p class="padding-0">
-        If run PUCS on the internet public IP or the cloud platform such as AWS ,the STUN mode must set to "ALL" mode.
-    </p>
-
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">STUN mode</label>
-
-        <div class="col-sm-7 padding-left-0">
-            <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
-                    <option value="1">ALL</option>
-                    <option value="2">PROVIDERS_ONLY</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Primary STUN server</label>
-
-        <div class="col-sm-7 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Primary STUN server" autocomplete="off">
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Secondary STUN server</label>
-
-        <div class="col-sm-7 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Secondary STUN server" autocomplete="off">
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    <h5> Drop privileges and run as some other user and group </h5>
-    <p>Note: For Linux only</p>
-
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Run As User</label>
-
-        <div class="col-sm-7 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Run As User" autocomplete="off">
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-5 control-label">Run As Group</label>
-
-        <div class="col-sm-7 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Run As Group" autocomplete="off">
             </div>
         </div>
     </div>

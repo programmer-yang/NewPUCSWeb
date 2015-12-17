@@ -3,7 +3,7 @@
 
     <div class="page-header">
         <h1 class="page-title">
-            Conference Server
+            Recordings Management
         </h1>
     </div>
     <div class="page-content container-fluid">
@@ -13,12 +13,64 @@
                 <!-- Example Responsive -->
                 <div class="example-wrap">
                     <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
-                        <button type="button" class="btn btn-outline btn-default" id="add-server">
-                            Add Server
-                        </button>
                         <button type="button" class="btn btn-outline btn-default">
-                            Refresh
+                            Download
                         </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-unstyled list-inline padding-0 margin-0">
+                                <li>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Filter by ID</p>
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="ID"
+                                           autocomplete="off">
+                                </li>
+                                <li>
+                                    <select class="bs-select-hidden" data-role="select">
+                                        <option value="0">Caller ID</option>
+                                        <option value="0">001</option>
+                                        <option value="0">002</option>
+                                        <option value="0">003</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled list-inline padding-0 margin-0">
+                                <li>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Filter by Date</p>
+                                </li>
+                                <li>
+                                    <p>From : </p>
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" data-role="datetime">
+                                </li>
+                                <li>
+                                    <p>To : </p>
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" data-role="datetime">
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-outline btn-default">
+                                        Apply
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <!--
                     <h4 class="example-title">Basic</h4>
@@ -28,34 +80,34 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </th>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>IP</th>
-                                <th>Port</th>
-                                <th>Status</th>
-                                <th>Enabled</th>
+                                <th>Extension</th>
+                                <th>Date</th>
+                                <th>File Name</th>
+                                <th>Size(MB)</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
+                                <td>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </td>
                                 <td>1</td>
-                                <td>Built-in Server</td>
-                                <td>192.168.1.78</td>
-                                <td>8878</td>
+                                <td>101</td>
+                                <td>Dec-08-2015</td>
+                                <td>101_102_1208183306.wav</td>
+                                <td>1.1</td>
                                 <td>
-                                    <span class="label label-danger">Online</span>
-                                </td>
-                                <td>
-                                    <div class="pull-left margin-right-20">
-                                        <input type="checkbox" data-plugin="switchery" checked />
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                             data-toggle="tooltip" data-original-title="Delete">
                                         <i class="icon wb-close" aria-hidden="true"></i>
@@ -63,23 +115,18 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </td>
                                 <td>2</td>
-                                <td>test1 Server</td>
-                                <td>122.81.125.8</td>
-                                <td>2432</td>
+                                <td>102</td>
+                                <td>Dec-08-2015</td>
+                                <td>101_102_1208183306.wav</td>
+                                <td>1.1</td>
                                 <td>
-                                    <span class="label label-danger">Online</span>
-                                </td>
-                                <td>
-                                    <div class="pull-left margin-right-20">
-                                        <input type="checkbox" data-plugin="switchery" checked />
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                             data-toggle="tooltip" data-original-title="Delete">
                                         <i class="icon wb-close" aria-hidden="true"></i>
@@ -87,23 +134,18 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>test2 Server</td>
-                                <td>22.59.91.2</td>
-                                <td>7812</td>
                                 <td>
-                                    <span class="label label-danger">Online</span>
-                                </td>
-                                <td>
-                                    <div class="pull-left margin-right-20">
-                                        <input type="checkbox" data-plugin="switchery" checked />
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
                                     </div>
                                 </td>
+                                <td>3</td>
+                                <td>103</td>
+                                <td>Dec-08-2015</td>
+                                <td>101_102_1208183306.wav</td>
+                                <td>1.1</td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                             data-toggle="tooltip" data-original-title="Delete">
                                         <i class="icon wb-close" aria-hidden="true"></i>
@@ -111,29 +153,26 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>test3 Server</td>
-                                <td>22.18.1.52</td>
-                                <td>2254</td>
                                 <td>
-                                    <span class="label label-danger">Online</span>
-                                </td>
-                                <td>
-                                    <div class="pull-left margin-right-20">
-                                        <input type="checkbox" data-plugin="switchery" checked />
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
                                     </div>
                                 </td>
+                                <td>4</td>
+                                <td>104</td>
+                                <td>Dec-08-2015</td>
+                                <td>101_102_1208183306.wav</td>
+                                <td>1.1</td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                             data-toggle="tooltip" data-original-title="Delete">
                                         <i class="icon wb-close" aria-hidden="true"></i>
                                     </button>
                                 </td>
                             </tr>
+
+
                             </tbody>
                             <tfoot>
                             <tr>

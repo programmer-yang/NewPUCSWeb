@@ -153,11 +153,26 @@ $.components.register("mMenu", {
             case 'vr':
                 _this.menuDescribe['vr'](_this);
                 break;
+            case 'cq':
+                _this.menuDescribe['cq'](_this);
+                break;
             case 'cs':
                 _this.menuDescribe['cs'](_this);
                 break;
             case 'ch':
                 _this.menuDescribe['ch'](_this);
+                break;
+            case 'te':
+                _this.menuDescribe['te'](_this);
+                break;
+            case 'rm':
+                _this.menuDescribe['rm'](_this);
+                break;
+            case 'cr':
+                _this.menuDescribe['cr'](_this);
+                break;
+            case 'st':
+                _this.menuDescribe['st'](_this);
                 break;
             case 'ms':
                 _this.menuDescribe['ms'](_this);
@@ -165,8 +180,11 @@ $.components.register("mMenu", {
             case 'cse':
                 _this.menuDescribe['cse'](_this);
                 break;
-            case 'st':
-                _this.menuDescribe['st'](_this);
+            case 'ss':
+                _this.menuDescribe['ss'](_this);
+                break;
+            case 'nb':
+                _this.menuDescribe['nb'](_this);
                 break;
         }
 
@@ -178,7 +196,7 @@ $.components.register("mMenu", {
 
             _this.resources.cmi = _this.resources.cmi || {};
 
-            _this.resources.cmi.refreshTime = _this.resources.cmi.refreshTime || 5000;
+            _this.resources.cmi.refreshTime = _this.resources.cmi.refreshTime || 1000*60;
             _this.resources.cmi.timers = _this.resources.cmi.timers || [];
             //_this.resources.cmi.charts = _this.resources.cmi.charts || [];
 
@@ -337,153 +355,8 @@ $.components.register("mMenu", {
         },
         cmi: function (_this) {
 
-            _this.resources.cmi = _this.resources.cmi || {};
-
-            _this.resources.cmi.refreshTime = _this.resources.cmi.refreshTime || 5000;
-            _this.resources.cmi.timers = _this.resources.cmi.timers || [];
-            //_this.resources.cmi.charts = _this.resources.cmi.charts || [];
-
-            var charts = {};
-
-
-            function getTime() {
-                var date = new Date();
-                var hours = date.getHours();
-                var minutes = date.getMinutes();
-                var seconds = date.getSeconds();
-                hours = hours < 10 ? '0' + hours : hours;
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                return hours + ':' + minutes + ':' + seconds;
-            }
-
-            function updateChart(contentBox) {
-
-                if (charts.callTimer) {
-                    if (charts.callTimer['datasets'][0].points.length > 10) {
-                        charts.callTimer.removeData();
-                    }
-                    var number = Math.floor(Math.random() * 20);
-                    //var time = getTime();
-
-                    $('#current-calls-number', contentBox).html(number);
-                    charts.callTimer.addData([number], '');
-                }
-                if (charts.extensionsTimer) {
-                    if (charts.extensionsTimer['datasets'][0].points.length > 10) {
-                        charts.extensionsTimer.removeData();
-                    }
-                    var number = Math.floor(Math.random() * 20);
-                    //var time = getTime();
-                    $('#current-extensions-number', contentBox).html(number);
-                    charts.extensionsTimer.addData([number], '');
-                }
-                if (charts.resourceTimer) {
-                    if (charts.resourceTimer['datasets'][0].points.length > 10) {
-                        charts.resourceTimer.removeData();
-                    }
-                    var number1 = Math.floor(Math.random() * 100);
-                    var number2 = Math.floor(Math.random() * 100);
-                    //var time = getTime();
-                    $('#current-cpu-number', contentBox).html(number1 + '%');
-                    $('#current-memory-number', contentBox).html(number2 + '%');
-
-                    charts.resourceTimer.addData([number1, number2], '');
-                }
-
-
-
-
-            }
-
-            function startTimers(contentBox) {
-
-                if (_this.resources.cmi.timers.length > 0) {
-                    stopTimers();
-                }
-                _this.resources.cmi.timers.push(setInterval(function () {
-                    updateChart(contentBox);
-                }, _this.resources.cmi.refreshTime));
-
-            }
-
-            function stopTimers() {
-                if (_this.resources.cmi.timers && _this.resources.cmi.timers.length > 0) {
-                    _this.resources.cmi.timers.forEach(function (timer) {
-                        clearInterval(timer);
-                        //timer = null;
-                    });
-                    _this.resources.cmi.timers.length = 0;
-                }
-            }
-
-
             _this.get('/callManager/information', function (contentBox) {
 
-
-                var chartBoxs = $('[name=chart-line-box]', contentBox);
-                //$('#exampleChartjsLine', lineBox).css('width',lineBox.width());
-
-                chartBoxs.each(function (key) {
-                    var box = $(chartBoxs[key]);
-                    $('canvas', box).css('width', box.width());
-                    //$('canvas',box).css('height', box.width()/3);
-                });
-
-
-                //首页图标初始化
-                var lineChartData = {
-                    labels: [''],
-                    scaleShowGridLines: true,
-                    scaleShowVerticalLines: false,
-                    scaleGridLineColor: "#ebedf0",
-                    datasets: [{
-                        fillColor: "rgba(98, 168, 234, .1)",
-                        strokeColor: $.colors("primary", 600),
-                        pointColor: $.colors("primary", 600),
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: $.colors("primary", 600),
-                        data: [0]
-                    }]
-                };
-                var resourceLineChartData = {
-                    labels: [''],
-                    scaleShowGridLines: true,
-                    scaleShowVerticalLines: false,
-                    scaleGridLineColor: "#ebedf0",
-                    datasets: [
-                        {
-                            fillColor: "rgba(204, 213, 219, .1)",
-                            strokeColor: $.colors("blue-grey", 300),
-                            pointColor: $.colors("blue-grey", 300),
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: $.colors("blue-grey", 300),
-                            data: [0]
-                        }, {
-                            fillColor: "rgba(98, 168, 234, .1)",
-                            strokeColor: $.colors("primary", 600),
-                            pointColor: $.colors("primary", 600),
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: $.colors("primary", 600),
-                            data: [0]
-                        }]
-                };
-
-                var callTimer = new Chart($('#line-calls')[0].getContext("2d")).Line(lineChartData);
-                var extensionsTimer = new Chart($('#line-extensions')[0].getContext('2d')).Line(lineChartData);
-                var resourceTimer = new Chart($('#line-resource')[0].getContext('2d')).Line(resourceLineChartData);
-
-                charts.callTimer = callTimer;
-                charts.extensionsTimer = extensionsTimer;
-                charts.resourceTimer = resourceTimer;
-
-
-                startTimers(contentBox);
-                //stopTimers();
 
 
             }, 'site-menubar-unfold');
@@ -628,14 +501,10 @@ $.components.register("mMenu", {
             _this.get('/callManager/outbound', function (contentBox) {
 
                 $('#add-outbound-rule', contentBox).on('click', function () {
-
-
                     _this.get('/callManager/outbound/rule', function (contentBox) {
-
-
+                        //...
                     });
                 });
-
 
             });
         },
@@ -662,6 +531,18 @@ $.components.register("mMenu", {
                 });
             }, 'site-menubar-unfold');
         },
+        cq: function (_this) {
+            //Virtual Receptionist
+            _this.get('/callManager/callQueue', function (contentBox) {
+                $('#add-queue', contentBox).on('click', function () {
+
+                    _this.get('/callManager/callQueue/addQueue', function (contentBox) {
+                        //....
+                    });
+
+                });
+            }, 'site-menubar-unfold');
+        },
         cs: function (_this) {
             _this.get('/callManager/callSessions', function (contentBox) {
                 //...
@@ -672,20 +553,75 @@ $.components.register("mMenu", {
                 //....
             });
         },
+        te: function (_this) {
+            _this.get('/tenant', function (contentBox) {
+                $('#add-tenant', contentBox).on('click', function () {
+                    _this.get('/tenant/addTenant', function (contentBox) {
+                        //....
+                    })
+                });
+                //....
+            });
+        },
+        rm: function (_this) {
+            _this.get('/recordingsManagement', function (contentBox) {
+                $('[data-role="datetime"]', contentBox).datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+            });
+        },
+        cr: function (_this) {
+            _this.get('/callManager/callReports', function (contentBox) {
+                $('#search', contentBox).on('click', function() {
+                    _this.get('/callManager/callReports/search', function(contentBox) {
+                        $('[data-role="datetime"]', contentBox).datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+                    });
+                });
+                $('#download', contentBox).on('click', function() {
+                    _this.get('/callManager/callReports/download', function(contentBox) {
+                        //...
+                    });
+                });
+            });
+        },
+        st: function (_this) {
+            _this.get('/settings', function (contentBox) {
+                $('[data-role=timepicker]', contentBox).timepicker({ 'scrollDefault': 'now',timeFormat: 'H:i'});
+            });
+        },
         ms: function (_this) {
-            _this.get('/mediaServer', function (contentBox) {
+            _this.get('/settings/mediaServer', function (contentBox) {
                 $('#add-server', contentBox).on('click', function () {
-                    _this.get('/mediaServer/addServer', function (contentBox) {
+                    _this.get('/settings/mediaServer/addServer', function (contentBox) {
                         //....
                     })
                 });
             });
         },
         cse: function (_this) {
-            _this.get('/conferenceServer', function (contentBox) {
-
+            _this.get('/settings/conferenceServer', function (contentBox) {
 
                 //初始化Switchery
+                //var options = {
+                //    color: $.colors("primary", 600),
+                //    size: 'small',
+                //    disabled: 'false'
+                //};
+                //$('[data-plugin="switchery"]').each(function () {
+                //    new Switchery(this, options);
+                //});
+
+                $('#add-server', contentBox).on('click', function(){
+                    _this.get('/settings/conferenceServer/addServer',function (contentBox) {
+                        //...
+                    });
+                });
+            });
+
+        },
+        ss: function (_this) {
+            _this.get('/settings/servicesStatus', function (contentBox) {
+
+                //初始化Switchery
+
                 var options = {
                     color: $.colors("primary", 600),
                     size: 'small',
@@ -695,32 +631,31 @@ $.components.register("mMenu", {
                     new Switchery(this, options);
                 });
 
-
-
-
-                $('#add-server', contentBox).on('click', function(){
-                    _this.get('/conferenceServer/addServer',function (contentBox) {
-                        //...
-                    });
-                });
             });
 
         },
-        dr: function (_this) {
-            _this.get('/digitalReceptionist', function (contentBox) {
-                $('#add-digital-receptionist', contentBox).on('click', function () {
-                    _this.get('/digitalReceptionist/addDigitalReceptionist', function (contentBox) {
-                        //..
+        nb: function (_this) {
+            _this.get('/settings/numberBlacklist', function (contentBox) {
+
+
+                $('#add-blacklist', contentBox).on('click', function() {
+                    _this.get('/settings/numberBlacklist/addBlacklist', function(contentBox) {
+
                     });
-
-
                 });
+                ////初始化Switchery
+                //
+                //var options = {
+                //    color: $.colors("primary", 600),
+                //    size: 'small',
+                //    disabled: 'false'
+                //};
+                //$('[data-plugin="switchery"]').each(function () {
+                //    new Switchery(this, options);
+                //});
+
             });
-        },
-        st: function (_this) {
-            _this.get('/settings', function (contentBox) {
-                $('[data-role=timepicker]', contentBox).timepicker({ 'scrollDefault': 'now',timeFormat: 'H:i'});
-            });
+
         }
 
     },

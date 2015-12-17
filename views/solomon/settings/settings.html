@@ -28,14 +28,19 @@
                                            aria-controls="exampleTabsOne" role="tab">General</a>
                                     </li>
                                     <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#tabQuota"
+                                           aria-controls="exampleTabsTwo" role="tab">Quota</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
                                         <a data-toggle="tab" href="#tabOfficeHours"
                                            aria-controls="exampleTabsTwo" role="tab">Office Hours</a>
                                     </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#tabAdvanced"
-                                           aria-controls="exampleTabsThree" role="tab">Advanced
-                                        </a>
-                                    </li>
+                                    <!-- 暂时屏蔽 -->
+                                    <!--<li role="presentation" style="display: block;">-->
+                                        <!--<a data-toggle="tab" href="#tabAdvanced"-->
+                                           <!--aria-controls="exampleTabsThree" role="tab">Advanced-->
+                                        <!--</a>-->
+                                    <!--</li>-->
                                     <li role="presentation" style="display: block;">
                                         <a data-toggle="tab" href="#tabAdminCredentials"
                                            aria-controls="exampleTabsThree" role="tab">Admin Credentials
@@ -45,8 +50,8 @@
                                 <div class="tab-content padding-top-10">
 
                                     <% include tabGeneral.html %>
+                                    <% include tabQuota.html %>
                                     <% include tabOfficeHours.html %>
-                                    <% include tabAdvanced.html %>
                                     <% include tabAdminCredentials.html %>
 
                                 </div>
