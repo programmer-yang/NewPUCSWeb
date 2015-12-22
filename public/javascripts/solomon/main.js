@@ -186,6 +186,9 @@ $.components.register("mMenu", {
             case 'nb':
                 _this.menuDescribe['nb'](_this);
                 break;
+            case 'pf':
+                _this.menuDescribe['pf'](_this);
+                break;
         }
 
 
@@ -656,6 +659,11 @@ $.components.register("mMenu", {
 
             });
 
+        },
+        pf: function (_this) {
+            _this.get('/profile', function (contentBox) {
+                //...
+            });
         }
 
     },

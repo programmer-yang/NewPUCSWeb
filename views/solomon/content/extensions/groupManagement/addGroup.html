@@ -13,74 +13,36 @@
                 <div class="panel ">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Ring group allows more than one phone to ring at the same time or in a sequence.
+                            <!--Ring group allows more than one phone to ring at the same time or in a sequence.-->
                         </h3>
                     </div>
 
                     <div class="panel-body">
-                        <!-- Example Horizontal Form -->
-                        <div class="example padding-left-20">
-                            <form class="form-horizontal">
-                                <h5>
-                                    Group general:
-                                </h5>
 
-                                <p>
-                                    Group members
-                                </p>
-
-
-                                <div class="form-group my-form-group">
-
-                                    <div class="col-xs-1 col-sm-1"></div>
-                                    <div class="col-xs-12 col-sm-10 ">
-
-
-                                        <div class="col-xs-4 col-sm-4 padding-0 margin-0 my-multi-select-box height-200 my-multi-select-box">
-                                            <div class="list-group">
-                                                <a class="list-group-item active" href="javascript:void(0)">1000</a>
-                                                <a class="list-group-item" href="javascript:void(0)">1001</a>
-                                                <a class="list-group-item" href="javascript:void(0)">1002</a>
-                                                <a class="list-group-item disabled" href="javascript:void(0)">1003</a>
-                                                <a class="list-group-item" href="javascript:void(0)">1004</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-1 col-sm-1 my-width-auto padding-top-60">
-                                            <div class="btn-group-vertical margin-right-0"
-                                                 aria-label="Vertical button group" role="group">
-                                                <button type="button" class="btn btn-outline btn-default"><i
-                                                        class="icon wb-chevron-right-mini" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline btn-default"><i
-                                                        class="icon wb-chevron-left-mini" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-4 col-sm-4 padding-0 margin-0 my-multi-select-box height-200 my-multi-select-box">
-                                            <div class="list-group">
-                                                <a class="list-group-item " href="javascript:void(0)">1000</a>
-                                                <a class="list-group-item" href="javascript:void(0)">1001</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-1 col-sm-1 my-width-auto padding-top-60">
-                                            <div class="btn-group-vertical margin-right-0"
-                                                 aria-label="Vertical button group" role="group">
-                                                <button type="button" class="btn btn-outline btn-default"><i
-                                                        class="icon wb-chevron-up" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline btn-default"><i
-                                                        class="icon wb-chevron-down" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
+                        <div class="example">
+                            <form class="form-horizontal" name="form-transports-add">
+                                <div class="example-wrap">
+                                    <div class="nav-tabs-horizontal margin-bottom-20">
+                                        <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
+                                            <li class="active" role="presentation">
+                                                <a data-toggle="tab" href="#tabGroupInfomation"
+                                                   aria-controls="exampleTabsOne" role="tab">Group Informaiton</a>
+                                            </li>
+                                            <li role="presentation" style="display: block;">
+                                                <a data-toggle="tab" href="#tabGroupMembers"
+                                                   aria-controls="exampleTabsTwo" role="tab">Group Members</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content padding-top-10">
+                                            <!-- ... -->
+                                            <% include tabGroupInfomation.html %>
+                                            <% include tabGroupMembers.html %>
                                         </div>
                                     </div>
-                                </div>
 
-
-                                <div class="form-group my-form-group margin-top-30">
-                                    <div class="col-sm-8 col-sm-offset-4 padding-left-0">
+                                    <div class="col-sm-8 col-sm-offset-4">
                                         <button type="button" class="btn btn-default btn-primary btn-outline"
-                                                data-return="rg">
+                                                data-return="ex">
                                             Cancel
                                         </button>
                                         <button type="reset" class="btn btn-default btn-outline btn-primary">
@@ -93,9 +55,7 @@
                                 </div>
                             </form>
                         </div>
-                        <!-- End Example Horizontal Form -->
                     </div>
-
                 </div>
             </div>
             <div class="col-sm-5">

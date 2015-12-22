@@ -26,6 +26,8 @@ var conferenceServer = require('./menu/conferenceServer');
 var servicesStatus = require('./menu/servicesStatus');
 var numberBlacklist = require('./menu/numberBlacklist');
 
+var profile = require('./menu/profile');
+
 
 var api = require('./menu/api');
 var error = require('./error/error');
@@ -147,8 +149,6 @@ router.get('/callManager/callReports/search', callReports.searchGet);
 router.get('/callManager/callReports/download', callReports.downloadGet);
 
 
-
-
 /**
  * Settings
  */
@@ -172,6 +172,11 @@ router.get('/settings/servicesStatus', servicesStatus.ssGet);
  */
 router.get('/settings/numberBlacklist', numberBlacklist.nbGet);
 router.get('/settings/numberBlacklist/addBlacklist', numberBlacklist.addBlacklist);
+
+/**
+ * ProFile
+ */
+router.get('/profile', profile.profileGet);
 
 
 

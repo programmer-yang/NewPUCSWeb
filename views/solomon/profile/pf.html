@@ -1,0 +1,73 @@
+<!-- Page -->
+<div class="page animsition">
+
+    <div class="page-header">
+        <h1 class="page-title">
+            ProFile
+        </h1>
+    </div>
+    <div class="page-content">
+        <div class="panel my-col-sm-8 my-setting-box">
+            <!--<div class="panel-heading">-->
+                <!--<h3 class="panel-title">-->
+                    <!--Edit settings and click "Apply“ button to save changes.-->
+                <!--</h3>-->
+            <!--</div>-->
+            <div class="panel-body">
+
+                <!-- Example Horizontal Form -->
+
+                <div class="example">
+                    <form class="form-horizontal" name="form-transports-add">
+
+                        <div class="example-wrap">
+                            <div class="nav-tabs-horizontal">
+                                <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
+                                    <li class="active" role="presentation">
+                                        <a data-toggle="tab" href="#tabGeneral"
+                                           aria-controls="exampleTabsOne" role="tab">General</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#tabOfficeHours"
+                                           aria-controls="exampleTabsTwo" role="tab">Office Hours</a>
+                                    </li>
+                                    <li role="presentation" style="display: block;">
+                                        <a data-toggle="tab" href="#tabCredentials"
+                                           aria-controls="exampleTabsTwo" role="tab">Credentials</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content padding-top-10">
+
+                                    <% include tabGeneral.html %>
+                                    <% include tabOfficeHours.html %>
+                                    <% include tabCredentials.html %>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-sm-offset-4">
+                                <button type="button" class="btn btn-default btn-primary btn-outline" data-return="ex">
+                                    Cancel
+                                </button>
+                                <button type="reset" class="btn btn-default btn-outline btn-primary">
+                                    Reset
+                                </button>
+                                <button type="button" class="btn btn-default btn-outline btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- End Example Horizontal Form -->
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<!-- End Page -->
