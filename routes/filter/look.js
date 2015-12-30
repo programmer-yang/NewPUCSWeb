@@ -2,6 +2,8 @@ var access = require('./../tool/access');
 
 
 
+
+
 /**
  * 权限过滤
  */
@@ -16,26 +18,31 @@ function look(req, res, next) {
 
     var url = req.url;
 
-    if (url === '/login') {
+    if (url === '/login' || url === '/account/verify_credentials') {
         next();
     } else {
         /**
          *验证权限
          */
-        //var b = false;
-        var b = true;
-        console.log('开始验证权限 ***************** ');
+        //var b = true;
+        var b = false;
+        //console.log('开始验证权限 ***************** ');
+
         var key = req.cookies.key;
         var mySession = req.session.mysession;
 
+        console.log('cookie key: '+key);
 
         if(key && mySession && key == mySession.id) {
+
+            console.log('sessionKey: ' + mySession.id);
+            console.log('hourglass : ' + (mySession.cookie.expire - (new Date()).getTime()));
 
             b = true;
 
             if((new Date()).getTime() > mySession.cookie.expire) {
 
-                //console.log('timeout ************'+'');
+                console.log('timeout ************'+'');
                 mySession.cookie.expire = access.getNewTime();
 
                 req.session.mySession = mySession;
@@ -55,6 +62,7 @@ function look(req, res, next) {
         }
 
         if (b) {
+            console.log(url);
             if(url === '/') {
                 res.redirect('/index');
             }else{

@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 
 
 var routes = require('./routes/index');
+var api = require('./routes/api/api');
 
 
 var look = require('./routes/filter/look');
@@ -38,6 +39,7 @@ app.use(look.look);
 
 
 app.use('/', routes);
+app.use('/', api);
 //app.use('/users', users);
 
 // catch 404 and forward to error handler

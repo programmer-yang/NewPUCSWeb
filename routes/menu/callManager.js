@@ -1,6 +1,6 @@
 function cmiGet (req, res, next) {
 
-    res.render('solomon/content/callManager/cmi');
+    res.render('solomon/summary/summary');
 
 }
 

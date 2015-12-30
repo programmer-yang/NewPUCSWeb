@@ -4,13 +4,14 @@
             <div>
                 <ul class="site-menu">
                     <!--<li class="site-menu-category">Main</li>-->
+
+                    <% if(role && role === 'administrator') { %>
                     <li class="site-menu-item has-sub" data-role="menu">
                         <a href="javascript:void(0)" data-menu="h">
                             <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                             <span class="site-menu-title">Summary</span>
 
                         </a>
-
                     </li>
                     <li class="site-menu-item has-sub" data-role="menu" >
                         <a href="javascript:void(0)" data-menu="cmi">
@@ -168,35 +169,6 @@
                         </ul>
                     </li>
 
-
-                    <!--<a href="javascript:void(0)" data-menu="cmi">-->
-                        <!--<i class="site-menu-icon wb-layout" aria-hidden="true"></i>-->
-                        <!--<span class="site-menu-title">Call Manager</span>-->
-                        <!--<span class="site-menu-arrow"></span>-->
-                    <!--</a>-->
-
-
-
-
-                    <!--<li class="site-menu-item has-sub" data-role="menu">-->
-                        <!--<a href="javascript:void(0)" data-menu="ms">-->
-                            <!--<i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>-->
-                            <!--<span class="site-menu-title">Media Server</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li class="site-menu-item has-sub" data-role="menu">-->
-                        <!--<a href="javascript:void(0)" data-menu="cse">-->
-                            <!--<i class="site-menu-icon wb-desktop" aria-hidden="true"></i>-->
-                            <!--<span class="site-menu-title">Conference Server</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li class="site-menu-item has-sub" data-role="menu">-->
-                        <!--<a href="javascript:void(0)" data-menu="dr">-->
-                            <!--<i class="site-menu-icon wb-payment" aria-hidden="true"></i>-->
-                            <!--<span class="site-menu-title">Digital Receptionist</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-
                     <li class="site-menu-item has-sub" data-role="menu">
                         <a href="javascript:void(0)" data-menu="pf">
                             <i class="site-menu-icon wb-help" aria-hidden="true"></i>
@@ -224,25 +196,26 @@
                         </a>
                     </li>
                 </ul>
+                <% } %>
 
-                <div class="site-menubar-section">
-                    <h5>
-                        Milestone
-                        <span class="pull-right">30%</span>
-                    </h5>
+                <!--<div class="site-menubar-section">-->
+                    <!--<h5>-->
+                        <!--Milestone-->
+                        <!--<span class="pull-right">30%</span>-->
+                    <!--</h5>-->
 
-                    <div class="progress progress-xs">
-                        <div class="progress-bar active" style="width: 30%;" role="progressbar"></div>
-                    </div>
-                    <h5>
-                        Release
-                        <span class="pull-right">60%</span>
-                    </h5>
+                    <!--<div class="progress progress-xs">-->
+                        <!--<div class="progress-bar active" style="width: 30%;" role="progressbar"></div>-->
+                    <!--</div>-->
+                    <!--<h5>-->
+                        <!--Release-->
+                        <!--<span class="pull-right">60%</span>-->
+                    <!--</h5>-->
 
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-warning" style="width: 60%;" role="progressbar"></div>
-                    </div>
-                </div>
+                    <!--<div class="progress progress-xs">-->
+                        <!--<div class="progress-bar progress-bar-warning" style="width: 60%;" role="progressbar"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </div>

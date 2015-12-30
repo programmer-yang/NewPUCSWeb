@@ -3,6 +3,12 @@ $.components.register("mLogin", {
 
     },
     api: function () {
+
+        //初始化动画
+        $('#login-box').animsition('init').animsition('pageIn');
+
+
+
         /**
          *  声明提交事件
          *
@@ -29,37 +35,39 @@ $.components.register("mLogin", {
             var css = box.attr('class');
             box.attr('class', 'loader vertical-align-middle loader-grill');
 
-            //通过后Ajax请求
-            //
 
-            //$.ajax({
-            //    type: 'POST',
-            //    url: '/login',
-            //    data: $from.serialize(),
-            //    dataType: 'json',
-            //    success: function (data) {
-            //        console.log('login is ok');
-            //        console.log('666666666');
-            //        console.log(data.url);
-            //    },
-            //    error: function () {
-            //        //失败还原登陆界面显示
-            //        box.attr('class', css);
-            //    }
-            //
-            //});
+            $.post('/login',_from.serialize()).success(function(data){
 
-            $.post('/login', _from.serialize(), function (data) {
-
-                //$(document).find('body').html(data);
-
-                console.log('=====================' + data);
 
                 if (data && data.result === 'success') {
-                    console.log('abc');
+                    //console.log('abc');
                     window.location = data.url;
+                    //console.log(data);
+                }else if(data || data.result === 'error'){
+
+
+                    console.log(data.result);
+                    console.log(data.message);
+                    box.attr('class', css);
+                    toastr.warning(data.message, '', {
+                        showMethod: "slideDown",
+                        positionClass: "toast-top-full-width",
+                        containerId: "toast-topFullWidth"
+                    });
+                }else {
+                    //特殊情况处理
+                    //...
                 }
-                console.log('def');
+
+
+            }).error(function(error){
+                var data = $.parseJSON(error.responseText);
+                box.attr('class', css);
+                toastr.warning(data.msg, '', {
+                    showMethod: "slideDown",
+                    positionClass: "toast-top-full-width",
+                    containerId: "toast-topFullWidth"
+                });
             });
 
             //console.log('666')
@@ -129,7 +137,7 @@ $.components.register("mLogin", {
         var username = $('[name=username]', content).val();
         var password = $('[name=password]', content).val();
 
-        if (username === 'admin' && password === 'admin') {
+        if (username || password) {
             return true;
         }
         return false;
