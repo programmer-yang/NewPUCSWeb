@@ -3,7 +3,7 @@
 
     <div class="page-header">
         <h1 class="page-title">
-            Extensions
+            Conference
         </h1>
     </div>
     <div class="page-content container-fluid">
@@ -13,8 +13,8 @@
                 <!-- Example Responsive -->
                 <div class="example-wrap">
                     <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
-                        <button type="button" class="btn btn-outline btn-default">
-                            Refresh
+                        <button type="button" class="btn btn-outline btn-default" id="add-room">
+                            Add Room
                         </button>
                     </div>
                     <!--
@@ -26,24 +26,29 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Extension Number</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>User Agent</th>
+                                <th>Room Extension</th>
+                                <th>Room PIN</th>
+                                <th>Admin PIN</th>
+                                <th>Mode</th>
+                                <th>Participants</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <% if(seData && seData.extensions) { %>
-                            <% seData.extensions.forEach(function(data,key){ %>
+                            <%
+                            if(coData && coData.rooms) {
+                            coData.rooms.forEach(function(data, key) {
+                            %>
+
                             <tr>
-                                <td><%=(key+1) %></td>
-                                <td><%=data.extension_number %></td>
-                                <td><%=data.first_name %> <%=data.last_name %></td>
-                                <td><%=data.email %></td>
-                                <td><%=data.belong_groups %> </td>
+                                <td><%=(key+1)%></td>
+                                <td><%=data.room_extension %></td>
+                                <td><%=data.room_pin %></td>
+                                <td><%=data.admin_pin %></td>
+                                <td><%=data.mode %></td>
+                                <td><%=data.participants %></td>
                                 <td>
                                     <% if(data.status=='online'){ %>
                                     <span class="label label-primary">Online</span>
@@ -54,22 +59,41 @@
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
+                                            data-toggle="tooltip" data-original-title="Delete" title="Lock Room">
+                                        <i class="icon wb-lock" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Delete" title="Mute Room">
+                                        <i class="icon wb-volume-off" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Delete" title="Record Room">
+                                        <i class="icon wb-order" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Delete" title="Invite Member">
+                                        <i class="icon wb-user-add" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Edit" title="Edit Room">
                                         <i class="icon wb-wrench" aria-hidden="true"></i>
                                     </button>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
+                                            data-toggle="tooltip" data-original-title="Delete" title="Delete Room">
                                         <i class="icon wb-close" aria-hidden="true"></i>
                                     </button>
                                 </td>
                             </tr>
-                            <% }); %>
-                            <% } %>
+
+                            <%
+                            });
+                            }
+                            %>
 
                             </tbody>
                             <tfoot>
                             <%
-                            var colsPanNumber = 7;
+                            var colsPanNumber = 8;
 
                             var page_count = 1;    //总页数
                             var page_current = 1;   //当前页

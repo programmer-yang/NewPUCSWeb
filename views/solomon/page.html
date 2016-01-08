@@ -1,0 +1,40 @@
+<tr>
+    <td colspan="<%=colsPanNumber%>" class="footable-visible">
+        <div class="text-right">
+            <ul class="pagination">
+
+                <% if(page_current == 1) { %>
+                <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li>
+                <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li>
+                <% } else { %>
+                <li class="footable-page-arrow"><a data-page="first" href="#first">«</a></li>
+                <li class="footable-page-arrow"><a data-page="prev" href="#prev">‹</a></li>
+                <% } %>
+
+
+
+                <% for(var i=page_start; i<=page_sum; i++) { %>
+                <% if(page_current == i) {%>
+                <li class="footable-page active"><a data-page="0" href="#"><%=i%></a></li>
+                <%} else {%>
+                <li class="footable-page"><a data-page="0" href="#"><%=i%></a></li>
+                <%}%>
+
+
+
+
+                <% } %>
+
+                <% if(page_current == page_count) { %>
+                <li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li>
+                <li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li>
+                <% } else { %>
+                <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
+                <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
+                <% } %>
+
+
+            </ul>
+        </div>
+    </td>
+</tr>

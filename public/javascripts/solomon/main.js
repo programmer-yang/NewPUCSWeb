@@ -95,7 +95,12 @@ $.components.register("mMenu", {
         _this.clear(_this);
 
         $.get(url, function (data) {
+
+            if(data && data.result == 'TIME_OUT') {
+                window.location = data.url;
+            }
             _this.changeContent(className, data, callback);
+
         });
 
     },
@@ -156,12 +161,18 @@ $.components.register("mMenu", {
             case 'cq':
                 _this.menuDescribe['cq'](_this);
                 break;
+            case 'co':
+                _this.menuDescribe['co'](_this);
+                break;
             case 'cs':
                 _this.menuDescribe['cs'](_this);
                 break;
-            case 'ch':
-                _this.menuDescribe['ch'](_this);
+            case 'vm':
+                _this.menuDescribe['vm'](_this);
                 break;
+            //case 'ch':
+            //    _this.menuDescribe['ch'](_this);
+            //    break;
             case 'te':
                 _this.menuDescribe['te'](_this);
                 break;
@@ -546,16 +557,26 @@ $.components.register("mMenu", {
                 });
             }, 'site-menubar-unfold');
         },
-        cs: function (_this) {
-            _this.get('/callManager/callSessions', function (contentBox) {
+        co: function (_this) {
+            _this.get('/callManager/conference', function (contentBox) {
+                $('#add-room', contentBox).on('click', function () {
+                    _this.get('/callManager/conference/addRoom', function (contentBox) {
+                        //....
+                    });
+
+                });
+            });
+        },
+        vm: function (_this) {
+            _this.get('/callManager/voiceMain', function (contentBox) {
                 //...
             });
         },
-        ch: function (_this) {
-            _this.get('/callManager/callHistory', function (contentBox) {
-                //....
-            });
-        },
+        //ch: function (_this) {
+        //    _this.get('/callManager/callHistory', function (contentBox) {
+        //        //....
+        //    });
+        //},
         te: function (_this) {
             _this.get('/tenant', function (contentBox) {
                 $('#add-tenant', contentBox).on('click', function () {
@@ -569,6 +590,11 @@ $.components.register("mMenu", {
         rm: function (_this) {
             _this.get('/recordingsManagement', function (contentBox) {
                 $('[data-role="datetime"]', contentBox).datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+            });
+        },
+        cs: function (_this) {
+            _this.get('/callManager/callSessions', function (contentBox) {
+                //...
             });
         },
         cr: function (_this) {

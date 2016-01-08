@@ -95,83 +95,34 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    <div class="checkbox-custom checkbox-default">
-                                        <input type="checkbox">
-                                        <label></label>
-                                    </div>
-                                </td>
-                                <td>1</td>
-                                <td>101</td>
-                                <td>Dec-08-2015</td>
-                                <td>101_102_1208183306.wav</td>
-                                <td>1.1</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox-custom checkbox-default">
-                                        <input type="checkbox">
-                                        <label></label>
-                                    </div>
-                                </td>
-                                <td>2</td>
-                                <td>102</td>
-                                <td>Dec-08-2015</td>
-                                <td>101_102_1208183306.wav</td>
-                                <td>1.1</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox-custom checkbox-default">
-                                        <input type="checkbox">
-                                        <label></label>
-                                    </div>
-                                </td>
-                                <td>3</td>
-                                <td>103</td>
-                                <td>Dec-08-2015</td>
-                                <td>101_102_1208183306.wav</td>
-                                <td>1.1</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox-custom checkbox-default">
-                                        <input type="checkbox">
-                                        <label></label>
-                                    </div>
-                                </td>
-                                <td>4</td>
-                                <td>104</td>
-                                <td>Dec-08-2015</td>
-                                <td>101_102_1208183306.wav</td>
-                                <td>1.1</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
 
+                            <%
+                            if(rmData && rmData.records) {
+                            rmData.records.forEach(function(data, key) {
+                            %>
+                            <tr>
+                                <td>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><%=(key+1) %></td>
+                                <td><%=data.extension_number %></td>
+                                <td><%=data.date %></td>
+                                <td><%=data.file_name %></td>
+                                <td><%=data.size %></td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Delete">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <%
+                            });
+                            }
+                            %>
 
                             </tbody>
                             <tfoot>

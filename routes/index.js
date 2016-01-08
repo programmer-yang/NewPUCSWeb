@@ -13,7 +13,9 @@ var outboundRules = require('./menu/outboundRules');
 var ringGroups = require('./menu/ringGroups');
 var virtualReceptionist = require('./menu/virtualReceptionist');
 var callQueue = require('./menu/callQueue');
-var callHistory = require('./menu/callHistory');
+var conference = require('./menu/conference');
+var voiceMail = require('./menu/voiceMail');
+//var callHistory = require('./menu/callHistory');
 
 var tenant = require('./menu/tenant');
 var recordingsManagement = require('./menu/recordingsManagement');
@@ -122,9 +124,20 @@ router.get('/callManager/callQueue', callQueue.cqGet);
 router.get('/callManager/callQueue/addQueue', callQueue.addCallQueueGet);
 
 /**
- * Call History
+ * Conference
  */
-router.get('/callManager/callHistory', callHistory.chGet);
+router.get('/callManager/conference', conference.coGet);
+router.get('/callManager/conference/addRoom', conference.addRoomGet);
+
+/**
+ * Voice Mail
+ */
+router.get('/callManager/voiceMain', voiceMail.vmGet);
+
+///**
+// * Call History
+// */
+//router.get('/callManager/callHistory', callHistory.chGet);
 
 
 /**

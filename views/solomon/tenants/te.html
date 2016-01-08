@@ -34,51 +34,18 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                            <%
+                            if(teData && teData.tenants) {
+                            teData.tenants.forEach(function(data, key){
+                            %>
+
                             <tr>
-                                <td>1</td>
-                                <td>Peng Bo 1</td>
-                                <td>PortSIP, Inc.</td>
-                                <td>1000</td>
-                                <td>100</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Peng Bo 2</td>
-                                <td>PortSIP, Inc.</td>
-                                <td>1000</td>
-                                <td>100</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Peng Bo 3</td>
-                                <td>PortSIP, Inc.</td>
-                                <td>1000</td>
-                                <td>100</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Peng Bo 4</td>
-                                <td>PortSIP, Inc.</td>
-                                <td>1000</td>
-                                <td>100</td>
+                                <td><%=(key+1)%></td>
+                                <td><%=data.first_name %> <%=data.last_name %></td>
+                                <td><%=data.company_name %></td>
+                                <td><%=data.max_extensions %></td>
+                                <td><%=data.max_concurrent_calls %></td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                             data-toggle="tooltip" data-original-title="Delete">
@@ -87,27 +54,38 @@
                                 </td>
                             </tr>
 
+                            <%
+                            });
+                            }
+                            %>
+
+
+
                             </tbody>
                             <tfoot>
-                            <tr>
-                                <td colspan="7" class="footable-visible">
-                                    <div class="text-right">
-                                        <ul class="pagination">
-                                            <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a>
-                                            </li>
-                                            <li class="footable-page-arrow disabled"><a data-page="prev"
-                                                                                        href="#prev">‹</a></li>
-                                            <li class="footable-page active"><a data-page="0" href="#">1</a></li>
-                                            <li class="footable-page"><a data-page="1" href="#">2</a></li>
-                                            <li class="footable-page"><a data-page="2" href="#">3</a></li>
-                                            <li class="footable-page"><a data-page="3" href="#">4</a></li>
-                                            <li class="footable-page"><a data-page="4" href="#">5</a></li>
-                                            <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
-                                            <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%
+                            var colsPanNumber = 7;
+
+                            var page_count = 1;    //总页数
+                            var page_current = 1;   //当前页
+                            var page_start = 1;     //起始页
+                            var page_sum = 5;       //显示总页
+                            if((page_current+5-1) < page_count) {
+                            page_sum = page_sum+page_current-1;
+                            page_start = page_current;
+                            }else{
+                            page_sum = page_count;
+                            if(page_count>5){
+                            page_start = page_count - 5;
+                            }else{
+                            page_start = page_count;
+                            }
+                            }
+
+                            %>
+
+
+                            <% include ../page.html%>
                             </tfoot>
                         </table>
 

@@ -5,6 +5,7 @@
         <h1 class="page-title">
             Call Sessions
         </h1>
+        <p><%=csData%></p>
     </div>
     <div class="page-content container-fluid">
         <!-- Panel -->
@@ -38,52 +39,49 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                            <%
+                            if(csData && csData.sessions) {
+                            csData.sessions.forEach(function(data, key){
+                            %>
                             <tr>
-                                <td>1</td>
-                                <td>9554</td>
-                                <td>zhangsanfeng</td>
-                                <td>9668</td>
-                                <td>15:04:18</td>
-                                <td>15:05:24</td>
-                                <td>68m</td>
+                                <td><%=(key+1)%></td>
+                                <td><%=data.caller %></td>
+                                <td><%=data.callee %></td>
+                                <td><%=data.session_id %></td>
+                                <td><%=data.start_time %></td>
+                                <td><%=data.answered_time %></td>
+                                <td><%=data.duration %></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>9558</td>
-                                <td>zhangsanfeng2</td>
-                                <td>9661</td>
-                                <td>17:21:18</td>
-                                <td>17:25:24</td>
-                                <td>255m</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>9551</td>
-                                <td>zhangsanfeng3</td>
-                                <td>9661</td>
-                                <td>11:14:18</td>
-                                <td>11:15:24</td>
-                                <td>68m</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>9556</td>
-                                <td>zhangsanfeng4</td>
-                                <td>9666</td>
-                                <td>01:59:18</td>
-                                <td>02:30:24</td>
-                                <td>195m</td>
-                            </tr>
+                            <%
+                            });}
+                            %>
 
                             </tbody>
                             <tfoot>
-                            <tr>
-                                <td colspan="7" class="footable-visible">
-                                    <div class="text-right">
-                                        <ul class="pagination"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page"><a data-page="1" href="#">2</a></li><li class="footable-page"><a data-page="2" href="#">3</a></li><li class="footable-page"><a data-page="3" href="#">4</a></li><li class="footable-page"><a data-page="4" href="#">5</a></li><li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li></ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%
+                            var colsPanNumber = 7;
+
+                            var page_count = 1;    //总页数
+                            var page_current = 1;   //当前页
+                            var page_start = 1;     //起始页
+                            var page_sum = 5;       //显示总页
+                            if((page_current+5-1) < page_count) {
+                            page_sum = page_sum+page_current-1;
+                            page_start = page_current;
+                            }else{
+                            page_sum = page_count;
+                            if(page_count>5){
+                            page_start = page_count - 5;
+                            }else{
+                            page_start = page_count;
+                            }
+                            }
+
+                            %>
+
+
+                            <% include ../page.html%>
                             </tfoot>
                         </table>
 

@@ -21,7 +21,6 @@ app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -56,10 +55,12 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         console.log('error');
+        console.log('404');
 
         //res.redirect('/error');
-        res.status(err.status || 500);
+        //res.status(err.status || 500);
         res.render('error/404');
+        res.end();
     });
 }
 

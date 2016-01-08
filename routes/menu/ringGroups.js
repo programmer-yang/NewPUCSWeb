@@ -1,6 +1,18 @@
+
+var emitter = require('../tool/emitter');
+
 function rgGet (req, res, next) {
 
-    res.render('solomon/content/ringGroups/rg');
+    emitter.local.get('/api/ring_groups/list', req, function(data){
+
+        console.log('============');
+        console.log(data);
+
+        res.render('solomon/content/ringGroups/rg',{rgData : JSON.parse(data)});
+
+    });
+
+    //res.render('solomon/content/ringGroups/rg');
 
 
 }

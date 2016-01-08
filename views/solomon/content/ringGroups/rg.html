@@ -39,44 +39,47 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                            <%
+                            if(rgData && rgData.groups) {
+                            rgData.groups.forEach(function(data, key){
+                            %>
+
                             <tr>
-                                <td>1</td>
-                                <td>001</td>
-                                <td>zhangsanfeng</td>
-                                <td>5235</td>
-                                <td>8</td>
+                                <td><%=(key+1)%></td>
+                                <td><%=data.ring_group_number %></td>
+                                <td><%=data.ring_group_name %></td>
+                                <td><%=data.ring_time %></td>
+                                <td><%=data.ring_strategy %></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>002</td>
-                                <td>zhangsanfeng</td>
-                                <td>5235</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>003</td>
-                                <td>zhangsanfeng</td>
-                                <td>5235</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>004</td>
-                                <td>zhangsanfeng</td>
-                                <td>5235</td>
-                                <td>8</td>
-                            </tr>
+
+                            <% });}%>
 
                             </tbody>
                             <tfoot>
-                            <tr>
-                                <td colspan="9" class="footable-visible">
-                                    <div class="text-right">
-                                        <ul class="pagination"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page"><a data-page="1" href="#">2</a></li><li class="footable-page"><a data-page="2" href="#">3</a></li><li class="footable-page"><a data-page="3" href="#">4</a></li><li class="footable-page"><a data-page="4" href="#">5</a></li><li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li></ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%
+                            var colsPanNumber = 5;
+
+                            var page_count = 1;    //总页数
+                            var page_current = 1;   //当前页
+                            var page_start = 1;     //起始页
+                            var page_sum = 5;       //显示总页
+                            if((page_current+5-1) < page_count) {
+                            page_sum = page_sum+page_current-1;
+                            page_start = page_current;
+                            }else{
+                            page_sum = page_count;
+                            if(page_count>5){
+                            page_start = page_count - 5;
+                            }else{
+                            page_start = page_count;
+                            }
+                            }
+
+                            %>
+
+
+                            <% include ../../page.html%>
                             </tfoot>
                         </table>
 

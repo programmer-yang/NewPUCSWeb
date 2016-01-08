@@ -55,7 +55,7 @@ function loginPost(req, res, next) {
     //res.redirect('/account/verify_credentials');
 
 
-    emitter.local.post('/account/verify_credentials', req.body, function (data) {
+    emitter.local.post('/api/account/verify_credentials', req.body, function (data) {
 
         //console.log('22222');
         //console.log(typeof data);
@@ -97,6 +97,7 @@ function loginPost(req, res, next) {
         console.log(req.session.mysession);
 
         res.cookie('key', req.session.mysession.id, {maxAge: (1000 * 60 * 10)});
+        //res.cookie('key', req.session.mysession.id, {maxAge: (1000 * 10)});
 
         res.json({result: 'success', url: 'index', permissions: dataJson.permissions});
         res.end();

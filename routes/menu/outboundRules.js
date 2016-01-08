@@ -1,6 +1,19 @@
+
+var emitter = require('../tool/emitter');
+
 function orGet (req, res, next) {
 
-    res.render('solomon/content/outboundRules/or');
+    emitter.local.get('/api/outbound_rules/list', req, function(data){
+
+        console.log('============');
+        console.log(data);
+
+        res.render('solomon/content/outboundRules/or',{orData : JSON.parse(data)});
+
+    });
+
+
+    //res.render('solomon/content/outboundRules/or');
 
 
 }

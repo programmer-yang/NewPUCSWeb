@@ -43,15 +43,21 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                            <%
+                            if(orData && orData.rules){
+                            orData.rules.forEach(function(data,key){
+                            %>
+
                             <tr>
-                                <td>1</td>
-                                <td>zhangsanfeng</td>
-                                <td>6665666</td>
-                                <td>6665</td>
-                                <td>8</td>
-                                <td>23</td>
-                                <td>85</td>
-                                <td>12</td>
+                                <td><%=(key+1)%></td>
+                                <td><%=data.name%></td>
+                                <td><%=data.from_extension %></td>
+                                <td><%=data.number_prefix %></td>
+                                <td><%=data.number_length %></td>
+                                <td><%=data.first_route_provider %></td>
+                                <td><%=data.second_route_provider %></td>
+                                <td><%=data.third_route_provider %></td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                             data-toggle="tooltip" data-original-title="Edit">
@@ -64,100 +70,38 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td>2</td>
-                                <td>zhangsanfeng</td>
-                                <td>6665666</td>
-                                <td>6665</td>
-                                <td>8</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            <%
+                            });
+                            }%>
 
-                            <tr>
-                                <td>3</td>
-                                <td>zhangsanfeng</td>
-                                <td>6665666</td>
-                                <td>6665</td>
-                                <td>8</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>4</td>
-                                <td>zhangsanfeng</td>
-                                <td>6665666</td>
-                                <td>6665</td>
-                                <td>8</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>zhangsanfeng</td>
-                                <td>6665666</td>
-                                <td>6665</td>
-                                <td>8</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
 
 
                             </tbody>
                             <tfoot>
-                            <tr>
-                                <td colspan="9" class="footable-visible">
-                                    <div class="text-right">
-                                        <ul class="pagination"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page"><a data-page="1" href="#">2</a></li><li class="footable-page"><a data-page="2" href="#">3</a></li><li class="footable-page"><a data-page="3" href="#">4</a></li><li class="footable-page"><a data-page="4" href="#">5</a></li><li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li></ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%
+                            var colsPanNumber = 9;
+
+                            var page_count = 1;    //总页数
+                            var page_current = 1;   //当前页
+                            var page_start = 1;     //起始页
+                            var page_sum = 5;       //显示总页
+                            if((page_current+5-1) < page_count) {
+                            page_sum = page_sum+page_current-1;
+                            page_start = page_current;
+                            }else{
+                            page_sum = page_count;
+                            if(page_count>5){
+                            page_start = page_count - 5;
+                            }else{
+                            page_start = page_count;
+                            }
+                            }
+
+                            %>
+
+
+                            <% include ../../page.html%>
                             </tfoot>
                         </table>
 
