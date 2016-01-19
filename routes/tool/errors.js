@@ -11,7 +11,7 @@ var errors = {
 };
 
 exports.getError = function (code, detail, res) {
-    console.log('error');
+    console.log('errors.js 14 error');
     console.log(code);
     console.log(detail);
 

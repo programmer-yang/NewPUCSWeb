@@ -5,48 +5,52 @@
 
         Configure how calls should be re-directed when a user can not answer the phone or the phone is busy.
     </h5>
-
     <p>
         No Answer :
     </p>
-
 
     <div class="form-group my-form-group">
         <div class="col-sm-8 col-md-offset-1">
             <label class="form-inline">
                 If the call is not answered within
-                <input type="text" class="form-control" autocomplete="off" placeholder="20"
-                       style="width: 60px;">
+                <input type="text" class="form-control" autocomplete="off" placeholder="20" style="width: 60px;"
+                       data-mark="default" id="ea-timeval"
+                        value="<%=trimValue(data, ['forward_rules','available','no_answer_timeval'])%>">
                 seconds, then
             </label>
         </div>
     </div>
+
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">Send call to voice mail</label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-answer" checked="">
+                    <input type="radio" name="ea-radio-answer" value="1"
+                           checked="" data-mark="default"
+                           data-checked="<%=trimValue(data, ['forward_rules', 'available', 'no_answer_action'])%>"
+                           data-checked-child="<%=trimValue(data, ['forward_rules', 'available', 'no_answer_action_value'])%>">
                     <label></label>
                 </div>
             </div>
         </div>
     </div>
     <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label padding-top-15">
+        <label class="col-sm-4 control-label">
             Send call to other extension
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-answer">
+                    <input type="radio" name="ea-radio-answer" value="2"
+                           data-mark="default" data-associated="default" data-group="ea-radio-answer-extension">
                     <label></label>
                 </div>
             </div>
             <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select">
+                <select data-role="select" id="ea-radio-answer-extension">
                     <option value="1">666|66666</option>
                     <option value="2">888|88989</option>
                     <option value="3">564|5649987</option>
@@ -55,31 +59,78 @@
         </div>
     </div>
 
-
     <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label padding-top-15">
-            Send call to other extension
+        <label class="col-sm-4 control-label">
+            Send call to Ring Group
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-answer">
+                    <input type="radio" name="ea-radio-answer" value="3"
+                           data-mark="default" data-associated="default" data-group="ea-radio-answer-group">
                     <label></label>
                 </div>
             </div>
             <div class="col-sm-8 col-xs-11">
-                <input type="text" class="form-control" autocomplete="off">
+                <select class="bs-select-hidden" data-role="select" id="ea-radio-answer-group">
+                    <option value="1">666|66666</option>
+                    <option value="2">888|88989</option>
+                    <option value="3">564|5649987</option>
+                </select>
             </div>
         </div>
     </div>
+
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">
+            Send call to external number
+        </label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-xs-1 col-sm-1">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="ea-radio-answer" value="4"
+                           data-mark="default" data-associated="default" data-group="ea-radio-answer-number">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-sm-8 col-xs-11">
+                <input type="text" class="form-control" autocomplete="off" id="ea-radio-answer-number">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">
+            Send call to Virtual Receptionist
+        </label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-xs-1 col-sm-1">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="ea-radio-answer" value="5"
+                           data-mark="default" data-associated="default" data-group="ea-radio-answer-receptionist">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-sm-8 col-xs-11">
+                <select class="bs-select-hidden" data-role="select" id="ea-radio-answer-receptionist">
+                    <option value="1">666|66666</option>
+                    <option value="2">888|88989</option>
+                    <option value="3">564|5649987</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">Disconnect the call</label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-answer">
+                    <input type="radio" name="ea-radio-answer" value="6" data-mark="default">
                     <label></label>
                 </div>
             </div>
@@ -102,7 +153,21 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-busy" checked="">
+                    <input type="radio" name="ea-radio-busy" checked="" value="1" data-mark="default"
+                           data-checked="<%=trimValue(data, ['forward_rules', 'available', 'busy_action'])%>"
+                           data-checked-child="<%=trimValue(data, ['forward_rules', 'available', 'busy_action_value'])%>">
+                    <label></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">Send call to voice mail</label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-xs-1 col-sm-1">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="ea-radio-busy" value="2" data-mark="default">
                     <label></label>
                 </div>
             </div>
@@ -110,32 +175,18 @@
     </div>
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
-            Send call to voice mail
-        </label>
-
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-busy">
-                    <label></label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label padding-top-15">
             Send call to other extension
         </label>
-
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-busy">
+                    <input type="radio" name="ea-radio-busy" value="3"
+                           data-mark="default" data-associated="default" data-group="ea-radio-busy-extension">
                     <label></label>
                 </div>
             </div>
             <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" id="ea-radio-busy-extension">
                     <option value="1">666|66666</option>
                     <option value="2">888|88989</option>
                     <option value="3">564|5649987</option>
@@ -145,18 +196,63 @@
     </div>
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
-            Send call to other extension
+            Send call to Ring Group
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-busy">
+                    <input type="radio" name="ea-radio-busy" value="4"
+                           data-mark="default" data-associated="default" data-group="ea-radio-busy-group">
                     <label></label>
                 </div>
             </div>
             <div class="col-sm-8 col-xs-11">
-                <input type="text" class="form-control" autocomplete="off">
+                <select class="bs-select-hidden" data-role="select" id="ea-radio-busy-group">
+                    <option value="1">666|66666</option>
+                    <option value="2">888|88989</option>
+                    <option value="3">564|5649987</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">
+            Send call to external number
+        </label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-xs-1 col-sm-1">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="ea-radio-busy" value="5"
+                           data-mark="default" data-associated="default" data-group="ea-radio-busy-number">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-sm-8 col-xs-11">
+                <input type="text" class="form-control" autocomplete="off" id="ea-radio-busy-number">
+            </div>
+        </div>
+    </div>
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">
+            Send call to Virtual Receptionist
+        </label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-xs-1 col-sm-1">
+                <div class="radio-custom radio-primary">
+                    <input type="radio" name="ea-radio-busy" value="6"
+                           data-mark="default" data-associated="default" data-group="ea-radio-busy-receptionist">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-sm-8 col-xs-11">
+                <select class="bs-select-hidden" data-role="select" id="ea-radio-busy-receptionist">
+                    <option value="1">666|66666</option>
+                    <option value="2">888|88989</option>
+                    <option value="3">564|5649987</option>
+                </select>
             </div>
         </div>
     </div>
@@ -166,7 +262,7 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-xs-1 col-sm-1">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-busy">
+                    <input type="radio" name="ea-radio-busy" value="7" data-mark="default">
                     <label></label>
                 </div>
             </div>

@@ -10,7 +10,9 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox"><label></label>
+                    <input type="checkbox" data-mark="default" id="eo-record-calls"
+                            data-checked="<%=trimValue(data, ['options', 'record_all_calls'])%>">
+                    <label></label>
                 </div>
             </div>
         </div>
@@ -23,7 +25,9 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox"><label></label>
+                    <input type="checkbox" data-mark="default" id="eo-disable-extension"
+                           data-checked="<%=trimValue(data, ['options', 'enable_extension'])%>">
+                    <label></label>
                 </div>
             </div>
         </div>
@@ -36,7 +40,9 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox"><label></label>
+                    <input type="checkbox" data-mark="default" id="eo-disable-extension-calls"
+                           data-checked="<%=trimValue(data, ['options', 'enable_paging_intercom'])%>">
+                    <label></label>
                 </div>
             </div>
         </div>
@@ -49,7 +55,9 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox"><label></label>
+                    <input type="checkbox" data-mark="default" id="eo-allow-paging-intercom"
+                           data-checked="<%=trimValue(data, ['options', 'enable_external_call'])%>">
+                    <label></label>
                 </div>
             </div>
         </div>
@@ -62,7 +70,9 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox"><label></label>
+                    <input type="checkbox" data-mark="default" id="eo-console-access"
+                           data-checked="<%=trimValue(data, ['options', 'enable_management_console_access'])%>">
+                    <label></label>
                 </div>
             </div>
         </div>
@@ -77,10 +87,11 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" multiple data-role="select">
-                    <option value="1">Group1</option>
-                    <option value="2">Group2</option>
-                    <option value="3">Group3</option>
+                <select class="bs-select-hidden" multiple data-mark="default" id="eo-extension-groups"
+                        data-selects="<%=trimValue(data, ['belong_groups'])%>">
+                    <option value="0">Please select</option>
+                    <option value="DEFAULT">DEFAULT</option>
+                    <option value="SYSTEM">SYSTEM</option>
                 </select>
             </div>
         </div>

@@ -21,11 +21,34 @@ app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
+
+app.locals.trimValue = function(data,option) {
+    //console.log(data+':'+option);
+    var result = data;
+    if(data && option) {
+
+        if(typeof option.forEach == 'function') {
+            option.forEach(function(para) {
+
+                if(result[para]) {
+                    result = result[para];
+                }else{
+                    result = '';
+                }
+            });
+        }
+    }
+    return result;
+};
+app.locals.selected = function($) {
+    console.log($);
+};
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(session({secret: 'mySession'}));
 app.use(express.static(path.join(__dirname, 'public')));

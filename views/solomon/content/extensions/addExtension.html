@@ -4,7 +4,7 @@
     <div class="page-header">
         <ol class="breadcrumb">
             <li><a href="javascript:void(0)" data-return="ex">Extensions</a></li>
-            <li class="active">Add Extension</li>
+            <li class="active"><%=type=='add'?'Add':type=='update'?'Update':''%> Extension</li>
         </ol>
     </div>
     <div class="page-content">
@@ -19,7 +19,7 @@
                 <!-- Example Horizontal Form -->
 
                 <div class="example">
-                    <form class="form-horizontal" name="form-transports-add">
+                    <form class="form-horizontal" id="form-extension-add">
 
                         <div class="example-wrap">
                             <div class="nav-tabs-horizontal">
@@ -68,15 +68,16 @@
                             </div>
 
                             <div class="col-sm-8 col-sm-offset-4">
-                                <button type="button" class="btn btn-default btn-primary btn-outline" data-return="ex">
+                                <button type="button" class="btn btn-default btn-primary btn-outline" id="e-cancel" data-return="ex">
                                     Cancel
                                 </button>
                                 <button type="reset" class="btn btn-default btn-outline btn-primary">
                                     Reset
                                 </button>
-                                <button type="button" class="btn btn-default btn-outline btn-primary">
-                                    Submit
+                                <button type="button" class="btn btn-default btn-outline btn-primary" id="extension-apply">
+                                    Apply
                                 </button>
+                                <input type="hidden" value="<%=type%>"/>
                             </div>
 
                         </div>

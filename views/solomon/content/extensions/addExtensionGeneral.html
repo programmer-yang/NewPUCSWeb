@@ -11,7 +11,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Extension Number" autocomplete="off">
+                <input type="text" class="form-control" data-mark="default"
+                       placeholder="Extension Number" autocomplete="off" id="eg-number"
+                       value="<%=type=='update'?data.extension_number:'' %>">
             </div>
         </div>
     </div>
@@ -20,7 +22,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Password" autocomplete="off">
+                <input type="text" class="form-control" data-mark="default"
+                       placeholder="Password" autocomplete="off" id="eg-password"
+                       value="<%=trimValue(data, ['password'])%>">
             </div>
         </div>
     </div>
@@ -29,7 +33,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="First Name" autocomplete="off">
+                <input type="text" class="form-control" placeholder="First Name" autocomplete="off"
+                       data-mark="default" id="eg-first-name"
+                       value="<%=trimValue(data, ['extension_profile','first_name'])%>">
             </div>
         </div>
     </div>
@@ -38,7 +44,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Last Name" autocomplete="off">
+                <input type="text" class="form-control" data-mark="default"
+                       placeholder="Last Name" autocomplete="off" id="eg-last-name"
+                       value="<%=trimValue(data, ['extension_profile','last_name'])%>">
             </div>
         </div>
     </div>
@@ -47,10 +55,12 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select data-role="select">
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
+                <select data-role="select" data-mark="default" id="eg-gender" data-selected="<%=trimValue(data, ['extension_profile', 'gender'])%>">
+                    <option value="0" >Please select</option>
+                    <option value="Male" >Male</option>
+                    <option value="Female" >Female</option>
                 </select>
+
             </div>
         </div>
     </div>
@@ -59,7 +69,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Email" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Email" autocomplete="off"
+                       data-mark="default" id="eg-email"
+                       value="<%=trimValue(data, ['extension_profile', 'email'])%>">
             </div>
         </div>
     </div>
@@ -68,7 +80,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Company Name" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Company Name" autocomplete="off"
+                       data-mark="default" id="eg-company-name"
+                       value="<%=trimValue(data, ['extension_profile', 'company_name'])%>">
             </div>
         </div>
     </div>
@@ -77,7 +91,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Company Website" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Company Website" autocomplete="off"
+                       data-mark="default" id="eg-company-website"
+                       value="<%=trimValue(data, ['extension_profile', 'company_website'])%>">
             </div>
         </div>
     </div>
@@ -86,7 +102,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Mobile Phone Number" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Mobile Phone Number" autocomplete="off"
+                       data-mark="default" id="eg-mobile-phone"
+                       value="<%=trimValue(data, ['extension_profile', 'mobile_phone'])%>">
             </div>
         </div>
     </div>
@@ -95,7 +113,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Work Phone Number" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Work Phone Number" autocomplete="off"
+                       data-mark="default" id="eg-work-phone"
+                       value="<%=trimValue(data, ['extension_profile', 'work_phone'])%>">
             </div>
         </div>
     </div>
@@ -104,7 +124,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Home Phone Number" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Home Phone Number" autocomplete="off"
+                       data-mark="default" id="eg-home-phone"
+                       value="<%=trimValue(data, ['extension_profile', 'home_phone'])%>">
             </div>
         </div>
     </div>
@@ -113,7 +135,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Twitter" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Twitter" autocomplete="off"
+                       data-mark="default" id="eg-twitter"
+                       value="<%=trimValue(data, ['extension_profile', 'twitter'])%>">
             </div>
         </div>
     </div>
@@ -122,7 +146,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Facebook" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Facebook" autocomplete="off"
+                       data-mark="default" id="eg-facebook"
+                       value="<%=trimValue(data, ['extension_profile', 'facebook'])%>">
             </div>
         </div>
     </div>
@@ -131,7 +157,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Linked in" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Linked in" autocomplete="off"
+                       data-mark="default" id="eg-gender-linked"
+                       value="<%=trimValue(data, ['extension_profile', 'linkedin'])%>">
             </div>
         </div>
     </div>
@@ -140,7 +168,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Instagram" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Instagram" autocomplete="off"
+                       data-mark="default" id="eg-instagram"
+                       value="<%=trimValue(data, ['extension_profile', 'instagram'])%>">
             </div>
         </div>
     </div>
@@ -149,14 +179,10 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <textarea class="form-control" id="textareaDefault" rows="3"></textarea>
+                <textarea class="form-control" data-role="textarea" rows="3" data-mark="default" id="eg-description"><%=trimValue(data, ['extension_profile', 'description'])%></textarea>
             </div>
         </div>
     </div>
-
-
-
-
 
 
     <hr>

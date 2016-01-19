@@ -6,7 +6,8 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-answer" checked="">
+                    <input type="radio" name="eoh-uses-time" data-mark="default" value="1" id="eoh-radio-time-global"
+                           data-checked="<%=trimValue(data, ['office_hours', 'office_hours_mode'])%>">
                     <label></label>
                 </div>
             </div>
@@ -20,7 +21,7 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="radio-custom radio-primary">
-                    <input type="radio" name="radio-answer" checked="">
+                    <input type="radio" name="eoh-uses-time" data-mark="default" value="2" id="eoh-radio-time-specific">
                     <label></label>
                 </div>
             </div>
@@ -71,7 +72,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       id="eoh-monday-begin" readonly="readonly"
+                                       value="<%=trimValue(data, ['office_hours', 'monday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -81,21 +84,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       id="eoh-monday-end" readonly="readonly"
+                                       value="<%=trimValue(data, ['office_hours', 'monday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-monday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-monday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off"
+                                   id="eoh-monday" data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     <tr>
@@ -111,7 +117,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       id="eoh-tuesday-begin" readonly="readonly"
+                                       value="<%=trimValue(data, ['office_hours', 'tuesday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -121,21 +129,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       id="eoh-tuesday-end" readonly="readonly"
+                                       value="<%=trimValue(data, ['office_hours', 'tuesday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-tuesday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-tuesday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off" id="eoh-tuesday"
+                                   data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     <tr>
@@ -151,7 +162,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       id="eoh-wednesday-begin" readonly="readonly"
+                                       value="<%=trimValue(data, ['office_hours', 'wednesday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -161,21 +174,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       id="eoh-wednesday-end" readonly="readonly"
+                                       value="<%=trimValue(data, ['office_hours', 'wednesday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-wednesday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-wednesday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off" id="eoh-wednesday"
+                                   data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     <tr>
@@ -191,7 +207,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-thursday-begin"
+                                       value="<%=trimValue(data, ['office_hours', 'thursday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -201,21 +219,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-thursday-end"
+                                       value="<%=trimValue(data, ['office_hours', 'thursday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-thursday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-thursday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off" id="eoh-thursday"
+                                   data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     <tr>
@@ -231,7 +252,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-friday-begin"
+                                       value="<%=trimValue(data, ['office_hours', 'friday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -241,21 +264,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-friday-end"
+                                       value="<%=trimValue(data, ['office_hours', 'friday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-friday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-friday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off" id="eoh-friday"
+                                   data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     <tr>
@@ -271,7 +297,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-saturday-begin"
+                                       value="<%=trimValue(data, ['office_hours', 'saturday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -281,21 +309,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-saturday-end"
+                                       value="<%=trimValue(data, ['office_hours', 'saturday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-saturday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-saturday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off"
+                                   id="eoh-saturday" data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     <tr>
@@ -311,7 +342,9 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-sunday-begin"
+                                       value="<%=trimValue(data, ['office_hours', 'sunday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -321,21 +354,24 @@
                                 </span>
                                 <input type="text"
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
-                                       data-role="timepicker" autocomplete="off">
+                                       data-role="timepicker" autocomplete="off" data-mark="default"
+                                       readonly="readonly" id="eoh-sunday-end"
+                                       value="<%=trimValue(data, ['office_hours', 'saturday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="eoh-sunday">
                                     <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
                                 </button>
-                                <button type="button" class="btn btn-icon btn-default btn-outline">
+                                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="eoh-sunday">
                                     <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>
                         <td class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="" autocomplete="off"
+                                   id="eoh-sunday" data-time-show="default" readonly="readonly">
                         </td>
                     </tr>
                     </tbody>

@@ -14,12 +14,13 @@
 
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
-            Read Out Date/time of message
+            Phone Model
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-phone-model"
+                        data-selects="<%=trimValue(data, ['phone_provisioning','phone_model'])%>">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -35,7 +36,8 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Phone MAC Address" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Phone MAC Address" autocomplete="off"
+                        data-mark="default" id="epp-mac-address">
             </div>
         </div>
     </div>
@@ -46,7 +48,8 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Phone Web Page Password" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Phone Web Page Password" autocomplete="off"
+                       data-mark="default" id="epp-page-password">
             </div>
         </div>
     </div>
@@ -57,7 +60,7 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-time-zone">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -72,7 +75,7 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-display-language">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -87,7 +90,7 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-provisioning-method">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -102,7 +105,7 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-networkd-interface">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -121,7 +124,7 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-codec-st">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -136,7 +139,7 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-codec-nd">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -146,12 +149,12 @@
     </div>
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
-            3nd preferred codec
+            3rd preferred codec
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-codec-rd">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
@@ -161,12 +164,12 @@
     </div>
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
-            4nd preferred codec
+            4th preferred codec
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="epp-codec-th">
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>

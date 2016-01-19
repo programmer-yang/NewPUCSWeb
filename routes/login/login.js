@@ -6,6 +6,7 @@ var languages = require('./../../config/language');
 //var emitter = require('../tool/emitter');
 var emitter = require('../tool/emitter');
 var ef = require('../tool/errors');
+var util = require('../tool/util');
 
 /**
  * 根目录请求
@@ -46,7 +47,7 @@ function loginPost(req, res, next) {
     //console.log('sayhi.get');
     //sayhi.test(function(data){console.log(data);});
     console.log('执行登陆');
-    console.log('/account/verify_credentials');
+    console.log('/api/account/credentials/verify');
 
     //emitter.port('/account/verify_credentials', function(req, res, next){
     //
@@ -55,11 +56,14 @@ function loginPost(req, res, next) {
     //res.redirect('/account/verify_credentials');
 
 
-    emitter.local.post('/api/account/verify_credentials', req.body, function (data) {
+    emitter.local.post('/api/account/credentials/verify', req.body, function (data) {
 
         //console.log('22222');
         //console.log(typeof data);
         //console.log(data);
+        console.log('================');
+        console.log(data.length);
+        console.log(data);
 
         if(typeof data === 'undefined') {
             ef.getError('500', '500', res);
@@ -67,8 +71,8 @@ function loginPost(req, res, next) {
         }
 
 
+        var dataJson = util.parseJSON(data);
 
-        var dataJson = JSON.parse(data);
         if (dataJson.err_code) {
             console.log('6646546321');
             console.log(dataJson);
@@ -91,6 +95,8 @@ function loginPost(req, res, next) {
         var permissions = dataJson.permissions;
         var role = dataJson.role;
 
+
+        res.cookie('token', dataJson.access_token);
 
 
         console.log('------------');

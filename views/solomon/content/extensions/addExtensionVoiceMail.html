@@ -1,35 +1,50 @@
 <div class="tab-pane" id="exampleTabsTwo" role="tabpanel">
 
     <h5 class="margin-top-10">
-        Voice Mail Configuration
+        Voice Mail Options
     </h5>
 
     <p>
-        Enable voice message if user unable toanswer the call :
+        Once the voice mail is enabled, the voice message will be recoreded if extension unable to answer the call
     </p>
 
     <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Extension Number </label>
+        <label class="col-sm-4 control-label">Enable Voice Mail</label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox">
+                <div class="checkbox-custom checkbox-default" style="height: 36px">
+                    <input type="checkbox" id="evm-enable" data-mark="default"
+                           data-checked="<%=trimValue(data, ['voice_mail','enable_voicemail'])%>">
                     <label></label>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
     </div>
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
-            Disable Voicemail PIN Authertication
+            Prompt language
         </label>
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox">
+                <select data-role="select" data-mark="default" id="evm-prompt-language"
+                        data-selected="<%=trimValue(data, ['voice_mail', 'prompt_language'])%>">
+                    <option value="0">Please select</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group my-form-group">
+        <label class="col-sm-4 control-label">Disable Voicemail PIN Authentication</label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <div class="checkbox-custom checkbox-default" style="height: 36px">
+                    <input type="checkbox" data-mark="default" id="evm-pin-auth"
+                           data-checked="<%=trimValue(data, ['voice_mail','enable_vm_pin_auth'])%>">
                     <label></label>
                 </div>
             </div>
@@ -43,7 +58,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="PIN Number" autocomplete="off">
+                <input type="text" class="form-control" placeholder="PIN Number" autocomplete="off"
+                       data-mark="default" id="evm-pin-number"
+                        value="<%=trimValue(data, ['voice_mail', 'voicemail_pin'])%>">
             </div>
         </div>
     </div>
@@ -54,13 +71,13 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox">
+                <div class="checkbox-custom checkbox-default" style="height: 36px">
+                    <input type="checkbox" data-mark="default" id="evm-call-id"
+                           data-checked="<%=trimValue(data, ['voice_mail','enable_play_caller_id'])%>">
                     <label></label>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
     </div>
     <div class="form-group my-form-group">
         <label class="col-sm-4 control-label">
@@ -69,26 +86,12 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
+                <select class="bs-select-hidden" data-role="select" data-mark="default" id="evm-read-out"
+                        data-selected="<%=trimValue(data, ['voice_mail','msg_read_out_datetime'])%>">
+                    <option value="0">Please select</option>
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>
                     <option value="3">Read in 24-hour format</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Email Options
-        </label>
-
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <select class="bs-select-hidden" data-role="select">
-                    <option value="1">No email notification</option>
-                    <option value="2">Send email notification</option>
-                    <option value="3">Send voice mail as attachment</option>
-                    <option value="4">Send as attachment and delete from voice mailbox</option>
                 </select>
             </div>
         </div>
@@ -97,95 +100,130 @@
     <hr/>
 
     <h5 class="margin-top-10">
-        Manage Greetings
+        Greetings for Voice Mail
     </h5>
 
-    <p> Wave files in user's folder</p>
+    <p>Wave files in user's direcotry.</p>
+
+    <!--<div class="form-group my-form-group">-->
+
+        <!--<div class="col-sm-8 col-md-offset-2">-->
+            <!--<div class="col-sm-12 padding-bottom-10">-->
+                <!--<button class="btn btn-outline btn-primary btn-sm">-->
+                    <!--<i class="icon wb-plus" aria-hidden="true"></i>-->
+                    <!--Add New-->
+                <!--</button>-->
+            <!--</div>-->
+            <!--<div class="col-sm-12">-->
+                <!--<table class="table table-bordered">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>Name</th>-->
+                        <!--<th>Action</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td>greeting_1.wav</td>-->
+                        <!--<td>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default">-->
+                                <!--<i class="icon wb-play" aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-primary"><i class="icon wb-lock"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>greeting_1.wav</td>-->
+                        <!--<td>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>greeting_1.wav</td>-->
+                        <!--<td>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"-->
+                                                                                               <!--aria-hidden="true"></i>-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+    <!--<div class="form-group my-form-group">-->
+
+        <!--<label class="col-sm-4 control-label">-->
+            <!--Enable play greeting-->
+        <!--</label>-->
+
+        <!--<div class="col-sm-8 padding-left-0">-->
+            <!--<div class="col-sm-8">-->
+                <!--<div class="checkbox-custom checkbox-default">-->
+                    <!--<input type="checkbox">-->
+                    <!--<label></label>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="form-group my-form-group">
-
-        <div class="col-sm-8 col-md-offset-2">
-            <div class="col-sm-12 padding-bottom-10">
-                <button class="btn btn-outline btn-primary btn-sm">
-                    <i class="icon wb-plus" aria-hidden="true"></i>
-                    Add New
-                </button>
-            </div>
-            <div class="col-sm-12">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>greeting_1.wav</td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-pure btn-default">
-                                <i class="icon wb-play" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon btn-pure btn-primary"><i class="icon wb-lock"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>greeting_1.wav</td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>greeting_1.wav</td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-play"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-lock"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon wb-trash"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
+        <div class="col-sm-6 col-sm-offset-2">
+            <table class="table table-bordered table-high">
+                <tbody>
+                    <tr><td>Greeting_1.wav</td></tr>
+                    <tr><td>Greeting_2.wav</td></tr>
+                    <tr><td>Greeting_3.wav</td></tr>
+                    <tr><td>Greeting_4.wav</td></tr>
+                </tbody>
+            </table>
         </div>
-
-
-    </div>
-
-    <div class="form-group my-form-group">
-
-        <label class="col-sm-4 control-label">
-            Enable play greeting
-        </label>
-
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox">
-                    <label></label>
-                </div>
-            </div>
+        <div class="col-sm-4">
+            <table class="table-high">
+                <tbody>
+                <tr><td><button type="button" class="btn btn-block btn-outline btn-default">Update new greeting file</button></td></tr>
+                <tr><td><button type="button" class="btn btn-block btn-outline btn-default">Delete</button></td></tr>
+                <tr><td><button type="button" class="btn btn-block btn-outline btn-default">Play</button></td></tr>
+                <tr><td><button type="button" class="btn btn-block btn-outline btn-default">Set as default greeting</button></td></tr>
+                </tbody>
+            </table>
+            <!--<div class="col-sm-12 margin-5">-->
+                <!-- -->
+            <!--</div>-->
+            <!--<div class="col-sm-12 margin-5">-->
+                <!-- -->
+            <!--</div>-->
+            <!--<div class="col-sm-12 margin-5">-->
+                <!--<button type="button" class="btn btn-block btn-default">Update new greeting file</button>-->
+            <!--</div>-->
+            <!--<div class="col-sm-12 margin-5">-->
+                <!--<button type="button" class="btn btn-block btn-default">Update new greeting file</button>-->
+            <!--</div>-->
         </div>
     </div>
 

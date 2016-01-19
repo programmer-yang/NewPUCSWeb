@@ -76,11 +76,17 @@ router.get('/callManager/domain/transports', doMainsAndTransports.updateTranspor
 /**
  * Extensions
  */
-router.get('/callManager/extensions', extensions.exGet);
-router.get('/callManager/extensions/extension', extensions.addExtensionsGet);
+router.get('/callManager/extension', extensions.exGet);
+router.get('/callManager/extension/create', extensions.addExtensionsGet);
+router.post('/callManager/extension/create', extensions.addExtensionsPost);
+router.get('/callManager/extension/update', extensions.updateExtensionGet);
+router.post('/callManager/extension/update', extensions.updateExtensionPost);
 
-router.get('/callManager/extensions/getGroupManagement', extensions.getGroupManagement);
-router.get('/callManager/extensions/getGroupManagement/addGroup', extensions.addGroup);
+router.get('/callManager/extension/group', extensions.extensionGroupGet);
+router.get('/callManager/extension/group/create', extensions.addGroupGet);
+router.post('/callManager/extension/group/create', extensions.addGroupPost);
+router.get('/callManager/extension/group/update', extensions.updateGroupGet);
+router.post('/callManager/extension/group/update', extensions.updateGroupPost);
 /**
  * System Extensions
  */

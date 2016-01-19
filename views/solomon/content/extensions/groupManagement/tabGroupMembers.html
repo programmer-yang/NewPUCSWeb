@@ -37,8 +37,14 @@
                 </div>
             </div>
             <div class="col-xs-4 col-sm-4 padding-0 margin-0 my-multi-select-box height-200 my-multi-select-box">
-                <div class="list-group">
-                    <a class="list-group-item " href="javascript:void(0)">1000</a>
+                <!--
+                这里的data-mark需要在修改数据后修改为update
+                <div class="list-group" data-mark="default" data-role="list" id="egm-members">
+                -->
+                <div class="list-group" data-mark="update" data-role="list" id="egm-members"
+                     data-list="<%=trimValue(data, ['members'])%>">
+                    <!-- data-list 为从服务端拿到的初始化数据，这里暂时不实现，等将来实现该元素的添加和移除的时候一起实现，只需解析这个属性就可以  -->
+                    <a class="list-group-item" href="javascript:void(0)">1000</a>
                     <a class="list-group-item" href="javascript:void(0)">1001</a>
                 </div>
             </div>

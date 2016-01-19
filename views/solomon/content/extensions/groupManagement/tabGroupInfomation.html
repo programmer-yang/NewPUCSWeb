@@ -17,7 +17,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Last Name" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Last Name" autocomplete="off"
+                       data-mark="default" id="egm-group-name"
+                       value="<%=trimValue(data, ['group_name'])%>">
             </div>
         </div>
     </div>
@@ -28,7 +30,9 @@
 
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Last Name" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Group Description" autocomplete="off"
+                       data-mark="default" id="egm-group-description"
+                       value="<%=trimValue(data, ['group_description'])%>">
             </div>
         </div>
     </div>
@@ -42,7 +46,8 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox">
+                    <input type="checkbox" data-mark="default" id="egm-allow-intercom"
+                           data-checked="<%=trimValue(data, ['enable_intercom'])%>">
                     <label></label>
                 </div>
             </div>
@@ -56,168 +61,26 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
-                    <input type="checkbox">
+                    <input type="checkbox" data-mark="default" id="egm-external-call"
+                           data-checked="<%=trimValue(data, ['enable_external_call'])%>">
                     <label></label>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <h5>Call Rate for Group Members</h5>
-    <hr style="width: 90%;"/>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Rate 1
-                </label>
-
-                <div class="col-sm-8 padding-left-0">
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" autocomplete="off">
-                    </div>
-                    <div class="col-sm-3">
-                        <select data-role="select">
-                            <option value="USD">USD</option>
-                            <option value="CNY">CNY</option>
-                            <option value="GBP">GBP</option>
-                            <option value="EUR">EUR</option>
-                        </select>
-                    </div>
-                    <label class="col-sm-1 control-label">
-                        per
-                    </label>
-                    <div class="col-sm-3">
-                        <select data-role="select">
-                            <option value="0">minutes</option>
-                            <option value="1">seconds</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Apply Rate 1 to below calls:
-                </label>
-            </div>
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Calls to numbers starting with prefix
-                </label>
-
-                <div class="col-sm-8 padding-left-0">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Last Name" autocomplete="off">
-                    </div>
-                </div>
-            </div>
-            <hr class="padding-top-10" style="width: 90%"/>
-        </div>
-
-        <div class="col-sm-12">
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Rate 2
-                </label>
-
-                <div class="col-sm-8 padding-left-0">
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" autocomplete="off">
-                    </div>
-                    <div class="col-sm-3">
-                        <select data-role="select">
-                            <option value="USD">USD</option>
-                            <option value="CNY">CNY</option>
-                            <option value="GBP">GBP</option>
-                            <option value="EUR">EUR</option>
-                        </select>
-                    </div>
-                    <label class="col-sm-1 control-label">
-                        per
-                    </label>
-                    <div class="col-sm-3">
-                        <select data-role="select">
-                            <option value="0">minutes</option>
-                            <option value="1">seconds</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Apply Rate 1 to below calls:
-                </label>
-            </div>
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Calls to numbers starting with prefix
-                </label>
-
-                <div class="col-sm-8 padding-left-0">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Last Name" autocomplete="off">
-                    </div>
-                </div>
-            </div>
-
-            <hr class="padding-top-10" style="width: 90%"/>
-        </div>
-
-        <div class="col-sm-12">
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Rate 3
-                </label>
-
-                <div class="col-sm-8 padding-left-0">
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" autocomplete="off">
-                    </div>
-                    <div class="col-sm-3">
-                        <select data-role="select">
-                            <option value="USD">USD</option>
-                            <option value="CNY">CNY</option>
-                            <option value="GBP">GBP</option>
-                            <option value="EUR">EUR</option>
-                        </select>
-                    </div>
-                    <label class="col-sm-1 control-label">
-                        per
-                    </label>
-                    <div class="col-sm-3">
-                        <select data-role="select">
-                            <option value="0">minutes</option>
-                            <option value="1">seconds</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Apply Rate 1 to below calls:
-                </label>
-            </div>
-            <div class="form-group my-form-group">
-                <label class="col-sm-4 control-label">
-                    Calls to numbers starting with prefix
-                </label>
-
-                <div class="col-sm-8 padding-left-0">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Last Name" autocomplete="off">
-                    </div>
-                </div>
-            </div>
-
-            <hr class="padding-top-10" style="width: 90%"/>
-        </div>
-    </div>
     <div class="form-group my-form-group">
-        <div class="col-sm-11 padding-left-0 text-right" >
-            <button type="button" class="btn btn-default btn-primary btn-outline">
-                Add more rate
-            </button>
+        <label class="col-sm-4 control-label">
+            Allow Management Console Access
+        </label>
+
+        <div class="col-sm-8 padding-left-0">
+            <div class="col-sm-8">
+                <div class="checkbox-custom checkbox-default">
+                    <input type="checkbox" data-mark="default" id="egm-console-access"
+                           data-checked="<%=trimValue(data, ['enable_management_console_access'])%>">
+                    <label></label>
+                </div>
+            </div>
         </div>
     </div>
 

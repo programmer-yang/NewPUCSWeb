@@ -96,10 +96,10 @@ function look(req, res, next) {
         var key = req.cookies.key;
         var mySession = req.session.mysession;
 
-        console.log('************');
-        console.log(key);
-        console.log(mySession);
-        console.log('************');
+        //console.log('************');
+        //console.log(key);
+        //console.log(mySession);
+        //console.log('************');
 
 
         if (key && mySession && key == mySession.id) {
