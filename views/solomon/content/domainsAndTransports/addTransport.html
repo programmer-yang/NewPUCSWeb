@@ -30,7 +30,8 @@
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
-                                            <select class="bs-select-hidden" data-role="select">
+                                            <select class="bs-select-hidden" data-role="select"
+                                                    data-mark="default" id="dat-protocol">
                                                 <option value="1">UDP</option>
                                                 <option value="2">TCP</option>
                                                 <option value="3">TLS</option>
@@ -46,7 +47,8 @@
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="email"
-                                                   placeholder="port" autocomplete="off">
+                                                   placeholder="port" autocomplete="off"
+                                                   data-mark="default" id="dat-port">
                                         </div>
                                     </div>
                                 </div>
@@ -60,14 +62,15 @@
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
                                             <div class="input-group input-group-file">
-                                                <input type="text" class="form-control" readonly="">
-                                            <span class="input-group-btn">
-                                              <span class="btn btn-outline btn-file">
-                                                <i class="icon wb-upload"
-                                                   aria-hidden="true"></i>
-                                                <input type="file" multiple="">
-                                              </span>
-                                            </span>
+                                                <input type="text" class="form-control" readonly=""
+                                                       data-mark="default" id="dat-certificate-file">
+                                                <span class="input-group-btn">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-upload"
+                                                       aria-hidden="true"></i>
+                                                    <input type="file" multiple="">
+                                                  </span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -78,14 +81,15 @@
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
                                             <div class="input-group input-group-file">
-                                                <input type="text" class="form-control" readonly="">
-                                            <span class="input-group-btn">
-                                              <span class="btn btn-outline btn-file">
-                                                <i class="icon wb-upload"
-                                                   aria-hidden="true"></i>
-                                                <input type="file" multiple="">
-                                              </span>
-                                            </span>
+                                                <input type="text" class="form-control" readonly=""
+                                                       data-mark="default" id="dat-private-key-file">
+                                                <span class="input-group-btn">
+                                                  <span class="btn btn-outline btn-file">
+                                                    <i class="icon wb-upload"
+                                                       aria-hidden="true"></i>
+                                                    <input type="file" multiple="">
+                                                  </span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +101,8 @@
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
                                             <div class="input-group input-group-file">
-                                                <input type="text" class="form-control" readonly="">
+                                                <input type="text" class="form-control" readonly=""
+                                                       data-mark="default" id="dat-root-certificate-file">
                                             <span class="input-group-btn">
                                               <span class="btn btn-outline btn-file">
                                                 <i class="icon wb-upload"
@@ -115,8 +120,9 @@
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="text"
-                                                   placeholder="Certificate Private Key Password" autocomplete="off">
+                                            <input type="text" class="form-control"
+                                                   placeholder="Certificate Private Key Password" autocomplete="off"
+                                                   data-mark="default" id="dat-private-key" >
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +132,8 @@
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-8">
-                                            <select class="bs-select-hidden" data-role="select">
+                                            <select class="bs-select-hidden" data-role="select"
+                                                    data-mark="default" id="dat-client-verification">
                                                 <option value="1">None</option>
                                                 <option value="2">Optional</option>
                                                 <option value="3">Mandatory</option>
@@ -143,8 +150,9 @@
                                         <button type="reset" class="btn btn-default btn-outline btn-primary">
                                             Reset
                                         </button>
-                                        <button type="button" class="btn btn-default btn-outline btn-primary">
-                                            Submit
+                                        <button type="button" class="btn btn-default btn-outline btn-primary"
+                                                id="dat-apply">
+                                            Apply
                                         </button>
                                     </div>
                                 </div>

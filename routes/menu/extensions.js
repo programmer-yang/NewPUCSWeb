@@ -1,141 +1,162 @@
-
 var emitter = require('../tool/emitter');
 var util = require('../tool/util');
+var EventProxy = require('eventproxy');
+var proxy = new EventProxy();
+
+function exGet(req, res, next) {
 
 
+  var url = '/api/extensions/list';
+  //url = util.trimGetParameter(url, req.query);
 
-function exGet (req, res, next) {
+  emitter.local.get(url, req, function (data) {
 
+    data = util.parseJSON(data);
+    console.log('============');
+    console.log(data);
+    if (data.err_code) {
+      res.json(data).end();
+      return;
+    } else {
+      res.render('solomon/content/extensions/ex', {exData: data});
+    }
 
-    var url = '/api/extensions/list';
-    //url = util.trimGetParameter(url, req.query);
-
-    emitter.local.get(url, req, function(data){
-
-        data = util.parseJSON(data);
-        console.log('============');
-        console.log(data);
-        if(data.err_code) {
-            res.json(data).end();
-            return;
-        }else {
-            res.render('solomon/content/extensions/ex',{exData : data});
-        }
-
-    });
-
-}
-
-function addExtensionsGet (req, res, next) {
-
-    res.render('solomon/content/extensions/addExtension',{type: 'add',data: ''});
+  });
 
 }
-function addExtensionsPost (req, res, next) {
 
-    //res.render('solomon/content/extensions/addExtension');
+function addExtensionsGet(req, res, next) {
 
-    var data = req.body;
-    //data.access_token = '654321';
+  res.render('solomon/content/extensions/addExtension', {type: 'add', data: ''});
 
-    emitter.local.post('/api/extensions/create', data, function(data){
-        res.json(data).end();
-    });
+}
+function addExtensionsPost(req, res, next) {
+
+  //res.render('solomon/content/extensions/addExtension');
+
+  var data = req.body;
+  //data.access_token = '654321';
+
+  emitter.local.post('/api/extensions/create', data, function (data) {
+    res.json(data).end();
+  });
 
 }
 function updateExtensionGet(req, res, next) {
 
-    console.log('666');
-    console.log(req.query);
-    var url = '/api/extensions/show';
-    //url = util.trimGetParameter(url,req.query);
-    //console.log(url);
-    emitter.local.get(url, req, function(data){
-        console.log('callback');
-        console.log(data);
-        data = util.parseJSON(data);
-        console.log(data);
-        if(data && data.err_code) {
-            console.log('error --- ');
-        }else{
-            res.render('solomon/content/extensions/addExtension',{type: 'update',data: data});
-        }
-    });
+  console.log('666');
+  console.log(req.query);
+  var url = '/api/extensions/show';
+  //url = util.trimGetParameter(url,req.query);
+  //console.log(url);
+  emitter.local.get(url, req, function (data) {
+    console.log('callback');
+    console.log(data);
+    data = util.parseJSON(data);
+    console.log(data);
+    if (data && data.err_code) {
+      console.log('error --- ');
+    } else {
+      res.render('solomon/content/extensions/addExtension', {type: 'update', data: data});
+    }
+  });
 }
-
 function updateExtensionPost(req, res, next) {
 
-    console.log(req.body);
-    var url = '/api/extensions/update';
-    emitter.local.post(url, req.body, function(data){
-        res.json(data).end();
-    });
+  console.log(req.body);
+  var url = '/api/extensions/update';
+  emitter.local.post(url, req.body, function (data) {
+    res.json(data).end();
+  });
 
+}
+function deleteExtensionPost(req, res, next) {
+  var url = '/api/extensions/destroy';
+  emitter.local.post(url, req.body, function (data) {
+    res.json(data).end();
+  });
 }
 
 
+function extensionGroupGet(req, res, next) {
 
-function extensionGroupGet (req, res, next) {
+  emitter.local.get('/api/extensions/group/list', req, function (data) {
 
-    emitter.local.get('/api/extensions/group/list', req, function(data){
+    console.log('============');
+    console.log(data);
+    data = util.parseJSON(data);
 
-        console.log('============');
-        console.log(data);
-        data = util.parseJSON(data);
+    res.render('solomon/content/extensions/groupManagement/groupManagement', {groupData: data});
 
-        res.render('solomon/content/extensions/groupManagement/groupManagement',{groupData : data});
-
-    });
-
+  });
 
 
-    //res.render('solomon/content/extensions/groupManagement/groupManagement');
+  //res.render('solomon/content/extensions/groupManagement/groupManagement');
 
 }
-function addGroupGet (req, res, next) {
+function addGroupGet(req, res, next) {
 
-    res.render('solomon/content/extensions/groupManagement/addGroup', {type: 'add',data: ''});
+  emitter.local.get('/api/extensions/list', req, function (data) {
 
-}
-function addGroupPost (req, res, next) {
+    var result = {};
+    console.log(data);
+    data = util.parseJSON(data);
+    result['eData'] = data;
+    result['gmData'] = {};
+    res.render('solomon/content/extensions/groupManagement/addGroup', {type:'add', data: result});
 
-    console.log(req.body);
-    var url = '/api/extensions/group/create';
-    emitter.local.post(url, req.body, function(data){
-        res.json(data).end();
-    });
+  });
 
-}
-function updateGroupGet (req, res, next) {
-
-    console.log('666');
-    console.log(req.query);
-    var url = '/api/extensions/group/show';
-    //url = util.trimGetParameter(url,req.query);
-    //console.log(url);
-    emitter.local.get(url, req, function(data) {
-        console.log('callback');
-        console.log(data);
-        data = util.parseJSON(data);
-        console.log(data);
-        if(data && data.err_code) {
-            console.log('error --- ');
-        }else {
-            res.render('solomon/content/extensions/groupManagement/addGroup',{type: 'update',data: data});
-        }
-    });
+  //res.render('solomon/content/extensions/groupManagement/addGroup', {type: 'add', data: ''});
 
 }
-function updateGroupPost (req, res, next) {
+function addGroupPost(req, res, next) {
 
-    console.log(req.body);
-    var url = '/api/extensions/group/update';
-    emitter.local.post(url, req.body, function(data){
-        res.json(data).end();
-    });
+  console.log(req.body);
+  var url = '/api/extensions/group/create';
+  emitter.local.post(url, req.body, function (data) {
+    res.json(data).end();
+  });
 
 }
+function updateGroupGet(req, res, next) {
 
+  //solomon/content/extensions/groupManagement/addGroup
+
+  var result = {};
+  proxy.all('eData', 'gmData', function(eData, gmData) {
+
+    result['eData'] = eData;
+    result['gmData'] = gmData;
+    console.log(result);
+    res.render('solomon/content/extensions/groupManagement/addGroup', {type:'update', data: result});
+
+  });
+
+  emitter.local.get('/api/extensions/list', req, function (data) {
+    proxy.emit('eData',util.parseJSON(data));
+  });
+  emitter.local.get('/api/extensions/group/show', req, function (data) {
+    proxy.emit('gmData',util.parseJSON(data));
+  });
+
+
+
+}
+function updateGroupPost(req, res, next) {
+
+  console.log(req.body);
+  var url = '/api/extensions/group/update';
+  emitter.local.post(url, req.body, function (data) {
+    res.json(data).end();
+  });
+}
+function deleteGroupPost(req, res, next) {
+  var url = '/api/extensions/destroy';
+  emitter.local.post(url, req.body, function (data) {
+    res.json(data).end();
+  });
+}
 
 
 exports.exGet = exGet;
@@ -143,9 +164,11 @@ exports.addExtensionsGet = addExtensionsGet;
 exports.addExtensionsPost = addExtensionsPost;
 exports.updateExtensionGet = updateExtensionGet;
 exports.updateExtensionPost = updateExtensionPost;
+exports.deleteExtensionPost = deleteExtensionPost;
 
 exports.extensionGroupGet = extensionGroupGet;
 exports.addGroupGet = addGroupGet;
 exports.addGroupPost = addGroupPost;
 exports.updateGroupGet = updateGroupGet;
 exports.updateGroupPost = updateGroupPost;
+exports.deleteGroupPost = deleteGroupPost;

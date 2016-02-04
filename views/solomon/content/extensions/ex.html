@@ -1,137 +1,137 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <h1 class="page-title">
-            Extensions
-        </h1>
-    </div>
-    <div class="page-content">
-        <!-- Panel -->
-        <div class="panel">
-            <div class="panel-body">
-                <!-- Example Responsive -->
-                <div class="example-wrap">
+  <div class="page-header">
+    <h1 class="page-title">
+      Extensions
+    </h1>
+  </div>
+  <div class="page-content">
+    <!-- Panel -->
+    <div class="panel">
+      <div class="panel-body">
+        <!-- Example Responsive -->
+        <div class="example-wrap">
 
 
-                    <div class="btn-group hidden-xs" aria-label="Button group with nested dropdown" role="group">
+          <div class="btn-group hidden-xs" aria-label="Button group with nested dropdown" role="group">
 
-                        <button type="button" class="btn btn-outline btn-default" id="btn-add-extension">
-                            Add Extension
-                        </button>
-                        <button type="button" class="btn btn-outline btn-default">Import Extension</button>
-                        <button type="button" class="btn btn-outline btn-default">Export Extension</button>
-                    </div>
-                    <div class="btn-group hidden-sm hidden-lg hidden-md" role="group">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-outline btn-default dropdown-toggle"
-                                     data-toggle="dropdown" aria-expanded="false">
-                                Menu
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="exampleGroupDrop2" role="menu">
-                                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Add Extension</a>
-                                </li>
-                                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Import
-                                    Extension</a></li>
-                                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Import
-                                    Extension</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--
-                    <h4 class="example-title">Basic</h4>
-                    -->
-                    <!-- Table -->
-                    <div class="example table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Extension Number</th>
-                                <th>Name</th>
-                                <th>Delete Email</th>
-                                <th>User Agent</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <!-- IF exData BEGIN -->
-
-                            <% if(exData && exData.extensions) { %>
-                            <% exData.extensions.forEach(function(data,key){ %>
-                                <tr>
-                                    <td><%=(key+1)%></td>
-                                    <td><%=data.extension_number%></td>
-                                    <td><%=data.first_name%> <%=data.last_name%></td>
-                                    <td><%=data.email%></td>
-                                    <td><%=data.user_agent%></td>
-                                    <td>
-                                        <% if(data.status=='online'){ %>
-                                        <span class="label label-primary">Online</span>
-                                        <% } %>
-                                        <% if(data.status=='offline'){ %>
-                                        <span class="label label-danger">offline</span>
-                                        <% } %>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                                data-toggle="tooltip" data-original-title="Edit" data-en="<%=data.extension_number%>" name="e-update-btn">
-                                            <i class="icon wb-wrench" aria-hidden="true"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                                data-toggle="tooltip" data-original-title="Delete">
-                                            <i class="icon wb-close" aria-hidden="true"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            <% }); %>
-
-
-                            <!-- IF exData END -->
-                            <% } %>
-
-                            </tbody>
-                            <tfoot>
-
-                            <%
-                            var colsPanNumber = 7;
-
-                            var page_count = 1;    //总页数
-                            var page_current = 1;   //当前页
-                            var page_start = 1;     //起始页
-                            var page_sum = 5;       //显示总页
-                            if((page_current+5-1) < page_count) {
-                            page_sum = page_sum+page_current-1;
-                            page_start = page_current;
-                            }else{
-                            page_sum = page_count;
-                            if(page_count>5){
-                            page_start = page_count - 5;
-                            }else{
-                            page_start = page_count;
-                            }
-                            }
-
-                            %>
-
-
-                            <% include ../../page.html%>
-
-                            </tfoot>
-                        </table>
-
-                    </div>
-                    <!-- End Table -->
-
-
-                </div>
-                <!-- End Example Responsive -->
+            <button type="button" class="btn btn-outline btn-default" id="btn-add-extension">
+              Add Extension
+            </button>
+            <button type="button" class="btn btn-outline btn-default">Import Extension</button>
+            <button type="button" class="btn btn-outline btn-default">Export Extension</button>
+          </div>
+          <div class="btn-group hidden-sm hidden-lg hidden-md" role="group">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline btn-default dropdown-toggle"
+                      data-toggle="dropdown" aria-expanded="false">
+                Menu
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="exampleGroupDrop2" role="menu">
+                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Add Extension</a>
+                </li>
+                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Import
+                  Extension</a></li>
+                <li role="presentation"><a href="javascript:void(0)" role="menuitem">Import
+                  Extension</a></li>
+              </ul>
             </div>
+          </div>
+          <!--
+          <h4 class="example-title">Basic</h4>
+          -->
+          <!-- Table -->
+          <div class="example table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Extension Number</th>
+                <th>Name</th>
+                <th>Delete Email</th>
+                <th>User Agent</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <!-- IF exData BEGIN -->
+
+              <% if(exData && exData.extensions) { %>
+              <% exData.extensions.forEach(function(data,key){ %>
+              <tr>
+                <td><%=(key+1)%></td>
+                <td><%=data.extension_number%></td>
+                <td><%=data.first_name%> <%=data.last_name%></td>
+                <td><%=data.email%></td>
+                <td><%=data.user_agent%></td>
+                <td>
+                  <% if(data.status=='online'){ %>
+                  <span class="label label-primary">Online</span>
+                  <% } %>
+                  <% if(data.status=='offline'){ %>
+                  <span class="label label-danger">offline</span>
+                  <% } %>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"data-toggle="tooltip"
+                          data-original-title="Edit" data-en="<%=data.extension_number%>" name="e-update-btn">
+                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip"
+                          data-original-title="Delete" data-en="<%=data.extension_number%>" name="e-delete-btn">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <% }); %>
+
+
+              <!-- IF exData END -->
+              <% } %>
+
+              </tbody>
+              <tfoot>
+
+              <%
+              var colsPanNumber = 7;
+
+              var page_count = 1; //总页数
+              var page_current = 1; //当前页
+              var page_start = 1; //起始页
+              var page_sum = 5; //显示总页
+              if((page_current+5-1) < page_count) {
+              page_sum = page_sum+page_current-1;
+              page_start = page_current;
+              }else{
+              page_sum = page_count;
+              if(page_count>5){
+              page_start = page_count - 5;
+              }else{
+              page_start = page_count;
+              }
+              }
+
+              %>
+
+
+              <% include ../../page.html%>
+
+              </tfoot>
+            </table>
+
+          </div>
+          <!-- End Table -->
+
+
         </div>
-        <!-- End Panel -->
+        <!-- End Example Responsive -->
+      </div>
     </div>
+    <!-- End Panel -->
+  </div>
 </div>
 <!-- End Page -->

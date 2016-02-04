@@ -22,26 +22,43 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
-app.locals.trimValue = function(data,option) {
-    //console.log(data+':'+option);
-    var result = data;
-    if(data && option) {
+app.locals.trimValue = function (data, option) {
+  //console.log(data+':'+option);
+  var result = data;
+  if (data && option) {
 
-        if(typeof option.forEach == 'function') {
-            option.forEach(function(para) {
+    if (typeof option.forEach == 'function') {
+      option.forEach(function (para) {
 
-                if(result[para]) {
-                    result = result[para];
-                }else{
-                    result = '';
-                }
-            });
+        if (result[para] && result[para] != 'false') {
+          result = result[para];
+        } else {
+          result = '';
         }
+      });
     }
-    return result;
+  }
+  return result;
 };
-app.locals.selected = function($) {
-    console.log($);
+app.locals.trimArray = function (data, option) {
+  var result = [];
+  if(data) {
+    if (typeof data.forEach == 'function') {
+      data.forEach(function(data, key) {
+        if(option) {
+          result[key] = data[option];
+        }else {
+          result[key] = data;
+        }
+
+      });
+    }
+  }
+  return result;
+};
+
+app.locals.selected = function ($) {
+  console.log($);
 };
 
 // uncomment after placing your favicon in /public
@@ -66,9 +83,9 @@ app.use('/', api);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handlers
@@ -76,25 +93,25 @@ app.use(function (req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-        console.log('error');
-        console.log('404');
+  app.use(function (err, req, res, next) {
+    console.log('error');
+    console.log('404');
 
-        //res.redirect('/error');
-        //res.status(err.status || 500);
-        res.render('error/404');
-        res.end();
-    });
+    //res.redirect('/error');
+    //res.status(err.status || 500);
+    res.render('error/404');
+    res.end();
+  });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
 });
 
 //
@@ -110,8 +127,6 @@ app.use(function (err, req, res, next) {
 //
 // console.log('Example app listening at http://%s:%s', host, port);
 //});
-
-
 
 
 module.exports = app;

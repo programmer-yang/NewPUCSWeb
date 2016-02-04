@@ -18,3 +18,14 @@ exports.triggerCallBack = function (cid,data) {
         eventEmitter.emit(cid,data);
     }
 };
+
+exports.saveDoubleCallBack = function (times,callback) {
+    var count = 0, result = {};
+    return function (key, value) {
+        result[key] = value;
+        count++;
+        if(times === count) {
+            callback(result);
+        }
+    }
+};

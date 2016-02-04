@@ -3,7 +3,7 @@
 
     <div class="page-header">
         <ol class="breadcrumb">
-            <li><a href="javascript:void(0)" data-return="or">InboundRule</a></li>
+            <li><a href="javascript:void(0)" data-return="or">OutboundRule</a></li>
             <li class="active">addOutboundRule</li>
         </ol>
     </div>
@@ -33,7 +33,9 @@
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder="placeholder">
+                                            <input type="text" class="form-control" placeholder="placeholder"
+                                                   data-mark="default" id="or-name"
+                                                   value="<%=trimValue(data.orData, ['name'])%>"/>
                                         </div>
                                     </div>
 
@@ -42,14 +44,14 @@
                                 <p>
                                     Apply this rule to these calls.
                                 </p>
-
-
                                 <div class="form-group my-form-group">
                                     <label class="col-sm-4 control-label">Calls to numbers starting with prefix</label>
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   data-mark="default" id="or-number-prefix"
+                                                   value="<%=trimValue(data.orData, ['number_prefix'])%>">
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +61,9 @@
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   data-mark="default" id="or-from-extension"
+                                                   value="<%=trimValue(data.orData, ['from_extension'])%>" >
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +72,9 @@
 
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   data-mark="default" id="or-number-length"
+                                                   value="<%=trimValue(data.orData, ['number_length'])%>">
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +84,9 @@
                                     <div class="col-sm-8 padding-left-0">
                                         <div class="col-sm-7 padding-left-0">
                                             <div class="input-group input-group-file">
-                                                <input type="text" class="form-control" readonly="">
+                                                <input type="text" class="form-control" readonly=""
+                                                       data-mark="default" id="or-from-extension-groups"
+                                                       value="<%=trimValue(data.orData, ['from_extension_groups'])%>">
                                                 <span class="input-group-btn" data-target="#extensionGroups" data-toggle="modal">
                                                     <span class="btn btn-outline btn-file">
                                                     <i class="icon wb-search" aria-hidden="true"></i>
@@ -127,23 +135,38 @@
 
                                     <div class="col-sm-7 padding-left-0">
                                         <div class="col-sm-4 ">
-                                            <select data-role="select">
-                                                <option>abc</option>
-                                                <option>def</option>
-                                                <option>def</option>
+                                            <select data-role="select" data-mark="default" id="or-route-provider-1"
+                                                    data-selected="<%=trimValue(data.orData, ['route_provider_1'])%>">
+                                                <option value="0">Please select</option>
+                                                <%
+                                                if (data && data.pData) {
+                                                data.pData.providers.map(function(pro,key){
+                                                %>
+                                                <option value="<%=pro.name%>"><%=pro.name%></option>
+                                                <%
+                                                });
+                                                }
+                                                %>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 ">
-                                            <select data-role="select">
-                                                <option>abc</option>
-                                                <option>def</option>
-                                                <option>def</option>
+                                            <select data-role="select" data-mark="default" id="or-strip-digits-1"
+                                                    data-selected="<%=trimValue(data.orData, ['strip_digits_1'])%>">
+                                                <option value="0">Please select</option>
+                                                <%
+                                                for(var i =1; i<=10; i++) {
+                                                %>
+                                                <option value="<%=i%>"><%=i%></option>
+                                                <%
+                                                }
+                                                %>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 ">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   data-mark="default" id="or-prepend-1"
+                                                   value="<%=trimValue(data.orData, ['prepend_1'])%>">
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -152,23 +175,38 @@
 
                                     <div class="col-sm-7 padding-left-0">
                                         <div class="col-sm-4 ">
-                                            <select data-role="select">
-                                                <option>abc</option>
-                                                <option>def</option>
-                                                <option>def</option>
+                                            <select data-role="select" data-mark="default" id="or-route-provider-2"
+                                                    data-selected="<%=trimValue(data.orData, ['route_provider_2'])%>">
+                                                <option value="0">Please select</option>
+                                                <%
+                                                if (data && data.pData) {
+                                                data.pData.providers.map(function(pro,key){
+                                                %>
+                                                <option value="<%=pro.name%>"><%=pro.name%></option>
+                                                <%
+                                                });
+                                                }
+                                                %>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 ">
-                                            <select data-role="select">
-                                                <option>abc</option>
-                                                <option>def</option>
-                                                <option>def</option>
+                                            <select data-role="select" data-mark="default" id="or-strip-digits-2"
+                                                    data-selected="<%=trimValue(data.orData, ['strip_digits_2'])%>">
+                                                <option value="0">Please select</option>
+                                                <%
+                                                for(var i =1; i<=10; i++) {
+                                                %>
+                                                <option value="<%=i%>"><%=i%></option>
+                                                <%
+                                                }
+                                                %>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 ">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   data-mark="default" id="or-prepend-2"
+                                                   value="<%=trimValue(data.orData, ['prepend_2'])%>">
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -177,23 +215,38 @@
 
                                     <div class="col-sm-7 padding-left-0">
                                         <div class="col-sm-4 ">
-                                            <select data-role="select">
-                                                <option>abc</option>
-                                                <option>def</option>
-                                                <option>def</option>
+                                            <select data-role="select" data-mark="default" id="or-route-provider-3"
+                                                    data-selected="<%=trimValue(data.orData, ['route_provider_3'])%>">
+                                                <option value="0">Please select</option>
+                                                <%
+                                                if (data && data.pData) {
+                                                data.pData.providers.map(function(pro,key){
+                                                %>
+                                                <option value="<%=pro.name%>"><%=pro.name%></option>
+                                                <%
+                                                });
+                                                }
+                                                %>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 ">
-                                            <select data-role="select">
-                                                <option>abc</option>
-                                                <option>def</option>
-                                                <option>def</option>
+                                            <select data-role="select" data-mark="default" id="or-strip-digits-3"
+                                                    data-selected="<%=trimValue(data.orData, ['strip_digits_3'])%>">
+                                                <option value="0">Please select</option>
+                                                <%
+                                                for(var i =1; i<=10; i++) {
+                                                %>
+                                                <option value="<%=i%>"><%=i%></option>
+                                                <%
+                                                }
+                                                %>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 ">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   data-mark="default" id="or-prepend-3"
+                                                   value="<%=trimValue(data.orData, ['prepend_3'])%>">
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -208,8 +261,9 @@
                                         <button type="reset" class="btn btn-default btn-outline btn-primary">
                                             Reset
                                         </button>
-                                        <button type="button" class="btn btn-default btn-outline btn-primary">
-                                            Submit
+                                        <button type="button" class="btn btn-default btn-outline btn-primary"
+                                                id="or-apply">
+                                            Apply
                                         </button>
                                     </div>
                                 </div>

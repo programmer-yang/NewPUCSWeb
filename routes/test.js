@@ -23,16 +23,9 @@ socketReq.on('message', function (msg) {
 
 //socket.connect('tcp://192.168.1.168:8888');
 function zmqtest(req, res, next) {
-
-
-
-    res.send('ok');
-    res.end();
+    //..
 
 }
-
-
-
 
 
 exports.zmqtest = zmqtest;

@@ -19,7 +19,7 @@
             <div class="col-sm-8">
                 <input type="text" class="form-control" placeholder="Last Name" autocomplete="off"
                        data-mark="default" id="egm-group-name"
-                       value="<%=trimValue(data, ['group_name'])%>">
+                       value="<%=trimValue(data.gmData, ['group_name'])%>">
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
             <div class="col-sm-8">
                 <input type="text" class="form-control" placeholder="Group Description" autocomplete="off"
                        data-mark="default" id="egm-group-description"
-                       value="<%=trimValue(data, ['group_description'])%>">
+                       value="<%=trimValue(data.gmData, ['group_description'])%>">
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
                     <input type="checkbox" data-mark="default" id="egm-allow-intercom"
-                           data-checked="<%=trimValue(data, ['enable_intercom'])%>">
+                           data-checked="<%=trimValue(data.gmData, ['enable_intercom'])%>">
                     <label></label>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
                     <input type="checkbox" data-mark="default" id="egm-external-call"
-                           data-checked="<%=trimValue(data, ['enable_external_call'])%>">
+                           data-checked="<%=trimValue(data.gmData, ['enable_external_call'])%>">
                     <label></label>
                 </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default">
                     <input type="checkbox" data-mark="default" id="egm-console-access"
-                           data-checked="<%=trimValue(data, ['enable_management_console_access'])%>">
+                           data-checked="<%=trimValue(data.gmData, ['enable_management_console_access'])%>">
                     <label></label>
                 </div>
             </div>

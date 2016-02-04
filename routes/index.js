@@ -81,12 +81,14 @@ router.get('/callManager/extension/create', extensions.addExtensionsGet);
 router.post('/callManager/extension/create', extensions.addExtensionsPost);
 router.get('/callManager/extension/update', extensions.updateExtensionGet);
 router.post('/callManager/extension/update', extensions.updateExtensionPost);
+router.post('/callManager/extension/delete', extensions.deleteExtensionPost);
 
 router.get('/callManager/extension/group', extensions.extensionGroupGet);
 router.get('/callManager/extension/group/create', extensions.addGroupGet);
 router.post('/callManager/extension/group/create', extensions.addGroupPost);
 router.get('/callManager/extension/group/update', extensions.updateGroupGet);
 router.post('/callManager/extension/group/update', extensions.updateGroupPost);
+router.post('/callManager/extension/group/delete', extensions.deleteGroupPost);
 /**
  * System Extensions
  */
@@ -97,31 +99,46 @@ router.get('/callManager/systemExtensions', systemExtensions.sexGet);
  */
 router.get('/callManager/voIp', voIPProvidersAndTrunks.vptGet);
 router.get('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderGet);
-router.get('/callManager/voIp/provider/next', voIPProvidersAndTrunks.addProviderNextGet);
+router.get('/callManager/voIp/provider/update', voIPProvidersAndTrunks.updateProviderGet);
+router.post('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderPost);
+router.post('/callManager/voIp/provider/update', voIPProvidersAndTrunks.updateProviderPost);
+//router.get('/callManager/voIp/provider/next', voIPProvidersAndTrunks.addProviderNextGet);
 
 /**
  * Inbound Rules
  */
 router.get('/callManager/inbound', inboundRules.irGet);
-router.get('/callManager/inbound/rule', inboundRules.addInboundRuleGet);
+router.get('/callManager/inbound/create', inboundRules.addInboundRuleGet);
+router.post('/callManager/inbound/create', inboundRules.addInboundRulePost);
+router.get('/callManager/inbound/update', inboundRules.updateInboundRuleGet);
+router.post('/callManager/inbound/update', inboundRules.updateInboundRulePost);
 
 /**
  * Outbound Rules
  */
 router.get('/callManager/outbound', outboundRules.orGet);
 router.get('/callManager/outbound/rule', outboundRules.addOutboundRuleGet);
+router.get('/callManager/outbound/rule/update', outboundRules.updateOutboundRuleGet);
+router.post('/callManager/outbound/rule', outboundRules.addOutboundRulePost);
+router.post('/callManager/outbound/rule/update', outboundRules.updateOutboundRulePost);
 
 /**
  * Ring Groups
  */
 router.get('/callManager/ringGroups', ringGroups.rgGet);
 router.get('/callManager/ringGroups/ringGroup', ringGroups.addRingGroupGet);
+router.get('/callManager/ringGroups/ringGroup/update', ringGroups.updateRingGroupGet);
+router.post('/callManager/ringGroups/ringGroup', ringGroups.addRingGroupPost);
+router.post('/callManager/ringGroups/ringGroup/update', ringGroups.updateRingGroupPost);
 
 /**
  * Virtual Receptionist
  */
 router.get('/callManager/virtualReceptionist', virtualReceptionist.vrGet);
-router.get('/callManager/virtualReceptionist/addVirtualReceptionist', virtualReceptionist.addVirtualReceptionist);
+router.get('/callManager/virtualReceptionist/create', virtualReceptionist.addVirtualReceptionistGet);
+router.post('/callManager/virtualReceptionist/create', virtualReceptionist.addVirtualReceptionistPost);
+router.get('/callManager/virtualReceptionist/update', virtualReceptionist.updateVirtualReceptionistGet);
+router.post('/callManager/virtualReceptionist/update', virtualReceptionist.updateVirtualReceptionistPost);
 
 /**
  * Call Queue

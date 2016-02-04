@@ -42,7 +42,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>192.168.1.66</td>
+                                            <td><%=datData.domain.domain%></td>
                                             <td class="text-nowrap">
                                                 <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                                         data-toggle="tooltip" data-original-title="Delete">
@@ -64,7 +64,8 @@
                     <div class="modal-dialog modal-center">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                        id="dat-add-domain-close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                                 <h4 class="modal-title">Add Domain</h4>
@@ -78,12 +79,14 @@
 
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" name="name"
-                                                       placeholder="domain" autocomplete="off">
+                                                       placeholder="domain" autocomplete="off"
+                                                       data-mark="default" id="dat-domain">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-8 col-sm-offset-4">
-                                                <button type="button" class="btn btn-primary">Add</button>
+                                                <button type="button" class="btn btn-primary" id="dat-add-domain">Add
+                                                </button>
                                                 <button type="reset" class="btn btn-default btn-outline">Reset
                                                 </button>
                                             </div>
@@ -111,6 +114,10 @@
                                 describe...
                             </p>
 
+                            <p>
+
+                            </p>
+
                             <div class="form-inline padding-bottom-15">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -131,11 +138,20 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <% if(datData && datData.transports && datData.transports.transports) { %>
+                                        <% datData.transports.transports.forEach(function(data,key) { %>
+
                                         <tr>
-                                            <td>UDP</td>
-                                            <td>5060</td>
+                                            <td><%=data.protocol %></td>
+                                            <td><%=data.port %></td>
                                         </tr>
+
+                                        <% }); %>
+                                        <% } %>
+
+
                                         </tbody>
+
                                     </table>
                                 </div>
                             </div>

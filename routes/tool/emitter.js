@@ -4,6 +4,9 @@ var util = require('./util');
 //var j = request.jar();
 
 
+
+
+
 var option = {
 
     //ip: 'http://192.168.1.168',
@@ -11,6 +14,8 @@ var option = {
 
     ip: 'http://192.168.1.222',
     port: '3003',
+
+    localhost: 'http://localhost:3000',
 
 
     trim: function (describe) {
@@ -27,12 +32,12 @@ var option = {
 };
 
 
-exports.get = function (describe, req, back) {
+exports.get = function (req, back) {
 
     //console.log(req.cookies);
-    console.log('get : '+option.trim(describe));
+    console.log('get : '+option.trim(req.url));
 
-    request.get(option.trim(describe), function (err, response, body) {
+    request.get(option.trim(req.url), function (err, response, body) {
         if (typeof back === 'function') {
             back(err, response, body);
         }
@@ -41,23 +46,24 @@ exports.get = function (describe, req, back) {
 };
 
 
-exports.post = function (describe, data, back, res) {
+exports.post = function (req, back) {
 
-    console.log(option.trim(describe));
-
-    request.post(option.trim(describe), {form: JSON.stringify(data), timeout: 20000}, function (err, response, body) {
+    var options = {
+        uri: option.trim(req.url),
+        method: 'POST',
+        json: req.body,
+        timeout: 20000,
+    };
+    request(options, function(err, response, body) {
         if (typeof back === 'function') {
-
             back(err, response, body);
-
         }
     });
-
 };
 
 exports.local = {
     get: function (describe, req, back) {
-        var url = 'http://localhost:3000';
+        var url = option.localhost;
         //console.log(url+describe);
         //
         //
@@ -80,8 +86,8 @@ exports.local = {
         });
     },
     post: function (describe, data, back) {
-        var url = 'http://localhost:3000';
-        console.log(url+describe);
+        var url = option.localhost;
+         console.log(url+describe);
         console.log(data);
         request.post(url+describe, {form: data, timeout: 30000}, function(err, response, body) {
             //response.statusCode

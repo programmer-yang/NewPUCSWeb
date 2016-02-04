@@ -36,6 +36,8 @@
                                 <th>Ring Group Name</th>
                                 <th>Ring Time</th>
                                 <th>Ring Strategy</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -51,6 +53,25 @@
                                 <td><%=data.ring_group_name %></td>
                                 <td><%=data.ring_time %></td>
                                 <td><%=data.ring_strategy %></td>
+                                <td>
+                                    <% if(data.status=='online'){ %>
+                                    <span class="label label-primary">Online</span>
+                                    <% } %>
+                                    <% if(data.status=='offline'){ %>
+                                    <span class="label label-danger">offline</span>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Edit"
+                                            data-rg="<%=data.ring_group_number%>" name="rg-edit">
+                                        <i class="icon wb-wrench" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                            data-toggle="tooltip" data-original-title="Delete">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </td>
                             </tr>
 
                             <% });}%>
@@ -58,7 +79,7 @@
                             </tbody>
                             <tfoot>
                             <%
-                            var colsPanNumber = 5;
+                            var colsPanNumber = 7;
 
                             var page_count = 1;    //总页数
                             var page_current = 1;   //当前页
