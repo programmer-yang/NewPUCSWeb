@@ -1,192 +1,194 @@
 <div class="tab-pane active" id="exampleTabsOne" role="tabpanel">
-    <!-- General BEGIN  -->
+  <!-- General BEGIN  -->
 
 
-    <h5 class="margin-top-10">
-        User Information
-    </h5>
+  <h5 class="margin-top-10">
+    User Information
+  </h5>
 
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Extension Number </label>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Extension Number </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" data-mark="default"
-                       placeholder="Extension Number" autocomplete="off" id="eg-number"
-                       value="<%=type=='update'?data.extension_number:'' %>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Extension Number" autocomplete="off" id="eg-number"
+               value="<%=trimValue(data.eData, ['extension_number'])%>"
+               data-update="disabled">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Password</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Password</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" data-mark="default"
-                       placeholder="Password" autocomplete="off" id="eg-password"
-                       value="<%=trimValue(data, ['password'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Password" autocomplete="off" id="eg-password"
+               value="<%=trimValue(data.eData, ['password'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">First Name</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">First Name</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="First Name" autocomplete="off"
-                       data-mark="default" id="eg-first-name"
-                       value="<%=trimValue(data, ['extension_profile','first_name'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="First Name" autocomplete="off"
+               data-mark="default" id="eg-first-name"
+               value="<%=trimValue(data.eData, ['profile','first_name'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Last Name</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Last Name</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" data-mark="default"
-                       placeholder="Last Name" autocomplete="off" id="eg-last-name"
-                       value="<%=trimValue(data, ['extension_profile','last_name'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Last Name" autocomplete="off" id="eg-last-name"
+               value="<%=trimValue(data.eData, ['profile','last_name'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Gender</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Gender</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <select data-role="select" data-mark="default" id="eg-gender" data-selected="<%=trimValue(data, ['extension_profile', 'gender'])%>">
-                    <option value="0" >Please select</option>
-                    <option value="Male" >Male</option>
-                    <option value="Female" >Female</option>
-                </select>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <select data-role="select" data-mark="default" id="eg-gender"
+                data-selected="<%=trimValue(data.eData, ['profile', 'gender'])%>">
+          <option value="0">Please select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
 
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Email</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Email</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Email" autocomplete="off"
-                       data-mark="default" id="eg-email"
-                       value="<%=trimValue(data, ['extension_profile', 'email'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Email" autocomplete="off"
+               data-mark="default" id="eg-email"
+               value="<%=trimValue(data.eData, ['profile', 'email'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Company Name</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Company Name</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Company Name" autocomplete="off"
-                       data-mark="default" id="eg-company-name"
-                       value="<%=trimValue(data, ['extension_profile', 'company_name'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Company Name" autocomplete="off"
+               data-mark="default" id="eg-company-name"
+               value="<%=trimValue(data.eData, ['profile', 'company_name'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Company Website</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Company Website</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Company Website" autocomplete="off"
-                       data-mark="default" id="eg-company-website"
-                       value="<%=trimValue(data, ['extension_profile', 'company_website'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Company Website" autocomplete="off"
+               data-mark="default" id="eg-company-website"
+               value="<%=trimValue(data.eData, ['profile', 'company_website'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Mobile Phone Number</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Mobile Phone Number</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Mobile Phone Number" autocomplete="off"
-                       data-mark="default" id="eg-mobile-phone"
-                       value="<%=trimValue(data, ['extension_profile', 'mobile_phone'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Mobile Phone Number" autocomplete="off"
+               data-mark="default" id="eg-mobile-phone"
+               value="<%=trimValue(data.eData, ['profile', 'mobile_phone'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Work Phone Number</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Work Phone Number</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Work Phone Number" autocomplete="off"
-                       data-mark="default" id="eg-work-phone"
-                       value="<%=trimValue(data, ['extension_profile', 'work_phone'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Work Phone Number" autocomplete="off"
+               data-mark="default" id="eg-work-phone"
+               value="<%=trimValue(data.eData, ['profile', 'work_phone'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Home Phone Number</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Home Phone Number</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Home Phone Number" autocomplete="off"
-                       data-mark="default" id="eg-home-phone"
-                       value="<%=trimValue(data, ['extension_profile', 'home_phone'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Home Phone Number" autocomplete="off"
+               data-mark="default" id="eg-home-phone"
+               value="<%=trimValue(data.eData, ['profile', 'home_phone'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Twitter</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Twitter</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Twitter" autocomplete="off"
-                       data-mark="default" id="eg-twitter"
-                       value="<%=trimValue(data, ['extension_profile', 'twitter'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Twitter" autocomplete="off"
+               data-mark="default" id="eg-twitter"
+               value="<%=trimValue(data.eData, ['profile', 'twitter'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Facebook</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Facebook</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Facebook" autocomplete="off"
-                       data-mark="default" id="eg-facebook"
-                       value="<%=trimValue(data, ['extension_profile', 'facebook'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Facebook" autocomplete="off"
+               data-mark="default" id="eg-facebook"
+               value="<%=trimValue(data.eData, ['profile', 'facebook'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Linked in</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Linked in</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Linked in" autocomplete="off"
-                       data-mark="default" id="eg-gender-linked"
-                       value="<%=trimValue(data, ['extension_profile', 'linkedin'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Linked in" autocomplete="off"
+               data-mark="default" id="eg-gender-linked"
+               value="<%=trimValue(data.eData, ['profile', 'linkedin'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Instagram</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Instagram</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Instagram" autocomplete="off"
-                       data-mark="default" id="eg-instagram"
-                       value="<%=trimValue(data, ['extension_profile', 'instagram'])%>">
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Instagram" autocomplete="off"
+               data-mark="default" id="eg-instagram"
+               value="<%=trimValue(data.eData, ['profile', 'instagram'])%>">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Description</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Description</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-sm-8">
-                <textarea class="form-control" data-role="textarea" rows="3" data-mark="default" id="eg-description"><%=trimValue(data, ['extension_profile', 'description'])%></textarea>
-            </div>
-        </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <textarea class="form-control" data-role="textarea" rows="3" data-mark="default" id="eg-description"><%=trimValue(data.eData, ['profile', 'description'])%></textarea>
+      </div>
     </div>
+  </div>
 
 
-    <hr>
+  <hr>
 
 
-    <!-- END  -->
+  <!-- END  -->
 </div>

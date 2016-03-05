@@ -55,9 +55,9 @@
                             </thead>
                             <tbody>
 
-                            <% if(groupData && groupData.groups) { %>
+                            <% if(data.egData && data.egData.groups) { %>
 
-                            <% groupData.groups.forEach(function(data,key) { %>
+                            <% data.egData.groups.forEach(function(data,key) { %>
 
                             <tr>
                                 <td><%=(key+1) %></td>
@@ -104,7 +104,6 @@
                             }
 
                             %>
-
 
                             <% include ../../../page.html%>
                             </tfoot>

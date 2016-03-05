@@ -1,245 +1,247 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <ol class="breadcrumb">
-            <li><a href="javascript:void(0)" data-return="vpt">SIP Domain and Transport</a></li>
-            <li class="active">Add Transport</li>
-        </ol>
+  <div class="page-header">
+    <ol class="breadcrumb">
+      <li><a href="javascript:void(0)" data-return="vpt">SIP Domain and Transport</a></li>
+      <li class="active"><%=type=='add'?'Add':type=='update'?'Update':''%> Transport</li>
+    </ol>
 
-    </div>
-    <div class="page-content">
+  </div>
+  <div class="page-content">
 
-        <div class="row">
-            <div class="col-sm-8 my-setting-box">
-                <div class="panel">
+    <div class="row">
+      <div class="col-sm-8 my-setting-box">
+        <div class="panel">
 
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            Add/Edit VoIP Provider/SIP Trunk Wizard.
-                        </h3>
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Add/Edit VoIP Provider/SIP Trunk Wizard.
+            </h3>
+          </div>
+
+          <div class="panel-body container-fluid">
+            <div class="example padding-left-20">
+              <form class="form-horizontal" name="form-transports-add">
+                <h5>
+                  Choose a VoIP Provider/SIP Trunk Wizard :
+                </h5>
+
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Provider Name: </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="port" autocomplete="off"
+                             data-mark="default" id="vpt-name" value="<%=trimValue(data.pData,['name'])%>"
+                             data-update="disabled">
                     </div>
-
-                    <div class="panel-body container-fluid">
-                        <div class="example padding-left-20">
-                            <form class="form-horizontal" name="form-transports-add">
-                                <h5>
-                                    Choose a VoIP Provider/SIP Trunk Wizard :
-                                </h5>
-
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Provider Name: </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="port" autocomplete="off"
-                                                    data-mark="default" id="vpt-name" value="<%=trimValue(data.data,['name'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">
-                                        Country
-                                    </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <select class="bs-select-hidden" data-role="select"
-                                                    data-mark="default" id="dat-country"
-                                                    data-selected="<%=trimValue(data.data, ['country'])%>"
-                                                    data-selected-child="<%=trimValue(data.data, ['provider_brand']).replace(/[ ]/g,'')%>"
-                                                    >
-                                                <option value="0">Please select</option>
-                                                <%
-                                                if (data && data.provider && data.provider.provider_brands) {
-                                                data.provider.provider_brands.forEach(function(providers){
-                                                %>
-                                                <option value="<%=providers.country%>"><%=providers.country%></option>
-                                                <%
-                                                });
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Provider</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <input type="hidden" data-mark="default" id="dat-provider">
-                                        <div class="col-sm-8" id="country-provider">
-                                            <!-- 默认为空 -->
-                                        </div>
-                                        <div class="hidden">
-                                            <%
-                                            if (data && data.provider && data.provider.provider_brands) {
-                                            data.provider.provider_brands.forEach(function(providers){
-                                            %>
-                                            <select class="bs-select-hidden" data-mark="default"
-                                                    data-role="select" data-provider="provers-<%=providers.country%>"
-                                                    >
-                                                <option value="0">Please select</option>
-                                                <%
-                                                if(providers.brands) {
-                                                providers.brands.forEach(function(detail){
-                                                %>
-                                                <option value="<%=detail.provider_brand.replace(/[ ]/g,'')%>"
-                                                        dat-provider-trim="<%=detail.provider_brand%>"
-                                                        data-website="<%=detail.website%>"
-                                                        data-hostname="<%=detail.hostname%>"
-                                                        data-port="<%=detail.port%>"
-                                                        data-outbound-server="<%=detail.outbound_server%>"
-                                                        data-outbound-server-port="<%=detail.outbound_server_port%>"
-                                                        data-reregister-interval="<%=detail.outbound_server_port%>"
-                                                        >
-                                                    <%=detail.provider_brand%>
-                                                </option>
-                                                <%
-                                                });
-                                                }
-                                                %>
-                                            </select>
-                                            <%
-                                            });
-                                            }
-                                            %>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Website</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Server Hostname or IP"
-                                                   autocomplete="off" data-mark="default" id="vpt-website"
-                                                   value="<%=trimValue(data.data, ['website'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Server Hostname or IP : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Server Hostname or IP"
-                                                   autocomplete="off" data-mark="default" id="vpt-hostname"
-                                                   value="<%=trimValue(data.data, ['hostname'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Server port : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Server port"
-                                                   autocomplete="off" data-mark="default" id="vpt-port"
-                                                   value="<%=trimValue(data.data, ['port'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Outbound proxy server : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Outbound proxy server"
-                                                   autocomplete="off" data-mark="default" id="vpt-outbound-server"
-                                                   value="<%=trimValue(data.data, ['outbound_server'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Outbound proxy server port : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Outbound proxy server port"
-                                                   autocomplete="off" data-mark="default" id="vpt-outbound-server-port"
-                                                   value="<%=trimValue(data.data, ['outbound_server_port'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Reregister every : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Reregister every"
-                                                   autocomplete="off" data-mark="default" id="vpt-reregister-interval"
-                                                   value="<%=trimValue(data.data, ['reregister_interval'])%>">
-                                        </div>
-                                        <div class="col-sm-4 margin-0 padding-0">
-                                            <label class="col-sm-4 control-label padding-left-10">seconds</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Maximum simultaneous calls : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Maximum simultaneous calls"
-                                                   autocomplete="off" data-mark="default" id="vpt-max-concurrent"
-                                                   value="<%=trimValue(data.data, ['max_concurrent_calls'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Username/ID(aka SIP user ID) : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Username/ID(aka SIP user ID)"
-                                                   autocomplete="off" data-mark="default" id="vpt-auth-id"
-                                                   value="<%=trimValue(data.data, ['auth_id'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Password : </label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Password"
-                                                   autocomplete="off" data-mark="default" id="vpt-password"
-                                                   value="<%=trimValue(data.data, ['password'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group my-form-group margin-top-30">
-                                    <div class="col-sm-8 col-sm-offset-4">
-                                        <button type="button" class="btn btn-default btn-primary btn-outline"
-                                                data-return="vpt">
-                                            Cancel
-                                        </button>
-                                        <button type="button" class="btn btn-default btn-outline btn-primary"
-                                                id="dat-providers-apply">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <p>More 3rd party tested providers can be found here :
-                                    <a href="http://www.portsip.com/providers.html">http://www.portsip.com/providers.html</a>
-                                </p>
-
-                            </form>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-            </div>
-            <div class="col-sm-5">
-            </div>
-        </div>
 
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">
+                    Country
+                  </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <select class="bs-select-hidden" data-role="select"
+                              data-mark="default" id="dat-country"
+                              data-selected="<%=trimValue(data.pData, ['country'])%>"
+                              data-selected-child="<%=trimValue(data.pData, ['provider_brand']).replace(/[ ]/g,'')%>"
+                        >
+                        <option value="0">Please select</option>
+                        <%
+                        if (data && data.provider && data.provider.provider_brands) {
+                        data.provider.provider_brands.forEach(function(providers){
+                        %>
+                        <option value="<%=providers.country%>"><%=providers.country%></option>
+                        <%
+                        });
+                        }
+                        %>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Provider</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <input type="hidden" data-mark="default" id="dat-provider">
+
+                    <div class="col-sm-8" id="country-provider">
+                      <!-- 默认为空 -->
+                    </div>
+                    <div class="hidden">
+                      <%
+                      if (data && data.provider && data.provider.provider_brands) {
+                      data.provider.provider_brands.forEach(function(providers){
+                      %>
+                      <select class="bs-select-hidden" data-mark="default"
+                              data-role="select" data-provider="provers-<%=providers.country%>"
+                        >
+                        <option value="0">Please select</option>
+                        <%
+                        if(providers.brands) {
+                        providers.brands.forEach(function(detail){
+                        %>
+                        <option value="<%=detail.provider_brand.replace(/[ ]/g,'')%>"
+                                dat-provider-trim="<%=detail.provider_brand%>"
+                                data-website="<%=detail.website%>"
+                                data-hostname="<%=detail.hostname%>"
+                                data-port="<%=detail.port%>"
+                                data-outbound-server="<%=detail.outbound_server%>"
+                                data-outbound-server-port="<%=detail.outbound_server_port%>"
+                                data-reregister-interval="<%=detail.outbound_server_port%>"
+                          >
+                          <%=detail.provider_brand%>
+                        </option>
+                        <%
+                        });
+                        }
+                        %>
+                      </select>
+                      <%
+                      });
+                      }
+                      %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Website</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Server Hostname or IP"
+                             autocomplete="off" data-mark="default" id="vpt-website"
+                             value="<%=trimValue(data.pData, ['website'])%>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Server Hostname or IP : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Server Hostname or IP"
+                             autocomplete="off" data-mark="default" id="vpt-hostname"
+                             value="<%=trimValue(data.pData, ['hostname'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Server port : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Server port"
+                             autocomplete="off" data-mark="default" id="vpt-port"
+                             value="<%=trimValue(data.pData, ['port'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Outbound proxy server : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Outbound proxy server"
+                             autocomplete="off" data-mark="default" id="vpt-outbound-server"
+                             value="<%=trimValue(data.pData, ['outbound_server'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Outbound proxy server port : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Outbound proxy server port"
+                             autocomplete="off" data-mark="default" id="vpt-outbound-server-port"
+                             value="<%=trimValue(data.pData, ['outbound_server_port'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Reregister every : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Reregister every"
+                             autocomplete="off" data-mark="default" id="vpt-reregister-interval"
+                             value="<%=trimValue(data.pData, ['reregister_interval'])%>">
+                    </div>
+                    <div class="col-sm-4 margin-0 padding-0">
+                      <label class="col-sm-4 control-label padding-left-10">seconds</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Maximum simultaneous calls : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Maximum simultaneous calls"
+                             autocomplete="off" data-mark="default" id="vpt-max-concurrent"
+                             value="<%=trimValue(data.pData, ['max_concurrent_calls'])%>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Username/ID(aka SIP user ID) : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Username/ID(aka SIP user ID)"
+                             autocomplete="off" data-mark="default" id="vpt-auth-id"
+                             value="<%=trimValue(data.pData, ['auth_id'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Password : </label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Password"
+                             autocomplete="off" data-mark="default" id="vpt-password"
+                             value="<%=trimValue(data.pData, ['password'])%>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group my-form-group margin-top-30">
+                  <div class="col-sm-8 col-sm-offset-4">
+                    <button type="button" class="btn btn-default btn-primary btn-outline"
+                            data-return="vpt">
+                      Cancel
+                    </button>
+                    <button type="button" class="btn btn-default btn-outline btn-primary"
+                            id="dat-providers-apply">
+                      Apply
+                    </button>
+                  </div>
+                </div>
+
+                <p>More 3rd party tested providers can be found here :
+                  <a href="http://www.portsip.com/providers.html">http://www.portsip.com/providers.html</a>
+                </p>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+      </div>
     </div>
+
+  </div>
 </div>
 <!-- End Page -->

@@ -1,236 +1,276 @@
 <div class="tab-pane" id="exampleTabsDND" role="tabpanel">
-    <!-- Offline BEGIN  -->
+  <!-- Offline BEGIN  -->
 
-    <h5 class="margin-top-10">Configure how calls should be re-directed when user status is "Do Not Disturb"</h5>
-    <p>
-        In office hours forward calls to
-    </p>
+  <h5 class="margin-top-10">Configure how calls should be re-directed when user status is "Do Not Disturb"</h5>
 
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Send call to voice mail</label>
+  <p>
+    In office hours forward calls to
+  </p>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-in-office" value="1" data-mark="default"
-                           data-checked="<%=trimValue(data, ['forward_rules', 'dnd', 'office_hours_action'])%>"
-                           data-checked-child="<%=trimValue(data, ['forward_rules', 'dnd', 'office_hours_action_value'])%>">
-                    <label></label>
-                </div>
-            </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Send call to voice mail</label>
+
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-in-office" value="1" data-mark="default"
+                 data-checked="<%=trimValue(data.eData, ['forward_rules', 'dnd', 'office_hours_action'])%>"
+                 data-checked-child="<%=trimValue(data.eData, ['forward_rules', 'dnd', 'office_hours_action_value'])%>">
+          <label></label>
         </div>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to other extension
-        </label>
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-in-office" value="2"
-                           data-mark="default" data-associated="default" data-group="ed-radio-in-office-extension">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select" id="ed-radio-in-office-extension">
-                    <option value="1">666|66666</option>
-                    <option value="2">888|88989</option>
-                    <option value="3">564|5649987</option>
-                </select>
-            </div>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to other extension
+    </label>
+
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-in-office" value="2"
+                 data-mark="default" data-associated="default" data-group="ed-radio-in-office-extension">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <select class="bs-select-hidden" data-role="select" id="ed-radio-in-office-extension">
+          <%
+          if(data && data.esData && data.esData.extensions) {
+          data.esData.extensions.forEach(function(data,key) {
+          %>
+          <option value="<%=data.extension_number%>"><%=data.extension_number%></option>
+          <%
+          });
+          }
+          %>
+        </select>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to Ring Group
-        </label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to Ring Group
+    </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-in-office" value="3"
-                           data-mark="default" data-associated="default" data-group="ed-radio-in-office-group">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select" id="ed-radio-in-office-group">
-                    <option value="1">666|66666</option>
-                    <option value="2">888|88989</option>
-                    <option value="3">564|5649987</option>
-                </select>
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-in-office" value="3"
+                 data-mark="default" data-associated="default" data-group="ed-radio-in-office-group">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <select class="bs-select-hidden" data-role="select" id="ed-radio-in-office-group">
+          <%
+          if(data && data.rgData && data.rgData.groups) {
+          data.rgData.groups.forEach(function(data,key) {
+          %>
+          <option value="<%=data.ring_group_number%>"><%=data.ring_group_number%></option>
+          <%
+          });
+          }
+          %>
+        </select>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to external number
-        </label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to external number
+    </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-in-office" value="4"
-                           data-mark="default" data-associated="default" data-group="ed-radio-in-office-number">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <input type="text" class="form-control" autocomplete="off" id="ed-radio-in-office-number">
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-in-office" value="4"
+                 data-mark="default" data-associated="default" data-group="ed-radio-in-office-number">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <input type="text" class="form-control" autocomplete="off" id="ed-radio-in-office-number">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to Virtual Receptionist
-        </label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to Virtual Receptionist
+    </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-in-office" value="5"
-                           data-mark="default" data-associated="default" data-group="ed-radio-in-office-receptionist">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select" id="ed-radio-in-office-receptionist">
-                    <option value="1">666|66666</option>
-                    <option value="2">888|88989</option>
-                    <option value="3">564|5649987</option>
-                </select>
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-in-office" value="5"
+                 data-mark="default" data-associated="default" data-group="ed-radio-in-office-receptionist">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <select class="bs-select-hidden" data-role="select" id="ed-radio-in-office-receptionist">
+          <%
+          if(data && data.vrsData && data.vrsData.virtual_receptionists) {
+          data.vrsData.virtual_receptionists.forEach(function(data,key) {
+          %>
+          <option value="<%=data.virtual_receptionist_number%>"><%=data.virtual_receptionist_number%></option>
+          <%
+          });
+          }
+          %>
+        </select>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Disconnect the call</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Disconnect the call</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-in-office" value="6" data-mark="default">
-                    <label></label>
-                </div>
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-in-office" value="6" data-mark="default">
+          <label></label>
         </div>
+      </div>
     </div>
-    <hr/>
+  </div>
+  <hr/>
 
-    <p>
-        Outside office hours forward calls to
-    </p>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Send call to voice mail</label>
+  <p>
+    Outside office hours forward calls to
+  </p>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-outside-office" value="1" data-mark="default"
-                           data-checked="<%=trimValue(data, ['forward_rules', 'dnd', 'outside_office_hours_action'])%>"
-                           data-checked-child="<%=trimValue(data, ['forward_rules', 'dnd', 'outside_office_hours_action_value'])%>">
-                    <label></label>
-                </div>
-            </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Send call to voice mail</label>
+
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-outside-office" value="1" data-mark="default"
+                 data-checked="<%=trimValue(data.eData, ['forward_rules', 'dnd', 'outside_office_hours_action'])%>"
+                 data-checked-child="<%=trimValue(data.eData, ['forward_rules', 'dnd', 'outside_office_hours_action_value'])%>">
+          <label></label>
         </div>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to other extension
-        </label>
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-outside-office" value="2"
-                           data-mark="default" data-associated="default" data-group="ed-radio-outside-office-extension">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select" id="ed-radio-outside-office-extension">
-                    <option value="1">666|66666</option>
-                    <option value="2">888|88989</option>
-                    <option value="3">564|5649987</option>
-                </select>
-            </div>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to other extension
+    </label>
+
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-outside-office" value="2"
+                 data-mark="default" data-associated="default" data-group="ed-radio-outside-office-extension">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <select class="bs-select-hidden" data-role="select" id="ed-radio-outside-office-extension">
+          <%
+          if(data && data.esData && data.esData.extensions) {
+          data.esData.extensions.forEach(function(data,key) {
+          %>
+          <option value="<%=data.extension_number%>"><%=data.extension_number%></option>
+          <%
+          });
+          }
+          %>
+        </select>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to Ring Group
-        </label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to Ring Group
+    </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-outside-office" value="3"
-                           data-mark="default" data-associated="default" data-group="ed-radio-outside-office-group">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select" id="ed-radio-outside-office-group">
-                    <option value="1">666|66666</option>
-                    <option value="2">888|88989</option>
-                    <option value="3">564|5649987</option>
-                </select>
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-outside-office" value="3"
+                 data-mark="default" data-associated="default" data-group="ed-radio-outside-office-group">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <select class="bs-select-hidden" data-role="select" id="ed-radio-outside-office-group">
+          <%
+          if(data && data.rgData && data.rgData.groups) {
+          data.rgData.groups.forEach(function(data,key) {
+          %>
+          <option value="<%=data.ring_group_number%>"><%=data.ring_group_number%></option>
+          <%
+          });
+          }
+          %>
+        </select>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to external number
-        </label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to external number
+    </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-outside-office" value="4"
-                           data-mark="default" data-associated="default" data-group="ed-radio-outside-office-number">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <input type="text" class="form-control" autocomplete="off" id="ed-radio-outside-office-number">
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-outside-office" value="4"
+                 data-mark="default" data-associated="default" data-group="ed-radio-outside-office-number">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <input type="text" class="form-control" autocomplete="off" id="ed-radio-outside-office-number">
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">
-            Send call to Virtual Receptionist
-        </label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">
+      Send call to Virtual Receptionist
+    </label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-outside-office" value="5"
-                           data-mark="default" data-associated="default" data-group="ed-radio-outside-office-receptionist">
-                    <label></label>
-                </div>
-            </div>
-            <div class="col-sm-8 col-xs-11">
-                <select class="bs-select-hidden" data-role="select" id="ed-radio-outside-office-receptionist">
-                    <option value="1">666|66666</option>
-                    <option value="2">888|88989</option>
-                    <option value="3">564|5649987</option>
-                </select>
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-outside-office" value="5"
+                 data-mark="default" data-associated="default" data-group="ed-radio-outside-office-receptionist">
+          <label></label>
         </div>
+      </div>
+      <div class="col-sm-8 col-xs-11">
+        <select class="bs-select-hidden" data-role="select" id="ed-radio-outside-office-receptionist">
+          <%
+          if(data && data.vrsData && data.vrsData.virtual_receptionists) {
+          data.vrsData.virtual_receptionists.forEach(function(data,key) {
+          %>
+          <option value="<%=data.virtual_receptionist_number%>"><%=data.virtual_receptionist_number%></option>
+          <%
+          });
+          }
+          %>
+        </select>
+      </div>
     </div>
-    <div class="form-group my-form-group">
-        <label class="col-sm-4 control-label">Disconnect the call</label>
+  </div>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Disconnect the call</label>
 
-        <div class="col-sm-8 padding-left-0">
-            <div class="col-xs-1 col-sm-1">
-                <div class="radio-custom radio-primary">
-                    <input type="radio" name="ed-radio-outside-office" value="6" data-mark="default">
-                    <label></label>
-                </div>
-            </div>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-xs-1 col-sm-1">
+        <div class="radio-custom radio-primary">
+          <input type="radio" name="ed-radio-outside-office" value="6" data-mark="default">
+          <label></label>
         </div>
+      </div>
     </div>
+  </div>
 
-    <hr>
+  <hr>
 
-    <!-- END  -->
+  <!-- END  -->
 </div>

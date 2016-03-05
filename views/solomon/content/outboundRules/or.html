@@ -1,118 +1,117 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <h1 class="page-title">
-            Outbound Rules
-        </h1>
-    </div>
-    <div class="page-content container-fluid">
-        <!-- Panel -->
-        <div class="panel">
-            <div class="panel-body">
-                <!-- Example Responsive -->
-                <div class="example-wrap">
-                    <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
-                        <button type="button" class="btn btn-outline btn-default" id="add-outbound-rule">
-                            Add Outbound Rules
-                        </button>
-                        <button type="button" class="btn btn-outline btn-default">
-                            Export
-                        </button>
-                        <button type="button" class="btn btn-outline btn-default">
-                            Import
-                        </button>
-                    </div>
-                    <!--
-                    <h4 class="example-title">Basic</h4>
-                    -->
-                    <!-- Table -->
-                    <div class="example table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Rule Name</th>
-                                <th>Call from extension(s)</th>
-                                <th>Number prefix</th>
-                                <th>Number length</th>
-                                <th>Route 1</th>
-                                <th>Route 2</th>
-                                <th>Route 3 </th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+  <div class="page-header">
+    <h1 class="page-title">
+      Outbound Rules
+    </h1>
+  </div>
+  <div class="page-content container-fluid">
+    <!-- Panel -->
+    <div class="panel">
+      <div class="panel-body">
+        <!-- Example Responsive -->
+        <div class="example-wrap">
+          <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
+            <button type="button" class="btn btn-outline btn-default" id="add-outbound-rule">
+              Add Outbound Rules
+            </button>
+            <button type="button" class="btn btn-outline btn-default">
+              Export
+            </button>
+            <button type="button" class="btn btn-outline btn-default">
+              Import
+            </button>
+          </div>
+          <!--
+          <h4 class="example-title">Basic</h4>
+          -->
+          <!-- Table -->
+          <div class="example table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Rule Name</th>
+                <th>Call from extension(s)</th>
+                <th>Number prefix</th>
+                <th>Number length</th>
+                <th>Route 1</th>
+                <th>Route 2</th>
+                <th>Route 3</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
 
-                            <%
-                            if(orData && orData.rules){
-                            orData.rules.forEach(function(data,key){
-                            %>
+              <%
+              if(data && data.orsData && data.orsData.rules){
+              data.orsData.rules.forEach(function(data,key){
+              %>
 
-                            <tr>
-                                <td><%=(key+1)%></td>
-                                <td><%=data.name%></td>
-                                <td><%=data.from_extension %></td>
-                                <td><%=data.number_prefix %></td>
-                                <td><%=data.number_length %></td>
-                                <td><%=data.first_route_provider %></td>
-                                <td><%=data.second_route_provider %></td>
-                                <td><%=data.third_route_provider %></td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit"
-                                            name="or-edit" data-or="<%=data.name%>">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
+              <tr>
+                <td><%=(key+1)%></td>
+                <td><%=data.name%></td>
+                <td><%=data.from_extension %></td>
+                <td><%=data.number_prefix %></td>
+                <td><%=data.number_length %></td>
+                <td><%=data.first_route_provider %></td>
+                <td><%=data.second_route_provider %></td>
+                <td><%=data.third_route_provider %></td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                          data-toggle="tooltip" data-original-title="Edit"
+                          name="or-edit" data-or="<%=data.name%>">
+                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                          data-toggle="tooltip" data-original-title="Delete"
+                          name="or-btn-delete" data-value="<%=data.name%>">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
 
-                            <%
-                            });
-                            }%>
-
-
-
-
-                            </tbody>
-                            <tfoot>
-                            <%
-                            var colsPanNumber = 9;
-
-                            var page_count = 1;    //总页数
-                            var page_current = 1;   //当前页
-                            var page_start = 1;     //起始页
-                            var page_sum = 5;       //显示总页
-                            if((page_current+5-1) < page_count) {
-                            page_sum = page_sum+page_current-1;
-                            page_start = page_current;
-                            }else{
-                            page_sum = page_count;
-                            if(page_count>5){
-                            page_start = page_count - 5;
-                            }else{
-                            page_start = page_count;
-                            }
-                            }
-
-                            %>
+              <%
+              });
+              }%>
 
 
-                            <% include ../../page.html%>
-                            </tfoot>
-                        </table>
+              </tbody>
+              <tfoot>
+              <%
+              var colsPanNumber = 9;
 
-                    </div>
+              var page_count = 1; //总页数
+              var page_current = 1; //当前页
+              var page_start = 1; //起始页
+              var page_sum = 5; //显示总页
+              if((page_current+5-1) < page_count) {
+              page_sum = page_sum+page_current-1;
+              page_start = page_current;
+              }else{
+              page_sum = page_count;
+              if(page_count>5){
+              page_start = page_count - 5;
+              }else{
+              page_start = page_count;
+              }
+              }
 
-                </div>
-                <!-- End Example Responsive -->
-            </div>
+              %>
+
+
+              <% include ../../page.html%>
+              </tfoot>
+            </table>
+
+          </div>
+
         </div>
-        <!-- End Panel -->
+        <!-- End Example Responsive -->
+      </div>
     </div>
+    <!-- End Panel -->
+  </div>
 </div>
 <!-- End Page -->

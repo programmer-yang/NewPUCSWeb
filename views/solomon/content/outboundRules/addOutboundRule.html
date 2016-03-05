@@ -1,285 +1,286 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <ol class="breadcrumb">
-            <li><a href="javascript:void(0)" data-return="or">OutboundRule</a></li>
-            <li class="active">addOutboundRule</li>
-        </ol>
-    </div>
-    <div class="page-content">
+  <div class="page-header">
+    <ol class="breadcrumb">
+      <li><a href="javascript:void(0)" data-return="or">OutboundRule</a></li>
+      <li class="active">addOutboundRule</li>
+    </ol>
+  </div>
+  <div class="page-content">
 
-        <div class="row">
-            <div class="col-sm-8 my-setting-box">
-                <div class="panel ">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            Create / Edit an outbound rule to configure on which VoIP provider,SIP Trunk the outbound
-                            calls should be place on.
-                        </h3>
+    <div class="row">
+      <div class="col-sm-8 my-setting-box">
+        <div class="panel ">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Create / Edit an outbound rule to configure on which VoIP provider,SIP Trunk the outbound
+              calls should be place on.
+            </h3>
+          </div>
+
+          <div class="panel-body">
+            <!-- Example Horizontal Form -->
+            <div class="example padding-left-20">
+              <form class="form-horizontal">
+                <h5>
+                  Outbound rule:
+                </h5>
+
+                <div class="form-group my-form-group">
+
+                  <label class="col-sm-4 control-label">Outbound rule name</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-7 padding-left-0">
+                      <input type="text" class="form-control" placeholder="placeholder"
+                             data-mark="default" id="or-name" data-update="disabled"
+                             value="<%=trimValue(data.orData, ['name'])%>"/>
                     </div>
-
-                    <div class="panel-body">
-                        <!-- Example Horizontal Form -->
-                        <div class="example padding-left-20">
-                            <form class="form-horizontal">
-                                <h5>
-                                    Outbound rule:
-                                </h5>
-
-                                <div class="form-group my-form-group">
-
-                                    <label class="col-sm-4 control-label">Outbound rule name</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder="placeholder"
-                                                   data-mark="default" id="or-name"
-                                                   value="<%=trimValue(data.orData, ['name'])%>"/>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <p>
-                                    Apply this rule to these calls.
-                                </p>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Calls to numbers starting with prefix</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   data-mark="default" id="or-number-prefix"
-                                                   value="<%=trimValue(data.orData, ['number_prefix'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Calls from extension(s)</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   data-mark="default" id="or-from-extension"
-                                                   value="<%=trimValue(data.orData, ['from_extension'])%>" >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Calls to number with length of</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-7 padding-left-0">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   data-mark="default" id="or-number-length"
-                                                   value="<%=trimValue(data.orData, ['number_length'])%>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group my-form-group">
-                                    <label class="col-sm-4 control-label">Calls from extension group(s)</label>
-
-                                    <div class="col-sm-8 padding-left-0">
-                                        <div class="col-sm-7 padding-left-0">
-                                            <div class="input-group input-group-file">
-                                                <input type="text" class="form-control" readonly=""
-                                                       data-mark="default" id="or-from-extension-groups"
-                                                       value="<%=trimValue(data.orData, ['from_extension_groups'])%>">
-                                                <span class="input-group-btn" data-target="#extensionGroups" data-toggle="modal">
-                                                    <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <% include modelExtensionGroups.html %>
-
-
-                                <h5>
-                                    Make outbound calls on :
-                                </h5>
-                                <p>
-                                    Configure up to 3 routes fore calls,the second and third route will be used as backup.For each route,digits can be stripped
-                                    or added.
-                                </p>
-
-                                <div class="form-group margin-bottom-0">
-                                    <label class="col-sm-3 control-label"></label>
-
-                                    <div class="col-sm-7 padding-left-0">
-                                        <div class="col-sm-4 ">
-                                            <p class="text-center">
-                                                Provider/SIP Trunk
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <p class="text-center">
-                                                Strip Digits
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <p class="text-center">
-                                                Prepend
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="form-group margin-bottom-5">
-                                    <label class="col-sm-3 control-label">Route 1</label>
-
-                                    <div class="col-sm-7 padding-left-0">
-                                        <div class="col-sm-4 ">
-                                            <select data-role="select" data-mark="default" id="or-route-provider-1"
-                                                    data-selected="<%=trimValue(data.orData, ['route_provider_1'])%>">
-                                                <option value="0">Please select</option>
-                                                <%
-                                                if (data && data.pData) {
-                                                data.pData.providers.map(function(pro,key){
-                                                %>
-                                                <option value="<%=pro.name%>"><%=pro.name%></option>
-                                                <%
-                                                });
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <select data-role="select" data-mark="default" id="or-strip-digits-1"
-                                                    data-selected="<%=trimValue(data.orData, ['strip_digits_1'])%>">
-                                                <option value="0">Please select</option>
-                                                <%
-                                                for(var i =1; i<=10; i++) {
-                                                %>
-                                                <option value="<%=i%>"><%=i%></option>
-                                                <%
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   data-mark="default" id="or-prepend-1"
-                                                   value="<%=trimValue(data.orData, ['prepend_1'])%>">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="form-group margin-bottom-5">
-                                    <label class="col-sm-3 control-label">Route 2</label>
-
-                                    <div class="col-sm-7 padding-left-0">
-                                        <div class="col-sm-4 ">
-                                            <select data-role="select" data-mark="default" id="or-route-provider-2"
-                                                    data-selected="<%=trimValue(data.orData, ['route_provider_2'])%>">
-                                                <option value="0">Please select</option>
-                                                <%
-                                                if (data && data.pData) {
-                                                data.pData.providers.map(function(pro,key){
-                                                %>
-                                                <option value="<%=pro.name%>"><%=pro.name%></option>
-                                                <%
-                                                });
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <select data-role="select" data-mark="default" id="or-strip-digits-2"
-                                                    data-selected="<%=trimValue(data.orData, ['strip_digits_2'])%>">
-                                                <option value="0">Please select</option>
-                                                <%
-                                                for(var i =1; i<=10; i++) {
-                                                %>
-                                                <option value="<%=i%>"><%=i%></option>
-                                                <%
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   data-mark="default" id="or-prepend-2"
-                                                   value="<%=trimValue(data.orData, ['prepend_2'])%>">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="form-group margin-bottom-5">
-                                    <label class="col-sm-3 control-label">Route 3</label>
-
-                                    <div class="col-sm-7 padding-left-0">
-                                        <div class="col-sm-4 ">
-                                            <select data-role="select" data-mark="default" id="or-route-provider-3"
-                                                    data-selected="<%=trimValue(data.orData, ['route_provider_3'])%>">
-                                                <option value="0">Please select</option>
-                                                <%
-                                                if (data && data.pData) {
-                                                data.pData.providers.map(function(pro,key){
-                                                %>
-                                                <option value="<%=pro.name%>"><%=pro.name%></option>
-                                                <%
-                                                });
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <select data-role="select" data-mark="default" id="or-strip-digits-3"
-                                                    data-selected="<%=trimValue(data.orData, ['strip_digits_3'])%>">
-                                                <option value="0">Please select</option>
-                                                <%
-                                                for(var i =1; i<=10; i++) {
-                                                %>
-                                                <option value="<%=i%>"><%=i%></option>
-                                                <%
-                                                }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 ">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   data-mark="default" id="or-prepend-3"
-                                                   value="<%=trimValue(data.orData, ['prepend_3'])%>">
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="form-group my-form-group margin-top-30">
-                                    <div class="col-sm-8 col-sm-offset-4 padding-left-0">
-                                        <button type="button" class="btn btn-default btn-primary btn-outline"
-                                                data-return="or">
-                                            Cancel
-                                        </button>
-                                        <button type="reset" class="btn btn-default btn-outline btn-primary">
-                                            Reset
-                                        </button>
-                                        <button type="button" class="btn btn-default btn-outline btn-primary"
-                                                id="or-apply">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- End Example Horizontal Form -->
-                    </div>
+                  </div>
 
                 </div>
+
+                <p>
+                  Apply this rule to these calls.
+                </p>
+
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Calls to numbers starting with prefix</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-7 padding-left-0">
+                      <input type="text" class="form-control" placeholder=""
+                             data-mark="default" id="or-number-prefix"
+                             value="<%=trimValue(data.orData, ['number_prefix'])%>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Calls from extension(s)</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-7 padding-left-0">
+                      <input type="text" class="form-control" placeholder=""
+                             data-mark="default" id="or-from-extension"
+                             value="<%=trimValue(data.orData, ['from_extension'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Calls to number with length of</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-7 padding-left-0">
+                      <input type="text" class="form-control" placeholder=""
+                             data-mark="default" id="or-number-length"
+                             value="<%=trimValue(data.orData, ['number_length'])%>">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group my-form-group">
+                  <label class="col-sm-4 control-label">Calls from extension group(s)</label>
+
+                  <div class="col-sm-8 padding-left-0">
+                    <div class="col-sm-7 padding-left-0">
+                      <div class="input-group input-group-file">
+                        <input type="text" class="form-control" readonly=""
+                               data-mark="default" id="or-from-extension-groups"
+                               value="<%=trimArray(data.orData.from_extension_groups)%>">
+                        <span class="input-group-btn" data-target="#extensionGroups"
+                              data-toggle="modal">
+                            <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                            </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% include modelExtensionGroups.html %>
+
+
+                <h5>
+                  Make outbound calls on :
+                </h5>
+
+                <p>
+                  Configure up to 3 routes fore calls,the second and third route will be used as backup.For each
+                  route,digits can be stripped
+                  or added.
+                </p>
+
+                <div class="form-group margin-bottom-0">
+                  <label class="col-sm-3 control-label"></label>
+
+                  <div class="col-sm-7 padding-left-0">
+                    <div class="col-sm-4 ">
+                      <p class="text-center">
+                        Provider/SIP Trunk
+                      </p>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <p class="text-center">
+                        Strip Digits
+                      </p>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <p class="text-center">
+                        Prepend
+                      </p>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="form-group margin-bottom-5">
+                  <label class="col-sm-3 control-label">Route 1</label>
+
+                  <div class="col-sm-7 padding-left-0">
+                    <div class="col-sm-4 ">
+                      <select data-role="select" data-mark="default" id="or-route-provider-1"
+                              data-selected="<%=trimValue(data.orData, ['route_provider_1'])%>">
+                        <option value="0">Please select</option>
+                        <%
+                        if (data && data.psData && data.psData.providers) {
+                        data.psData.providers.forEach(function(pro,key){
+                        %>
+                        <option value="<%=pro.name%>"><%=pro.name%></option>
+                        <%
+                        });
+                        }
+                        %>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <select data-role="select" data-mark="default" id="or-strip-digits-1"
+                              data-selected="<%=trimValue(data.orData, ['strip_digits_1'])%>">
+                        <%
+                        for(var i =0; i<=9; i++) {
+                        %>
+                        <option value="<%=i%>"><%=i%></option>
+                        <%
+                        }
+                        %>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <input type="text" class="form-control" placeholder=""
+                             data-mark="default" id="or-prepend-1"
+                             value="<%=trimValue(data.orData, ['prepend_1'])%>">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group margin-bottom-5">
+                  <label class="col-sm-3 control-label">Route 2</label>
+
+                  <div class="col-sm-7 padding-left-0">
+                    <div class="col-sm-4 ">
+                      <select data-role="select" data-mark="default" id="or-route-provider-2"
+                              data-selected="<%=trimValue(data.orData, ['route_provider_2'])%>">
+                        <option value="0">Please select</option>
+                        <%
+                        if (data && data.psData && data.psData.providers) {
+                        data.psData.providers.map(function(pro,key){
+                        %>
+                        <option value="<%=pro.name%>"><%=pro.name%></option>
+                        <%
+                        });
+                        }
+                        %>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <select data-role="select" data-mark="default" id="or-strip-digits-2"
+                              data-selected="<%=trimValue(data.orData, ['strip_digits_2'])%>">
+                        <%
+                        for(var i =0; i<10; i++) {
+                        %>
+                        <option value="<%=i%>"><%=i%></option>
+                        <%
+                        }
+                        %>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <input type="text" class="form-control" placeholder=""
+                             data-mark="default" id="or-prepend-2"
+                             value="<%=trimValue(data.orData, ['prepend_2'])%>">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group margin-bottom-5">
+                  <label class="col-sm-3 control-label">Route 3</label>
+
+                  <div class="col-sm-7 padding-left-0">
+                    <div class="col-sm-4 ">
+                      <select data-role="select" data-mark="default" id="or-route-provider-3"
+                              data-selected="<%=trimValue(data.orData, ['route_provider_3'])%>">
+                        <option value="0">Please select</option>
+                        <%
+                        if (data && data.psData && data.psData.providers) {
+                        data.psData.providers.map(function(pro,key){
+                        %>
+                        <option value="<%=pro.name%>"><%=pro.name%></option>
+                        <%
+                        });
+                        }
+                        %>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <select data-role="select" data-mark="default" id="or-strip-digits-3"
+                              data-selected="<%=trimValue(data.orData, ['strip_digits_3'])%>">
+                        <%
+                        for(var i =0; i<10; i++) {
+                        %>
+                        <option value="<%=i%>"><%=i%></option>
+                        <%
+                        }
+                        %>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 ">
+                      <input type="text" class="form-control" placeholder=""
+                             data-mark="default" id="or-prepend-3"
+                             value="<%=trimValue(data.orData, ['prepend_3'])%>">
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <div class="form-group my-form-group margin-top-30">
+                  <div class="col-sm-8 col-sm-offset-4 padding-left-0">
+                    <button type="button" class="btn btn-default btn-primary btn-outline"
+                            data-return="or">
+                      Cancel
+                    </button>
+                    <button type="reset" class="btn btn-default btn-outline btn-primary">
+                      Reset
+                    </button>
+                    <button type="button" class="btn btn-default btn-outline btn-primary"
+                            id="or-apply">
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div class="col-sm-5">
-            </div>
+            <!-- End Example Horizontal Form -->
+          </div>
 
         </div>
+      </div>
+      <div class="col-sm-5">
+      </div>
 
     </div>
+
+  </div>
 
 
 </div>

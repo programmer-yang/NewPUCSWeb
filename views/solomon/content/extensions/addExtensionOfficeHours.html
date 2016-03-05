@@ -7,7 +7,7 @@
             <div class="col-sm-8">
                 <div class="radio-custom radio-primary">
                     <input type="radio" name="eoh-uses-time" data-mark="default" value="1" id="eoh-radio-time-global"
-                           data-checked="<%=trimValue(data, ['office_hours', 'office_hours_mode'])%>">
+                           data-checked="<%=trimValue(data.eData, ['office_hours', 'office_hours_mode'])%>">
                     <label></label>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        id="eoh-monday-begin" readonly="readonly"
-                                       value="<%=trimValue(data, ['office_hours', 'monday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'monday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -86,7 +86,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        id="eoh-monday-end" readonly="readonly"
-                                       value="<%=trimValue(data, ['office_hours', 'monday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'monday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
@@ -119,7 +119,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        id="eoh-tuesday-begin" readonly="readonly"
-                                       value="<%=trimValue(data, ['office_hours', 'tuesday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'tuesday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -131,7 +131,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        id="eoh-tuesday-end" readonly="readonly"
-                                       value="<%=trimValue(data, ['office_hours', 'tuesday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'tuesday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
@@ -164,7 +164,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        id="eoh-wednesday-begin" readonly="readonly"
-                                       value="<%=trimValue(data, ['office_hours', 'wednesday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'wednesday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -176,7 +176,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        id="eoh-wednesday-end" readonly="readonly"
-                                       value="<%=trimValue(data, ['office_hours', 'wednesday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'wednesday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
@@ -209,7 +209,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-thursday-begin"
-                                       value="<%=trimValue(data, ['office_hours', 'thursday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'thursday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -221,7 +221,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-thursday-end"
-                                       value="<%=trimValue(data, ['office_hours', 'thursday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'thursday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
@@ -254,7 +254,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-friday-begin"
-                                       value="<%=trimValue(data, ['office_hours', 'friday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'friday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -266,7 +266,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-friday-end"
-                                       value="<%=trimValue(data, ['office_hours', 'friday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'friday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
@@ -299,7 +299,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-saturday-begin"
-                                       value="<%=trimValue(data, ['office_hours', 'saturday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'saturday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -311,7 +311,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-saturday-end"
-                                       value="<%=trimValue(data, ['office_hours', 'saturday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'saturday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">
@@ -344,7 +344,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-sunday-begin"
-                                       value="<%=trimValue(data, ['office_hours', 'sunday_from'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'sunday_from'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2">
@@ -356,7 +356,7 @@
                                        class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
                                        data-role="timepicker" autocomplete="off" data-mark="default"
                                        readonly="readonly" id="eoh-sunday-end"
-                                       value="<%=trimValue(data, ['office_hours', 'saturday_to'])%>">
+                                       value="<%=trimValue(data.eData, ['office_hours', 'sunday_to'])%>">
                             </div>
                         </td>
                         <td class="col-sm-2 col-xs-2 text-center">

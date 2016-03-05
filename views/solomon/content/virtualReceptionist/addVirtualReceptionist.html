@@ -35,7 +35,7 @@
                   <div class="col-sm-8 padding-left-0">
                     <div class="col-sm-8">
                       <input type="text" class="form-control" placeholder="Extension Number" autocomplete="off"
-                             data-mark="default" id="vr-number" value="<%=trimValue(vrData, ['vr_number'])%>"/>
+                             data-mark="default" id="vr-number" value="<%=trimValue(data.vrData, ['vr_number'])%>"/>
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                   <div class="col-sm-8 padding-left-0">
                     <div class="col-sm-8">
                       <input type="text" class="form-control" placeholder="Name" autocomplete="off"
-                             data-mark="default" id="vr-name" value="<%=trimValue(vrData, ['name'])%>"/>
+                             data-mark="default" id="vr-name" value="<%=trimValue(data.vrData, ['name'])%>"/>
                     </div>
                   </div>
                 </div>
@@ -61,11 +61,10 @@
                     <div class="col-sm-8">
                       <div class="input-group input-group-file" >
                         <input type="text" class="form-control" readonly=""
-                               data-mark="default" id="vr-prompt" value="<%=trimValue(vrData, ['prompt'])%>" />
+                               data-mark="default" id="vr-prompt" value="<%=trimValue(data.vrData, ['prompt'])%>" />
                         <span class="input-group-btn">
                           <span class="btn btn-outline btn-file">
-                            <i class="icon wb-upload"
-                               aria-hidden="true"></i>
+                            <i class="icon wb-upload" aria-hidden="true"></i>
                             <input type="file" multiple="">
                           </span>
                         </span>
@@ -104,36 +103,72 @@
                   <div class="col-sm-10 padding-left-0">
                     <div class="col-sm-2 ">
                       <label class="col-sm-12 control-label">
+                        0
+                      </label>
+                    </div>
+                    <div class="col-sm-5 ">
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key0-value-box" id="vr-key0"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key0-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key0-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <% include modelExtension.html %>
+                <% include modelRingGroup.html %>
+                <% include modelCallQueue.html %>
+                <% include modelVirtualReceptionist.html %>
+
+                <div class="form-group my-form-group">
+                  <label class="col-sm-1 control-label"></label>
+
+                  <div class="col-sm-10 padding-left-0">
+                    <div class="col-sm-2 ">
+                      <label class="col-sm-12 control-label">
                         1
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key1-value-box" id="vr-key1"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                          <span class="input-group-btn"
-                                data-target="#extension1" data-toggle="modal">
-                            <span class="btn btn-outline btn-file">
-                              <i class="icon wb-search" aria-hidden="true"></i>
-                            </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key1-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key1-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
                           </span>
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <% include modelExtension.html %>
-
                 <div class="form-group my-form-group">
                   <label class="col-sm-1 control-label"></label>
 
@@ -144,26 +179,25 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key2-value-box" id="vr-key2"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key2-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key2-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -178,26 +212,25 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key3-value-box" id="vr-key3"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key3-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key3-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -212,26 +245,25 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key4-value-box" id="vr-key4"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key4-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key4-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -246,26 +278,25 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key5-value-box" id="vr-key5"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key5-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key5-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -280,29 +311,29 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key6-value-box" id="vr-key6"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key6-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key6-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="form-group my-form-group">
                   <label class="col-sm-1 control-label"></label>
@@ -314,30 +345,28 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key7-value-box" id="vr-key7"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key7-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key7-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
-
                 </div>
                 <div class="form-group my-form-group">
                   <label class="col-sm-1 control-label"></label>
@@ -349,26 +378,25 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0">&nbsp;</option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key8-value-box" id="vr-key8"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key8-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key8-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -383,26 +411,25 @@
                       </label>
                     </div>
                     <div class="col-sm-5 ">
-                      <select class="bs-select-hidden" data-role="select">
-                        <option value="0"></option>
-                        <option value="1">End Call</option>
-                        <option value="2">Connect to Extesion</option>
-                        <option value="3">Connect to Ring Group</option>
-                        <option value="4">Connect to Queue</option>
-                        <option value="5">Connect to Digital Receptionist</option>
-                        <option value="6">Transefer to Voice Mail</option>
-                        <option value="7">Repeat Prompt</option>
+                      <select class="bs-select-hidden" data-role="select" data-value-id="key9-value-box" id="vr-key9"
+                              data-mark="default" >
+                        <option value="1" data-model-id="#">End Call</option>
+                        <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                        <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                        <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                        <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                        <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                        <option value="7" data-model-id="#">Repeat Prompt</option>
                       </select>
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="key9-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-key9-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -416,33 +443,31 @@
                       <label class="col-sm-12 control-label">Timeout(s)</label>
                     </div>
                     <div class="col-sm-5 ">
-                      <div class="col-sm-5 padding-0">
-                        <input type="text" class="form-control" autocomplete="off">
+                      <div class="col-sm-5 padding-0 padding-right-5">
+                        <input type="text" class="form-control" placeholder="Timeout" autocomplete="off"
+                               id="vr-timeout-number" data-mark="default" />
                       </div>
-
-                      <div class="col-sm-7 padding-right-0">
-                        <select class="bs-select-hidden" data-role="select">
-                          <option value="0">&nbsp;</option>
-                          <option value="1">End Call</option>
-                          <option value="2">Connect to Extesion</option>
-                          <option value="3">Connect to Ring Group</option>
-                          <option value="4">Connect to Queue</option>
-                          <option value="5">Connect to Digital Receptionist</option>
-                          <option value="6">Transefer to Voice Mail</option>
-                          <option value="7">Repeat Prompt</option>
+                      <div class="col-sm-7 padding-0">
+                        <select class="bs-select-hidden" data-role="select" data-value-id="vr-timeout-value-box" id="vr-timeout"
+                                data-mark="default" >
+                          <option value="1" data-model-id="#">End Call</option>
+                          <option value="2" data-model-id="#vr-model-extension">Connect to Extension</option>
+                          <option value="3" data-model-id="#vr-model-ring-group">Connect to Ring Group</option>
+                          <option value="4" data-model-id="#vr-model-call-queue">Connect to Queue</option>
+                          <option value="5" data-model-id="#vr-model-virtual-receptionist">Connect to Virtual receptionist</option>
+                          <option value="6" data-model-id="#">Transefer to Voice Mail</option>
+                          <option value="7" data-model-id="#">Repeat Prompt</option>
                         </select>
                       </div>
-
                     </div>
-                    <div class="col-sm-5 ">
-                      <div class="input-group input-group-file">
-                        <input type="text" class="form-control" readonly="">
-                                                <span class="input-group-btn"
-                                                      data-target="#extension1" data-toggle="modal">
-                                                  <span class="btn btn-outline btn-file">
-                                                    <i class="icon wb-search" aria-hidden="true"></i>
-                                                  </span>
-                                                </span>
+                    <div class="col-sm-5">
+                      <div class="input-group input-group-file" id="vr-timeout-value-box" name="model-1" >
+                        <input type="text" class="form-control" readonly="" id="vr-timeout-value" data-mark="default" />
+                        <span class="input-group-btn" data-target="#" data-toggle="modal">
+                          <span class="btn btn-outline btn-file">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>

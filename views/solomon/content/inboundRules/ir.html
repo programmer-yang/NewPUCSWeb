@@ -1,106 +1,107 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <h1 class="page-title">
-            Inbound Rules
-        </h1>
-    </div>
-    <div class="page-content container-fluid">
-        <!-- Panel -->
-        <div class="panel">
-            <div class="panel-body">
-                <!-- Example Responsive -->
-                <div class="example-wrap">
-                    <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
-                        <button type="button" class="btn btn-outline btn-default" id="add-inbound-rule">
-                            Add Inbound Rule
-                        </button>
-                        <button type="button" class="btn btn-outline btn-default">
-                            Export
-                        </button>
-                        <button type="button" class="btn btn-outline btn-default">
-                            Import
-                        </button>
-                    </div>
-                    <!--
-                    <h4 class="example-title">Basic</h4>
-                    -->
-                    <!-- Table -->
-                    <div class="example table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Type</th>
-                                <th>Rule Name</th>
-                                <th>Number Mask</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+  <div class="page-header">
+    <h1 class="page-title">
+      Inbound Rules
+    </h1>
+  </div>
+  <div class="page-content container-fluid">
+    <!-- Panel -->
+    <div class="panel">
+      <div class="panel-body">
+        <!-- Example Responsive -->
+        <div class="example-wrap">
+          <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
+            <button type="button" class="btn btn-outline btn-default" id="add-inbound-rule">
+              Add Inbound Rule
+            </button>
+            <button type="button" class="btn btn-outline btn-default">
+              Export
+            </button>
+            <button type="button" class="btn btn-outline btn-default">
+              Import
+            </button>
+          </div>
+          <!--
+          <h4 class="example-title">Basic</h4>
+          -->
+          <!-- Table -->
+          <div class="example table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Rule Name</th>
+                <th>Number Mask</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
 
-                            <%
-                            if(irData && irData.rules) {
-                            irData.rules.forEach(function(data,key) {
-                            %>
-                            <tr>
-                                <td><%=(key+1) %></td>
-                                <td><%=data.type %></td>
-                                <td><%=data.name %></td>
-                                <td><%=data.number_mask%></td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit"
-                                            data-rn="<%=data.name%>" name="ir-btn-update">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <%
-                            });
-                            } %>
-
-
-                            </tbody>
-                            <tfoot>
-                            <%
-                            var colsPanNumber = 5;
-
-                            var page_count = 1;    //总页数
-                            var page_current = 1;   //当前页
-                            var page_start = 1;     //起始页
-                            var page_sum = 5;       //显示总页
-                            if((page_current+5-1) < page_count) {
-                            page_sum = page_sum+page_current-1;
-                            page_start = page_current;
-                            }else{
-                            page_sum = page_count;
-                            if(page_count>5){
-                            page_start = page_count - 5;
-                            }else{
-                            page_start = page_count;
-                            }
-                            }
-
-                            %>
+              <%
+              if(data && data.irsData && data.irsData.rules) {
+              data.irsData.rules.forEach(function(data,key) {
+              %>
+              <tr>
+                <td><%=(key+1) %></td>
+                <td><%=data.type %></td>
+                <td><%=data.name %></td>
+                <td><%=data.number_mask%></td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                          data-toggle="tooltip" data-original-title="Edit"
+                          data-rn="<%=data.name%>" name="ir-btn-update">
+                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                          data-toggle="tooltip" data-original-title="Delete"
+                          name="ir-btn-delete" data-value="<%=data.name %>">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <%
+              });
+              } %>
 
 
-                            <% include ../../page.html%>
-                            </tfoot>
-                        </table>
+              </tbody>
+              <tfoot>
+              <%
+              var colsPanNumber = 5;
 
-                    </div>
+              var page_count = 1; //总页数
+              var page_current = 1; //当前页
+              var page_start = 1; //起始页
+              var page_sum = 5; //显示总页
+              if((page_current+5-1) < page_count) {
+              page_sum = page_sum+page_current-1;
+              page_start = page_current;
+              }else{
+              page_sum = page_count;
+              if(page_count>5){
+              page_start = page_count - 5;
+              }else{
+              page_start = page_count;
+              }
+              }
 
-                </div>
-                <!-- End Example Responsive -->
-            </div>
+              %>
+
+
+              <% include ../../page.html%>
+              </tfoot>
+            </table>
+
+          </div>
+
         </div>
-        <!-- End Panel -->
+        <!-- End Example Responsive -->
+      </div>
     </div>
+    <!-- End Panel -->
+  </div>
 </div>
 <!-- End Page -->

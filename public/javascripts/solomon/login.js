@@ -43,13 +43,13 @@ $.components.register("mLogin", {
                     //console.log('abc');
                     window.location = data.url;
                     //console.log(data);
-                }else if(data || data.result === 'error'){
+                }else if(data || data.result === 'error' || data.err_code){
 
 
                     console.log(data.result);
                     console.log(data.message);
                     box.attr('class', css);
-                    toastr.warning(data.message, '', {
+                    toastr.warning(data.message || data.msg || 'login is error', '', {
                         showMethod: "slideDown",
                         positionClass: "toast-top-full-width",
                         containerId: "toast-topFullWidth"
@@ -57,6 +57,7 @@ $.components.register("mLogin", {
                 }else {
                     //特殊情况处理
                     //...
+                  console.log('不是是这里吧')
                 }
 
 

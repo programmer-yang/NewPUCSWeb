@@ -1,107 +1,108 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <h1 class="page-title">
-            VoIP
-        </h1>
-    </div>
-    <div class="page-content container-fluid">
-        <!-- Panel -->
-        <div class="panel">
-            <div class="panel-body">
-                <!-- Example Responsive -->
-                <div class="example-wrap">
-                    <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
-                        <button type="button" class="btn btn-outline btn-default" id="add-provider">
-                            Add Provider
-                        </button>
-                    </div>
-                    <!--
-                    <h4 class="example-title">Basic</h4>
-                    -->
-                    <!-- Table -->
-                    <div class="example table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Provider Name</th>
-                                <th>Host IP/Domain</th>
-                                <th>Port</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+  <div class="page-header">
+    <h1 class="page-title">
+      VoIP
+    </h1>
+  </div>
+  <div class="page-content container-fluid">
+    <!-- Panel -->
+    <div class="panel">
+      <div class="panel-body">
+        <!-- Example Responsive -->
+        <div class="example-wrap">
+          <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
+            <button type="button" class="btn btn-outline btn-default" id="add-provider">
+              Add Provider
+            </button>
+          </div>
+          <!--
+          <h4 class="example-title">Basic</h4>
+          -->
+          <!-- Table -->
+          <div class="example table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Provider Name</th>
+                <th>Host IP/Domain</th>
+                <th>Port</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
 
-                            <% if(ptData && ptData.providers) { %>
-                            <% ptData.providers.forEach(function(data,key){ %>
+              <% if(data.pData && data.pData.providers) { %>
+              <% data.pData.providers.forEach(function(data,key){ %>
 
-                            <tr>
-                                <td><%=(key+1) %></td>
-                                <td><%=data.name %></td>
-                                <td><%=data.hostname %></td>
-                                <td><%=data.port %></td>
-                                <td>
-                                    <% if(data.status=='Registered'){ %>
-                                    <span class="label label-primary">Online</span>
-                                    <% } %>
-                                    <% if(data.status=='Not Registered'){ %>
-                                    <span class="label label-danger">offline</span>
-                                    <% } %>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit"
-                                            data-vpt="<%=data.name%>" name="vpt-update-btn">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
+              <tr>
+                <td><%=(key+1) %></td>
+                <td><%=data.name %></td>
+                <td><%=data.hostname %></td>
+                <td><%=data.port %></td>
+                <td>
+                  <% if(data.status=='Registered'){ %>
+                  <span class="label label-primary">Online</span>
+                  <% } %>
+                  <% if(data.status=='Not Registered'){ %>
+                  <span class="label label-danger">offline</span>
+                  <% } %>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                          data-toggle="tooltip" data-original-title="Edit"
+                          data-value="<%=data.name%>" name="vpt-update-btn">
+                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                          data-toggle="tooltip" data-original-title="Delete"
+                          data-value="<%=data.name%>" name="vpt-delete-btn">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
 
-                            <% }); %>
-                            <% } %>
+              <% }); %>
+              <% } %>
 
-                            </tbody>
-                            <tfoot>
-                            <%
-                            var colsPanNumber = 6;
+              </tbody>
+              <tfoot>
+              <%
+              var colsPanNumber = 6;
 
-                            var page_count = 1;    //总页数
-                            var page_current = 1;   //当前页
-                            var page_start = 1;     //起始页
-                            var page_sum = 5;       //显示总页
-                            if((page_current+5-1) < page_count) {
-                            page_sum = page_sum+page_current-1;
-                            page_start = page_current;
-                            }else{
-                            page_sum = page_count;
-                            if(page_count>5){
-                            page_start = page_count - 5;
-                            }else{
-                            page_start = page_count;
-                            }
-                            }
+              var page_count = 1; //总页数
+              var page_current = 1; //当前页
+              var page_start = 1; //起始页
+              var page_sum = 5; //显示总页
+              if((page_current+5-1) < page_count) {
+              page_sum = page_sum+page_current-1;
+              page_start = page_current;
+              }else{
+              page_sum = page_count;
+              if(page_count>5){
+              page_start = page_count - 5;
+              }else{
+              page_start = page_count;
+              }
+              }
 
-                            %>
+              %>
 
 
-                            <% include ../../page.html%>
-                            </tfoot>
-                        </table>
+              <% include ../../page.html%>
+              </tfoot>
+            </table>
 
-                    </div>
+          </div>
 
-                </div>
-                <!-- End Example Responsive -->
-            </div>
         </div>
-        <!-- End Panel -->
+        <!-- End Example Responsive -->
+      </div>
     </div>
+    <!-- End Panel -->
+  </div>
 </div>
 <!-- End Page -->

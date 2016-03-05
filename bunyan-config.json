@@ -1,0 +1,9 @@
+{
+  "log": {
+    "name": "myapp",
+    "level": "info",
+    "streams": [{
+      "path": "./logs/info.log"
+    }]
+  }
+}

@@ -1,0 +1,90 @@
+<div class="tab-pane active" id="exampleGeneral" role="tabpanel">
+  <!-- General BEGIN  -->
+
+  <h5 class="margin-top-10">
+    Tendant information
+  </h5>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Tenant User Name</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Tenant User Name" autocomplete="off" id="te-username"
+               value="<%=trimValue(data.teData, ['username'])%>"
+               data-update="<%=type=='update'?'disabled':'default'%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Password</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Password" autocomplete="off" id="te-password"
+               value="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">First Name</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="First Name" autocomplete="off" id="te-first-name"
+               value="<%=trimValue(data.teData, ['profile', 'first_name'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Last Name</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Last Name" autocomplete="off" id="te-last-name"
+               value="<%=trimValue(data.teData, ['profile', 'last_name'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Company Name</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Company Name" autocomplete="off" id="te-company-name"
+               value="<%=trimValue(data.teData, ['profile', 'company_name'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Company Website</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Company Website" autocomplete="off" id="te-company-website"
+               value="<%=trimValue(data.teData, ['profile', 'company_website'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Email</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Company Website:" autocomplete="off" id="te-email"
+               value="<%=trimValue(data.teData, ['profile', 'email'])%>" />
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <!-- END  -->
+</div>

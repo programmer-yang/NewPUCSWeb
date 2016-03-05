@@ -1,21 +1,23 @@
-
 var emitter = require('../tool/emitter');
+var util = require('../tool/util');
+var EventProxy = require('eventproxy');
+
+var apiSystemExtensions = require('../api/apiSystemExtensions');
+
+function sexGet(req, res, next) {
 
 
-
-
-function sexGet (req, res, next) {
-
-    //res.render('solomon/content/systemExtensions/sex');
-
-    emitter.local.get('/api/system_extensions/list', req, function(data){
-
-        console.log('============');
-        console.log(data);
-
-        res.render('solomon/content/systemExtensions/sex',{seData : JSON.parse(data)});
-
-    });
+  var ep = new EventProxy();
+  var result = {};
+  result['seData'] = {};
+  ep.all('seData', function(seData) {
+    result.seData = util.parseJSON(seData);
+    res.render('solomon/content/systemExtensions/sex', {data: result});
+  });
+  ep.fail(function(err, errMsg) {
+    res.json({err_code:'500', msg:err.msg || msg });
+  });
+  apiSystemExtensions.systemExtensionsList(req.query, util.done('seData', ep, 'SystemExtensionsList ERROR'));
 
 }
 

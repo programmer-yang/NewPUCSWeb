@@ -1,5 +1,5 @@
-<div class="modal fade" id="digitalReceptionList" aria-hidden="true" aria-labelledby="examplePositionCenter" role="dialog"
-     tabindex="-1" style="display: none;">
+<div class="modal fade" id="ringGroupsReceptionList" aria-hidden="true" aria-labelledby="examplePositionCenter"
+     role="dialog" tabindex="-1" style="display: none;" data-model="rg-radio-answer-virtual-receptionist">
     <div class="modal-dialog modal-center">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,7 +9,7 @@
                 <h4 class="modal-title">Connect to Digital Receptionlist</h4>
             </div>
             <div class="modal-body padding-bottom-0">
-                <div class="form-inline padding-bottom-15">
+                <div class="form-inline padding-bottom-15 hide">
                     <div class="row">
                         <div class="col-sm-6 margin-left-20">
                             <div class="form-group">
@@ -25,73 +25,61 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Extension</th>
                         <th>Name</th>
-                        <th>Email</th>
+                        <th>Extension Number</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Teagan</td>
-                        <td>Prohaska</td>
-                        <td>@Elijah</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Andy</td>
-                        <td>Gaylord</td>
-                        <td>@Ramiro</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Veronica</td>
-                        <td>Gusikowski</td>
-                        <td>@Maxime</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Bruce</td>
-                        <td>Rogahn</td>
-                        <td>@Maggio</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Carolina</td>
-                        <td>Hickle</td>
-                        <td>@Hammes</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Madaline</td>
-                        <td>Eichmann</td>
-                        <td>@Amaya</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="7" class="footable-visible">
-                            <div class="text-right">
-                                <ul class="pagination">
-                                    <li class="footable-page-arrow disabled"><a data-page="first"
-                                                                                href="#first">«</a></li>
-                                    <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a>
-                                    </li>
-                                    <li class="footable-page active"><a data-page="0" href="#">1</a></li>
-                                    <li class="footable-page"><a data-page="1" href="#">2</a></li>
-                                    <li class="footable-page"><a data-page="2" href="#">3</a></li>
-                                    <li class="footable-page"><a data-page="3" href="#">4</a></li>
-                                    <li class="footable-page"><a data-page="4" href="#">5</a></li>
-                                    <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
-                                    <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
-                                </ul>
-                            </div>
+                    <%
+                    if(data.vrsData && data.vrsData.virtual_receptionists) {
+                    data.vrsData.virtual_receptionists.map(function(data, key) {
+                    %>
+                    <tr data-value="<%=data.vr_extension%>">
+                        <td><%=key+1%></td>
+                        <td><%=data.virtual_receptionist_number%></td>
+                        <td><%=data.name%></td>
+                        <td>
+                            <% if(data.status=='online'){ %>
+                            <span class="label label-primary">Online</span>
+                            <% } %>
+                            <% if(data.status=='offline'){ %>
+                            <span class="label label-danger">offline</span>
+                            <% } %>
                         </td>
                     </tr>
+                    <%
+                    });
+                    }
+                    %>
+                    </tbody>
+                    <tfoot>
+                    <%
+                    var colsPanNumber = 5;
+
+                    var page_count = 1;    //总页数
+                    var page_current = 1;   //当前页
+                    var page_start = 1;     //起始页
+                    var page_sum = 5;       //显示总页
+                    if((page_current+5-1) < page_count) {
+                    page_sum = page_sum+page_current-1;
+                    page_start = page_current;
+                    }else{
+                    page_sum = page_count;
+                    if(page_count>5){
+                    page_start = page_count - 5;
+                    }else{
+                    page_start = page_count;
+                    }
+                    }
+
+                    %>
+
+                    <% include ../../page.html%>
                     </tfoot>
                 </table>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer hide">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

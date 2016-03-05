@@ -1,0 +1,80 @@
+<div class="modal fade" id="noAnswerVoiceMailExtension" aria-hidden="true" aria-labelledby="examplePositionCenter" role="dialog"
+     tabindex="-1" style="display: none;" data-model="rg-radio-answer-voicemail-extension">
+  <div class="modal-dialog modal-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title">Connect to Extension </h4>
+      </div>
+      <div class="modal-body padding-bottom-0">
+        <div class="form-inline padding-bottom-15 hide">
+          <div class="row">
+            <div class="col-sm-6 margin-left-20">
+              <div class="form-group">
+                <input id="addRemoveSearch" type="text" placeholder="Search" class="form-control" autocomplete="off">
+              </div>
+            </div>
+            <div class="col-sm-6 text-right">
+
+            </div>
+          </div>
+        </div>
+        <table class="table table-hover margin-bottom-0">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Extension</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%
+          if(data.esData && data.esData.extensions) {
+          data.esData.extensions.map(function(data, key) {
+          %>
+          <tr data-value="<%=data.extension_number%>">
+            <td><%=key+1%></td>
+            <td><%=data.extension_number%></td>
+            <td><%=data.first_name%> <%=data.last_name%></td>
+            <td><%=data.email%></td>
+          </tr>
+          <%
+          });
+          }
+          %>
+          </tbody>
+          <tfoot>
+          <%
+          var colsPanNumber = 5;
+
+          var page_count = 1;    //总页数
+          var page_current = 1;   //当前页
+          var page_start = 1;     //起始页
+          var page_sum = 5;       //显示总页
+          if((page_current+5-1) < page_count) {
+          page_sum = page_sum+page_current-1;
+          page_start = page_current;
+          }else{
+          page_sum = page_count;
+          if(page_count>5){
+          page_start = page_count - 5;
+          }else{
+          page_start = page_count;
+          }
+          }
+
+          %>
+
+          <% include ../../page.html%>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer hide">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,362 @@
+<div class="tab-pane" id="exampleOfficeHours" role="tabpanel">
+
+  <h5 class="margin-top-10">
+    Configure Office Hours
+  </h5>
+
+  <p>
+    Specify your office hours. Calls can then be treated differently based on whether they are
+    received during or out of office hours.
+  </p>
+
+  <div class="form-group my-form-group">
+    <div class="col-sm-10 col-sm-offset-1">
+
+      <div class="example table-responsive">
+
+        <table class="table">
+          <thead>
+          <tr>
+            <td></td>
+            <td class="text-center">
+              From
+            </td>
+            <td class="text-center">
+              To
+            </td>
+            <td></td>
+            <td class="text-center">
+              Office Hours
+            </td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Monday
+              </p>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       id="te-monday-begin" readonly="readonly"
+                       value="<%=trimValue(data.teData, ['office_hours', 'monday_from'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       id="te-monday-end" readonly="readonly"
+                       value="<%=trimValue(data.teData, ['office_hours', 'monday_to'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-monday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-monday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off"
+                     id="te-monday" data-time-show="default" readonly="readonly">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Tuesday
+              </p>
+            </td>
+            <td class="col-sm-2 margin-0">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       id="te-tuesday-begin" readonly="readonly"
+                       value="<%=trimValue(data.teData, ['office_hours', 'tuesday_from'])%>"/>
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       id="te-tuesday-end" readonly="readonly"
+                       value="<%=trimValue(data.teData, ['office_hours', 'tuesday_to'])%>"/>
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-tuesday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-tuesday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off" id="te-tuesday"
+                     data-time-show="default" readonly="readonly"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Wednesday
+              </p>
+            </td>
+            <td class="col-sm-2 margin-0">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       id="te-wednesday-begin" readonly="readonly"
+                       value="<%=trimValue(data.teData, ['office_hours', 'wednesday_from'])%>"/>
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       id="te-wednesday-end" readonly="readonly"
+                       value="<%=trimValue(data.teData, ['office_hours', 'wednesday_to'])%>"/>
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-wednesday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-wednesday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off" id="te-wednesday"
+                     data-time-show="default" readonly="readonly"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Thursday
+              </p>
+            </td>
+            <td class="col-sm-2 margin-0">
+              <div class="input-group">
+                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                  <i class="icon wb-time" aria-hidden="true"></i>
+                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-thursday-begin"
+                       value="<%=trimValue(data.teData, ['office_hours', 'thursday_from'])%>"/>
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-thursday-end"
+                       value="<%=trimValue(data.teData, ['office_hours', 'thursday_to'])%>"/>
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-thursday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-thursday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off" id="te-thursday"
+                     data-time-show="default" readonly="readonly">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Friday
+              </p>
+            </td>
+            <td class="col-sm-2 margin-0">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-friday-begin"
+                       value="<%=trimValue(data.teData, ['office_hours', 'friday_from'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-friday-end"
+                       value="<%=trimValue(data.teData, ['office_hours', 'friday_to'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-friday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-friday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off" id="te-friday"
+                     data-time-show="default" readonly="readonly">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Saturday
+              </p>
+            </td>
+            <td class="col-sm-2 margin-0">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-saturday-begin"
+                       value="<%=trimValue(data.teData, ['office_hours', 'saturday_from'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-saturday-end"
+                       value="<%=trimValue(data.teData, ['office_hours', 'saturday_to'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-saturday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-saturday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off"
+                     id="te-saturday" data-time-show="default" readonly="readonly">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1">
+              <p class="control-label">
+                Sunday
+              </p>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-sunday-begin"
+                       value="<%=trimValue(data.teData, ['office_hours', 'sunday_from'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2">
+              <div class="input-group">
+                                <span class="input-group-addon padding-left-5 padding-right-5 hidden-xs">
+                                  <i class="icon wb-time" aria-hidden="true"></i>
+                                </span>
+                <input type="text"
+                       class="form-control datepair-time datepair-start ui-timepicker-input padding-0"
+                       data-role="timepicker" autocomplete="off" data-mark="default"
+                       readonly="readonly" id="te-sunday-end"
+                       value="<%=trimValue(data.teData, ['office_hours', 'sunday_to'])%>">
+              </div>
+            </td>
+            <td class="col-sm-2 col-xs-2 text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-remove="te-sunday">
+                  <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-icon btn-default btn-outline" data-time-add="te-sunday">
+                  <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+              </div>
+            </td>
+            <td class="col-sm-5">
+              <input type="text" class="form-control" placeholder="" autocomplete="off"
+                     id="te-sunday" data-time-show="default" readonly="readonly">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <hr>
+
+
+</div>

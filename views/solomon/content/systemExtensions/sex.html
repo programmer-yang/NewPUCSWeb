@@ -13,7 +13,7 @@
                 <!-- Example Responsive -->
                 <div class="example-wrap">
                     <div class="btn-group" aria-label="Button group with nested dropdown" role="group">
-                        <button type="button" class="btn btn-outline btn-default">
+                        <button type="button" class="btn btn-outline btn-default" id="sex-refresh">
                             Refresh
                         </button>
                     </div>
@@ -31,13 +31,12 @@
                                 <th>Email</th>
                                 <th>User Agent</th>
                                 <th>Status</th>
-                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <% if(seData && seData.extensions) { %>
-                            <% seData.extensions.forEach(function(data,key){ %>
+                            <% if(data.seData && data.seData.extensions) { %>
+                            <% data.seData.extensions.forEach(function(data,key){ %>
                             <tr>
                                 <td><%=(key+1) %></td>
                                 <td><%=data.extension_number %></td>
@@ -51,16 +50,6 @@
                                     <% if(data.status=='offline'){ %>
                                     <span class="label label-danger">offline</span>
                                     <% } %>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Edit">
-                                        <i class="icon wb-wrench" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                            data-toggle="tooltip" data-original-title="Delete">
-                                        <i class="icon wb-close" aria-hidden="true"></i>
-                                    </button>
                                 </td>
                             </tr>
                             <% }); %>

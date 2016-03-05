@@ -1,15 +1,15 @@
 <div class="modal fade" id="addQueueExtension" aria-hidden="true" aria-labelledby="examplePositionCenter" role="dialog"
-     tabindex="-1" style="display: none;">
+     tabindex="-1" style="display: none;" data-model="cq-radio-answer-extension">
     <div class="modal-dialog modal-center">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Connect to Digital Receptionlist</h4>
+                <h4 class="modal-title">Connect to Extension </h4>
             </div>
             <div class="modal-body padding-bottom-0">
-                <div class="form-inline padding-bottom-15">
+                <div class="form-inline padding-bottom-15 hide">
                     <div class="row">
                         <div class="col-sm-6 margin-left-20">
                             <div class="form-group">
@@ -31,67 +31,48 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Teagan</td>
-                        <td>Prohaska</td>
-                        <td>@Elijah</td>
+                    <%
+                    if(data.esData && data.esData.extensions) {
+                    data.esData.extensions.map(function(data, key) {
+                    %>
+                    <tr data-value="<%=data.extension_number%>">
+                        <td><%=key+1%></td>
+                        <td><%=data.extension_number%></td>
+                        <td><%=data.first_name%> <%=data.last_name%></td>
+                        <td><%=data.email%></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Andy</td>
-                        <td>Gaylord</td>
-                        <td>@Ramiro</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Veronica</td>
-                        <td>Gusikowski</td>
-                        <td>@Maxime</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Bruce</td>
-                        <td>Rogahn</td>
-                        <td>@Maggio</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Carolina</td>
-                        <td>Hickle</td>
-                        <td>@Hammes</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Madaline</td>
-                        <td>Eichmann</td>
-                        <td>@Amaya</td>
-                    </tr>
+                    <%
+                    });
+                    }
+                    %>
                     </tbody>
                     <tfoot>
-                    <tr>
-                        <td colspan="7" class="footable-visible">
-                            <div class="text-right">
-                                <ul class="pagination">
-                                    <li class="footable-page-arrow disabled"><a data-page="first"
-                                                                                href="#first">«</a></li>
-                                    <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a>
-                                    </li>
-                                    <li class="footable-page active"><a data-page="0" href="#">1</a></li>
-                                    <li class="footable-page"><a data-page="1" href="#">2</a></li>
-                                    <li class="footable-page"><a data-page="2" href="#">3</a></li>
-                                    <li class="footable-page"><a data-page="3" href="#">4</a></li>
-                                    <li class="footable-page"><a data-page="4" href="#">5</a></li>
-                                    <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
-                                    <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    <%
+                    var colsPanNumber = 5;
+
+                    var page_count = 1; //总页数
+                    var page_current = 1; //当前页
+                    var page_start = 1; //起始页
+                    var page_sum = 5; //显示总页
+                    if((page_current+5-1) < page_count) {
+                    page_sum = page_sum+page_current-1;
+                    page_start = page_current;
+                    }else{
+                    page_sum = page_count;
+                    if(page_count>5){
+                    page_start = page_count - 5;
+                    }else{
+                    page_start = page_count;
+                    }
+                    }
+
+                    %>
+
+                    <% include ../../page.html%>
                     </tfoot>
                 </table>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer hide">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

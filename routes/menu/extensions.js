@@ -1,161 +1,291 @@
 var emitter = require('../tool/emitter');
 var util = require('../tool/util');
+var apiExtensions = require('../api/apiExtensions');
+var apiRingGroups = require('../api/apiRingGroups');
+var apiVirtualReceptionist = require('../api/apiVirtualReceptionist');
+var apiVoiceMail = require('../api/apiVoiceMail');
+var apiTransaction = require('../api/apiTransaction');
 var EventProxy = require('eventproxy');
-var proxy = new EventProxy();
 
 function exGet(req, res, next) {
 
-
-  var url = '/api/extensions/list';
-  //url = util.trimGetParameter(url, req.query);
-
-  emitter.local.get(url, req, function (data) {
-
-    data = util.parseJSON(data);
-    console.log('============');
-    console.log(data);
-    if (data.err_code) {
-      res.json(data).end();
-      return;
-    } else {
-      res.render('solomon/content/extensions/ex', {exData: data});
-    }
-
+  var ep = new EventProxy();
+  var result = {};
+  result['eData'] = {};
+  ep.all('eData', function(eData) {
+    result.eData = util.parseJSON(eData);
+    res.render('solomon/content/extensions/ex', {data: result});
   });
+  ep.fail(function(err, msg) {
+    res.json({err_code:'500', msg:err.msg || msg });
+  });
+  apiExtensions.extensionList(req.query, util.done('eData', ep, 'Extensions ERROR'));
 
 }
 
 function addExtensionsGet(req, res, next) {
 
-  res.render('solomon/content/extensions/addExtension', {type: 'add', data: ''});
+  var ep = new EventProxy();
+  var result = {};
+  result['eData'] = {};
+  result['esData'] = {};
+  result['rgData'] = {};
+  result['vrsData'] = {};
+  ep.all('esData', 'rgData', 'vrsData', function(esData, rgData, vrsData) {
+    result.esData = util.parseJSON(esData);
+    result.rgData = util.parseJSON(rgData);
+    result.vrsData = util.parseJSON(vrsData);
+
+    console.log(JSON.stringify(result));
+    res.render('solomon/content/extensions/addExtension', {type: 'add', data: result});
+  });
+  ep.fail(function(err, msg) {
+    res.json({err_code:'500', msg:err.msg || msg });
+  });
+  //默认参数
+  req.query.cursor = 1;
+  apiExtensions.extensionList(req.query, util.done('esData', ep, 'Extensions ERROR'));
+  apiRingGroups.ringGroupsList(req.query, util.done('rgData', ep, 'RingGroupsList ERROR'));
+  apiVirtualReceptionist.virtualReceptionistList(req.query, util.done('vrsData', ep, 'VirtualReceptionist ERROR'));
+
+
+  //res.render('solomon/content/extensions/addExtension', {type: 'add', data: ''});
 
 }
 function addExtensionsPost(req, res, next) {
 
-  //res.render('solomon/content/extensions/addExtension');
+  var ep = new EventProxy();
+  var result = {};
+  ep.all('data', function(data) {
+    result = util.parseJSON(data);
+    res.json(result).end();
 
-  var data = req.body;
-  //data.access_token = '654321';
+    /**
+     * pbx create 成功以后调用voice mail create
+     */
 
-  emitter.local.post('/api/extensions/create', data, function (data) {
-    res.json(data).end();
+    req.body.voice_mail = req.body.voice_mail || {};
+
+    if(req.body.voice_mail) {
+      apiVoiceMail.extensionCreate(req.body, function(err, body) {
+        if(err) {
+          req.log.error('voiceMail create ERROR');
+          //apiTransaction.transactionRollback(req.body, function(err, body) {
+          //  if(err) {
+          //    req.log.error('transactionRollback ERROR');
+          //    req.log.error(err);
+          //    return;
+          //  }
+          //  req.log.error('transactionRollback SUCCESS');
+          //});
+          return;
+        }
+        req.log.info('voiceMail create SUCCESS');
+        req.log.info(body);
+        //apiTransaction.transactionCommit(req.body, function(err,body) {
+        //  if(err) {
+        //    req.log.error('TransactionCommit ERROR');
+        //    req.log.error(err);
+        //    return;
+        //  }
+        //  req.log.info('TransactionCommit SUCCESS');
+        //});
+
+      });
+    }
+
   });
+  ep.fail(function(err,errMsg) {
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  apiExtensions.extensionCreate(req.body, util.done('data', ep, 'ExtensionGroupCreate ERROR'));
 
 }
 function updateExtensionGet(req, res, next) {
 
-  console.log('666');
-  console.log(req.query);
-  var url = '/api/extensions/show';
-  //url = util.trimGetParameter(url,req.query);
-  //console.log(url);
-  emitter.local.get(url, req, function (data) {
-    console.log('callback');
-    console.log(data);
-    data = util.parseJSON(data);
-    console.log(data);
-    if (data && data.err_code) {
-      console.log('error --- ');
-    } else {
-      res.render('solomon/content/extensions/addExtension', {type: 'update', data: data});
-    }
+  var ep = new EventProxy();
+  var result = {};
+  result['eData'] = {};
+  result.eData['voice_mail'] = {};
+  ep.all('eData', 'vmData', function(eData, vmData) {
+    result.eData = util.parseJSON(eData);
+    result.eData.voice_mail = util.parseJSON(vmData);
+
+    console.log(result);
+    req.log.info('ExtensionShow Success');
+    req.log.info(JSON.stringify(result));
+    res.render('solomon/content/extensions/addExtension', {type: 'update', data: result});
   });
+  ep.fail(function(err,errMsg) {
+    req.log.error(errMsg);
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  apiExtensions.extensionShow(req.query, util.done('eData', ep, 'PBX ExtensionShow ERROR'));
+  apiVoiceMail.extensionShow(req.query, util.done('vmData', ep, 'VoiceMail ExtensionShow ERROR'));
+
+
 }
 function updateExtensionPost(req, res, next) {
+  var ep = new EventProxy();
+  var result = {};
+  ep.all('data', function(data) {
+    result = util.parseJSON(data);
+    res.json(result).end();
+    /**
+     * PBX update 成功以后调用 voiceMail extensionUpdate 接口
+     */
+    req.log.info('ExtensionUpdate SUCCESS');
+    req.body.voice_mail = req.body.voice_mail || {};
+    if(req.body.voice_mail) {
+      apiVoiceMail.extensionUpdate(req.body, function(err, body) {
+        if(err) {
+          req.log.error('VoiceMail ExtensionUpdate ERROR');
+          //apiTransaction.transactionRollback(req.body, function(err, body) {
+          //  if(err) {
+          //    req.log.error('TransactionRollback ERROR');
+          //    return;
+          //  }
+          //  req.log.info('TransactionRollback SUCCESS');
+          //});
+          return;
+        }
+        req.log.info('VoiceMail ExtensionUpdate SUCCESS');
+        //apiTransaction.transactionCommit(req.body, function(err, body) {
+        //  if(err) {
+        //    req.log.error('TransactionCommit ERROR');
+        //    return;
+        //  }
+        //  req.log.info('TransactionCommit SUCCESS');
+        //});
 
-  console.log(req.body);
-  var url = '/api/extensions/update';
-  emitter.local.post(url, req.body, function (data) {
-    res.json(data).end();
+      });
+    }
+
+
   });
-
+  ep.fail(function(err,errMsg) {
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  apiExtensions.extensionUpdate(req.body, util.done('data', ep, 'ExtensionUpdate ERROR'));
 }
 function deleteExtensionPost(req, res, next) {
-  var url = '/api/extensions/destroy';
-  emitter.local.post(url, req.body, function (data) {
-    res.json(data).end();
+
+  var ep = new EventProxy();
+  var result = {};
+  ep.all('data', function(data) {
+    req.log.info('extensionDestroy SUCCESS');
+    result = util.parseJSON(data);
+    res.json(result).end();
+    apiVoiceMail.extensionDestroy(req.body, function(err, data) {
+      if(err) {
+        req.log.error('VoiceMail ExtensionDestroy ERROR');
+        return;
+      }
+      req.log.error('VoiceMail ExtensionDestroy SUCCESS');
+    })
   });
+  ep.fail(function(err,errMsg) {
+    req.log.info('extensionDestroy ERROR');
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  apiExtensions.extensionDestroy(req.body, util.done('data', ep, 'ExtensionUpdate ERROR'));
 }
 
 
 function extensionGroupGet(req, res, next) {
 
-  emitter.local.get('/api/extensions/group/list', req, function (data) {
-
-    console.log('============');
-    console.log(data);
-    data = util.parseJSON(data);
-
-    res.render('solomon/content/extensions/groupManagement/groupManagement', {groupData: data});
-
+  var ep = new EventProxy();
+  var result = {};
+  result['egData'] = {};
+  ep.all('egData', function(egData) {
+    result.egData = util.parseJSON(egData);
+    res.render('solomon/content/extensions/groupManagement/groupManagement', {data: result});
+  });
+  ep.fail(function(err, msg) {
+    res.json({err_code:'500', msg:err.msg || msg }).end();
   });
 
-
-  //res.render('solomon/content/extensions/groupManagement/groupManagement');
+  apiExtensions.extensionGroupList(req.query, util.done('egData', ep, 'ExtensionGroupGet ERROR'));
 
 }
 function addGroupGet(req, res, next) {
 
-  emitter.local.get('/api/extensions/list', req, function (data) {
 
-    var result = {};
-    console.log(data);
-    data = util.parseJSON(data);
-    result['eData'] = data;
-    result['gmData'] = {};
+  var ep = new EventProxy();
+  var result = {};
+  result['eData'] = {};
+  result['egData'] = {};
+  ep.all('eData', function(eData) {
+    result.eData = eData;
     res.render('solomon/content/extensions/groupManagement/addGroup', {type:'add', data: result});
-
   });
-
-  //res.render('solomon/content/extensions/groupManagement/addGroup', {type: 'add', data: ''});
+  ep.fail(function(err, errMsg) {
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  //默认参数可能还需修改。临时直接赋值
+  req.query.cursor = 1;
+  apiExtensions.extensionList(req.query, util.done('eData', ep, 'ExtensionGroupList ERROR'));
 
 }
 function addGroupPost(req, res, next) {
 
-  console.log(req.body);
-  var url = '/api/extensions/group/create';
-  emitter.local.post(url, req.body, function (data) {
-    res.json(data).end();
+  var ep = new EventProxy();
+  var result = {};
+  ep.all('data', function(data) {
+    result = util.parseJSON(data);
+    res.json(result).end();
   });
+  ep.fail(function(err, errMSG) {
+    res.json({err_code:'500', msg:err.msg || errMSG }).end();
+  });
+  apiExtensions.extensionGroupCreate(req.body, util.done('data', ep, 'AddExtensionGroupPOST ERROR'));
+
 
 }
 function updateGroupGet(req, res, next) {
 
-  //solomon/content/extensions/groupManagement/addGroup
-
+  var ep = new EventProxy();
   var result = {};
-  proxy.all('eData', 'gmData', function(eData, gmData) {
-
-    result['eData'] = eData;
-    result['gmData'] = gmData;
-    console.log(result);
+  result['eData'] = {};
+  result['egData'] = {};
+  ep.all('eData', 'egData', function(eData, egData) {
+    result.eData = util.parseJSON(eData);
+    result.egData = util.parseJSON(egData);
     res.render('solomon/content/extensions/groupManagement/addGroup', {type:'update', data: result});
-
   });
-
-  emitter.local.get('/api/extensions/list', req, function (data) {
-    proxy.emit('eData',util.parseJSON(data));
+  ep.fail(function(err, errMsg) {
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
   });
-  emitter.local.get('/api/extensions/group/show', req, function (data) {
-    proxy.emit('gmData',util.parseJSON(data));
-  });
-
-
+  //默认参数可能还需修改。临时直接赋值
+  req.query.cursor = 1;
+  apiExtensions.extensionGroupShow(req.query, util.done('egData', ep, 'ExtensionGroupShow ERROR'));
+  apiExtensions.extensionList(req.query, util.done('eData', ep, 'Extension ERROR'));
 
 }
 function updateGroupPost(req, res, next) {
-
-  console.log(req.body);
-  var url = '/api/extensions/group/update';
-  emitter.local.post(url, req.body, function (data) {
-    res.json(data).end();
+  var ep = new EventProxy();
+  var result = {};
+  ep.all('data', function(data) {
+    result = util.parseJSON(data);
+    res.json(result).end();
   });
+  ep.fail(function(err,errMsg) {
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  apiExtensions.extensionGroupUpdate(req.body, util.done('data', ep, 'ExtensionGroupUpdate ERROR'));
 }
 function deleteGroupPost(req, res, next) {
-  var url = '/api/extensions/destroy';
-  emitter.local.post(url, req.body, function (data) {
-    res.json(data).end();
+  var ep = new EventProxy();
+  var result = {};
+  ep.all('data', function(data) {
+    result = util.parseJSON(data);
+    res.json(result).end();
+
   });
+  ep.fail(function(err,errMsg) {
+    res.json({err_code:'500', msg:err.msg || errMsg }).end();
+  });
+  apiExtensions.extensionGroupDestroy(req.body, util.done('data', ep, 'ExtensionGroupDestroy ERROR'));
 }
 
 

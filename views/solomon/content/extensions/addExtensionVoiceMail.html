@@ -15,7 +15,7 @@
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default" style="height: 36px">
                     <input type="checkbox" id="evm-enable" data-mark="default"
-                           data-checked="<%=trimValue(data, ['voice_mail','enable_voicemail'])%>">
+                           data-checked="<%=trimValue(data.eData, ['voice_mail','enable_voicemail'])%>">
                     <label></label>
                 </div>
             </div>
@@ -29,7 +29,7 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <select data-role="select" data-mark="default" id="evm-prompt-language"
-                        data-selected="<%=trimValue(data, ['voice_mail', 'prompt_language'])%>">
+                        data-selected="<%=trimValue(data.eData, ['voice_mail', 'prompt_language'])%>">
                     <option value="0">Please select</option>
                     <option value="en">English</option>
                 </select>
@@ -44,7 +44,7 @@
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default" style="height: 36px">
                     <input type="checkbox" data-mark="default" id="evm-pin-auth"
-                           data-checked="<%=trimValue(data, ['voice_mail','enable_vm_pin_auth'])%>">
+                           data-checked="<%=trimValue(data.eData, ['voice_mail','enable_vm_pin_auth'])%>">
                     <label></label>
                 </div>
             </div>
@@ -60,7 +60,7 @@
             <div class="col-sm-8">
                 <input type="text" class="form-control" placeholder="PIN Number" autocomplete="off"
                        data-mark="default" id="evm-pin-number"
-                        value="<%=trimValue(data, ['voice_mail', 'voicemail_pin'])%>">
+                        value="<%=trimValue(data.eData, ['voice_mail', 'voicemail_pin'])%>">
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
             <div class="col-sm-8">
                 <div class="checkbox-custom checkbox-default" style="height: 36px">
                     <input type="checkbox" data-mark="default" id="evm-call-id"
-                           data-checked="<%=trimValue(data, ['voice_mail','enable_play_caller_id'])%>">
+                           data-checked="<%=trimValue(data.eData, ['voice_mail','enable_play_caller_id'])%>">
                     <label></label>
                 </div>
             </div>
@@ -87,7 +87,7 @@
         <div class="col-sm-8 padding-left-0">
             <div class="col-sm-8">
                 <select class="bs-select-hidden" data-role="select" data-mark="default" id="evm-read-out"
-                        data-selected="<%=trimValue(data, ['voice_mail','msg_read_out_datetime'])%>">
+                        data-selected="<%=trimValue(data.eData, ['voice_mail','msg_read_out_datetime'])%>">
                     <option value="0">Please select</option>
                     <option value="1">Do not read</option>
                     <option value="2">Read in AM/PM format</option>

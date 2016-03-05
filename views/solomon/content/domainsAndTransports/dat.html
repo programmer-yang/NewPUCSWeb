@@ -1,169 +1,123 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <h1 class="page-title">
-            SIP Domain and Transport
-        </h1>
-    </div>
-    <div class="page-content container-fluid">
-        <div class="row">
-            <!-- left Table Begin -->
-            <div class="col-lg-6 col-sm-6">
-                <!-- Example Bordered Table -->
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="example-wrap">
-                            <h4>SIP Domin</h4>
+  <div class="page-header">
+    <h1 class="page-title">
+      SIP Domain and Transport
+    </h1>
+  </div>
+  <div class="page-content container-fluid">
+    <div class="row">
+      <!-- left Table Begin -->
+      <div class="col-lg-6 col-sm-6">
+        <!-- Example Bordered Table -->
+        <div class="panel">
+          <div class="panel-body">
+            <div class="example-wrap">
+              <h4>SIP Domin</h4>
 
-                            <p>
-                                describe...
-                            </p>
+              <p>
+                describe...
+              </p>
 
-                            <div class="form-inline padding-bottom-15">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <button id="addRowBtn" class="btn btn-outline btn-primary btn-sm"
-                                                    data-toggle="modal" data-target="#modal-add-domain">
-                                                <i class="icon wb-plus" aria-hidden="true"></i>
-                                                Add Domin
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="example table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>Domain</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><%=datData.domain.domain%></td>
-                                            <td class="text-nowrap">
-                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                                                        data-toggle="tooltip" data-original-title="Delete">
-                                                    <i class="icon wb-close" aria-hidden="true"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div class="form-group my-form-group">
+                <div class="col-sm-8 padding-left-0">
+                    <input type="text" class="form-control" placeholder="domain" autocomplete="off" data-mark="default"
+                           id="dat-domain" disabled="disabled" value="<%=trimValue(data.dData, ['domain'])%>">
                 </div>
-                <!-- End Example Bordered Table -->
-                <!-- Modal -->
-                <div class="modal fade" id="modal-add-domain" aria-hidden="true"
-                     aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" style="display: none;">
-                    <div class="modal-dialog modal-center">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                        id="dat-add-domain-close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <h4 class="modal-title">Add Domain</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="example-grid">
-
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">New Domain: </label>
-
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="name"
-                                                       placeholder="domain" autocomplete="off"
-                                                       data-mark="default" id="dat-domain">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-4">
-                                                <button type="button" class="btn btn-primary" id="dat-add-domain">Add
-                                                </button>
-                                                <button type="reset" class="btn btn-default btn-outline">Reset
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-sm-4">
+                 <div class="col-sm-6">
+                   <button type="button" class="btn btn-default btn-primary btn-outline" id="dat-domain-btn">
+                     Edit
+                   </button>
+                   <button type="button" class="btn btn-default btn-primary btn-outline hide" id="dat-domain-btn-cancel"
+                           data-value="<%=trimValue(data.dData, ['domain'])%>">
+                     Cancel
+                   </button>
+                 </div>
+                 <div class="col-sm-6">
+                   <button type="button" class="btn btn-default btn-primary btn-outline hide" id="dat-domain-btn-apply">
+                     Apply
+                   </button>
+                 </div>
                 </div>
-                <!-- End Modal -->
+              </div>
+
             </div>
-            <!-- left Table END -->
-            <!-- right Table Begin -->
-            <div class="col-lg-6 col-sm-6">
-                <!-- Example Bordered Table -->
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="example-wrap">
-                            <h4>Transports</h4>
-
-                            <p>
-                                describe...
-                            </p>
-
-                            <p>
-
-                            </p>
-
-                            <div class="form-inline padding-bottom-15">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <button id="testLogBut" class="btn btn-outline btn-primary btn-sm">
-                                                <i class="icon wb-plus" aria-hidden="true"></i>
-                                                Add Transport
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="example table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>Protocol</th>
-                                            <th>Port</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <% if(datData && datData.transports && datData.transports.transports) { %>
-                                        <% datData.transports.transports.forEach(function(data,key) { %>
-
-                                        <tr>
-                                            <td><%=data.protocol %></td>
-                                            <td><%=data.port %></td>
-                                        </tr>
-
-                                        <% }); %>
-                                        <% } %>
-
-
-                                        </tbody>
-
-                                    </table>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <!-- End Example Bordered Table -->
-            </div>
-            <!-- right Table END -->
+          </div>
         </div>
+      </div>
+      <!-- left Table END -->
+      <!-- right Table Begin -->
+      <div class="col-lg-6 col-sm-6">
+        <!-- Example Bordered Table -->
+        <div class="panel">
+          <div class="panel-body">
+            <div class="example-wrap">
+              <h4>Transports</h4>
+
+              <p>
+                describe...
+              </p>
+
+              <p>
+
+              </p>
+
+              <div class="form-inline padding-bottom-15">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <button id="testLogBut" class="btn btn-outline btn-primary btn-sm">
+                        <i class="icon wb-plus" aria-hidden="true"></i>
+                        Add Transport
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="example table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th>Protocol</th>
+                      <th>Port</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% if(data && data.tData && data.tData.transports) { %>
+                    <% data.tData.transports.forEach(function(data,key) { %>
+
+                    <tr>
+                      <td><%=data.protocol %></td>
+                      <td><%=data.port %></td>
+                      <td>
+                        <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
+                                data-toggle="tooltip" data-original-title="Delete" name="t-btn-delete"
+                                data-protocol="<%=data.protocol%>" data-port="<%=data.port%>">
+                          <i class="icon wb-close" aria-hidden="true"></i>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <% }); %>
+                    <% } %>
+
+
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <!-- End Example Bordered Table -->
+      </div>
+      <!-- right Table END -->
     </div>
+  </div>
 </div>
 <!-- End Page -->

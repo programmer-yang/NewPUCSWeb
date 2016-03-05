@@ -20,6 +20,11 @@ var EventProxy = require('eventproxy');
 var proxy = new EventProxy();
 
 
+
+var apiLogin = require('./apiLogin');
+var apiTenant = require('./apiTenant');
+
+
 proxy.on('get', function (err, response, res) {
   if (err) {
     ef.getError('500', '500', res);
@@ -32,14 +37,27 @@ proxy.on('get', function (err, response, res) {
 });
 proxy.on('post', function (err, response, res) {
   if (err) {
-    ef.getError('500', '500', res);
+    if(err.message) {
+      ef.getError('500', err.message, res);
+    }else {
+      ef.getError('500', '500', res);
+    }
     return;
   }
   var code = response.statusCode;
   if (typeof response.body == 'string')
     var result = util.parseJSON(response.body);
-  else
+  else {
     result = response.body;
+    /**
+     * 文档中很多结构在成功后只会返回http状态200，不会有具体内容，这里手动拼一个成功的JSON
+     *
+     */
+    if(code == '200' && (!result || result == '')) {
+      result = {code:'200' ,msg: 'success'}
+    }
+  }
+
   res.status(code).json(result).end();
 
 });
@@ -57,11 +75,42 @@ function trimUrl(req) {
   return result;
 }
 
-api.post('/api/account/credentials/verify', function (req, res, next) {
+//api.post('/api/account/credentials/verify', function (req, res, next) {
+//  emitter.post(req, function (err, response, body) {
+//
+api.post('/api/account/credentials/verify', function(req, res, next) {
+
+
+  apiLogin.login(req.body, proxy.emit('apiResponse', res, res, next));
+  //
+  ////res.json({result:'666'}).end();
+
+
+  //apiLo
+
+});
+
+
+api.post('/api/account/token/refresh', function (req, res, next) {
   emitter.post(req, function (err, response, body) {
     proxy.emit('post', err, response, res);
   });
 });
+//api.post('/api/account/create', function (req, res, next) {
+//  emitter.post(req, function (err, response, body) {
+//    proxy.emit('post', err, response, res);
+//  });
+//});
+api.post('/api/account/create', function(req, res, next) {
+  apiTenant.accountCreate(req.body, function(err, data){
+    /**
+     * 这里暂时先放一下，留下此刻的思路
+     * 定义通用的ex.all 或者 get post（和之前的思路很像）来统一触发回复
+     * 异常处理也可以统一处理 util.done
+     */
+  });
+});
+
 
 /**
  * Call Manager  BEGIN
@@ -290,6 +339,21 @@ api.get('/api/call_queues/list', function (req, res, next) {
     proxy.emit('get', err, response, res);
   });
 });
+api.post('/api/call_queues/create', function (req, res, next) {
+  emitter.post(req, function (err, response, body) {
+    proxy.emit('post', err, response, res);
+  });
+});
+api.get('/api/call_queues/show', function (req, res, next) {
+  emitter.get(req, function (err, response, body) {
+    proxy.emit('get', err, response, res);
+  });
+});
+api.post('/api/call_queues/update', function (req, res, next) {
+  emitter.post(req, function (err, response, body) {
+    proxy.emit('post', err, response, res);
+  });
+});
 /**
  * Conference
  */
@@ -303,11 +367,14 @@ api.get('/api/conference_server/room/list', function (req, res, next) {
 /**
  * Tenant
  */
-api.get('/api/tenant/list', function (req, res, next) {
-  emitter.get(req, function (err, response, body) {
-    proxy.emit('get', err, response, res);
-  });
-});
+//api.get('/api/tenant/list', function (req, res, next) {
+//  emitter.get(req, function (err, response, body) {
+//    proxy.emit('get', err, response, res);
+//  });
+//});
+
+api.get('/api/tenant/list', apiTenant.tenantList);
+
 
 /**
  * Recordings

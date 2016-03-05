@@ -60,8 +60,8 @@
 
               <!-- IF exData BEGIN -->
 
-              <% if(exData && exData.extensions) { %>
-              <% exData.extensions.forEach(function(data,key){ %>
+              <% if(data.eData && data.eData.extensions) { %>
+              <% data.eData.extensions.forEach(function(data,key){ %>
               <tr>
                 <td><%=(key+1)%></td>
                 <td><%=data.extension_number%></td>

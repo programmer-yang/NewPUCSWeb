@@ -3,10 +3,12 @@ var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var bunyan = require('bunyan');
+var log = bunyan.createLogger(require('./bunyan-config.json').log);
+
 var cookieParser = require('cookie-parser');
 
 var bodyParser = require('body-parser');
-
 
 var routes = require('./routes/index');
 var api = require('./routes/api/api');
@@ -67,9 +69,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(session({secret: 'mySession'}));
+app.use(session({
+  secret: 'mySession',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use(function(req, res, next) {
+  //console.log(req.log);
+  req.log=log;
+  //console.log(req.log);
+  next();
+});
 
 /**
  * 加载权限过滤中间件

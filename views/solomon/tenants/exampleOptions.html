@@ -1,0 +1,130 @@
+<div class="tab-pane" id="exampleOptions" role="tabpanel">
+  <!-- General BEGIN  -->
+
+
+  <h5 class="margin-top-10">
+    Options
+  </h5>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Timezone</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <select data-role="select" data-mark="default" id="te-timezone"
+                data-selected="<%=trimValue(data.teData,['profile', 'timezone'])%>" >
+          <option value="UTC-11" >UTC-11</option>
+          <option value="UTC-10" >UTC-10</option>
+          <option value="UTC-9" >UTC-9</option>
+          <option value="UTC-8" >UTC-8</option>
+          <option value="UTC-7" >UTC-7</option>
+          <option value="UTC-6" >UTC-6</option>
+          <option value="UTC-5" >UTC-5</option>
+          <option value="UTC-4" >UTC-4</option>
+          <option value="UTC-3" >UTC-3</option>
+          <option value="UTC-2" >UTC-2</option>
+          <option value="UTC-1" >UTC-1</option>
+          <option value="UTC 0" >UTC 0</option>
+          <option value="UTC+1" >UTC+1</option>
+          <option value="UTC+2" >UTC+2</option>
+          <option value="UTC+3" >UTC+3</option>
+          <option value="UTC+4" >UTC+4</option>
+          <option value="UTC+5" >UTC+5</option>
+          <option value="UTC+6" >UTC+6</option>
+          <option value="UTC+7" >UTC+7</option>
+          <option value="UTC+8" >UTC+8</option>
+          <option value="UTC+9" >UTC+9</option>
+          <option value="UTC+10" >UTC+10</option>
+          <option value="UTC+11" >UTC+11</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Currency</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <select data-role="select" data-mark="default" id="te-currency"
+                data-selected="<%=trimValue(data.teData,['profile', 'currency'])%>">
+          <option value="USD" >USD</option>
+          <option value="CNY" >CNY</option>
+          <option value="GBP" >GBP</option>
+          <option value="EUR" >EUR</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="margin-top-10">
+    Capability
+  </h5>
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Maximum Extensions</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Maximum Extensions" autocomplete="off" id="te-max-extensions"
+               value="<%=trimValue(data.teData,['capability', 'max_extensions'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label"> Maximum Simultaneous Calls</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder=" Maximum Simultaneous Calls" autocomplete="off" id="te-max-concurrent-calls"
+               value="<%=trimValue(data.teData,['capability', 'max_concurrent_calls'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Maximum Ring Groups</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Maximum Ring Groups" autocomplete="off" id="te-ring-groups"
+               value="<%=trimValue(data.teData,['capability', 'max_ring_groups'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Maximum Call Queues</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Maximum Call Queues" autocomplete="off" id="te-call-queues"
+               value="<%=trimValue(data.teData,['capability', 'max_call_queues'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Maximum Virtual Receptionists</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Maximum Virtual Receptionists" autocomplete="off" id="te-virtual-receptionists"
+               value="<%=trimValue(data.teData,['capability', 'max_virtual_receptionists'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-form-group">
+    <label class="col-sm-4 control-label">Maximum Virtual Receptionists</label>
+    <div class="col-sm-8 padding-left-0">
+      <div class="col-sm-8">
+        <input type="text" class="form-control" data-mark="default"
+               placeholder="Maximum Virtual Receptionists" autocomplete="off" id="te-conference-rooms"
+               value="<%=trimValue(data.teData,['capability', 'max_conference_rooms'])%>" />
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- END  -->
+</div>

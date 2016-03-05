@@ -30,8 +30,6 @@ var numberBlacklist = require('./menu/numberBlacklist');
 
 var profile = require('./menu/profile');
 
-
-var api = require('./menu/api');
 var error = require('./error/error');
 
 
@@ -72,7 +70,10 @@ router.get('/callManager/information', callManager.cmiGet);
  * DomainsAndTransports
  */
 router.get('/callManager/domain', doMainsAndTransports.dtGet);
-router.get('/callManager/domain/transports', doMainsAndTransports.updateTransportGet);
+router.post('/callManager/domain/update', doMainsAndTransports.updateDomainPost);
+router.get('/callManager/domain/transports/update', doMainsAndTransports.updateTransportsGet);
+router.post('/callManager/domain/transports/update', doMainsAndTransports.updateTransportsPost);
+router.post('/callManager/domain/transports/delete', doMainsAndTransports.deleteTransportsPost);
 /**
  * Extensions
  */
@@ -102,6 +103,7 @@ router.get('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderGet);
 router.get('/callManager/voIp/provider/update', voIPProvidersAndTrunks.updateProviderGet);
 router.post('/callManager/voIp/provider', voIPProvidersAndTrunks.addProviderPost);
 router.post('/callManager/voIp/provider/update', voIPProvidersAndTrunks.updateProviderPost);
+router.post('/callManager/voIp/provider/delete', voIPProvidersAndTrunks.deleteProviderPost);
 //router.get('/callManager/voIp/provider/next', voIPProvidersAndTrunks.addProviderNextGet);
 
 /**
@@ -112,6 +114,7 @@ router.get('/callManager/inbound/create', inboundRules.addInboundRuleGet);
 router.post('/callManager/inbound/create', inboundRules.addInboundRulePost);
 router.get('/callManager/inbound/update', inboundRules.updateInboundRuleGet);
 router.post('/callManager/inbound/update', inboundRules.updateInboundRulePost);
+router.post('/callManager/inbound/delete', inboundRules.deleteInboundRulesPost);
 
 /**
  * Outbound Rules
@@ -121,6 +124,7 @@ router.get('/callManager/outbound/rule', outboundRules.addOutboundRuleGet);
 router.get('/callManager/outbound/rule/update', outboundRules.updateOutboundRuleGet);
 router.post('/callManager/outbound/rule', outboundRules.addOutboundRulePost);
 router.post('/callManager/outbound/rule/update', outboundRules.updateOutboundRulePost);
+router.post('/callManager/outbound/delete', outboundRules.deleteOutboundRulePost);
 
 /**
  * Ring Groups
@@ -130,6 +134,7 @@ router.get('/callManager/ringGroups/ringGroup', ringGroups.addRingGroupGet);
 router.get('/callManager/ringGroups/ringGroup/update', ringGroups.updateRingGroupGet);
 router.post('/callManager/ringGroups/ringGroup', ringGroups.addRingGroupPost);
 router.post('/callManager/ringGroups/ringGroup/update', ringGroups.updateRingGroupPost);
+router.post('/callManager/ringGroups/ringGroup/delete', ringGroups.deleteRingGroupPost);
 
 /**
  * Virtual Receptionist
@@ -139,18 +144,25 @@ router.get('/callManager/virtualReceptionist/create', virtualReceptionist.addVir
 router.post('/callManager/virtualReceptionist/create', virtualReceptionist.addVirtualReceptionistPost);
 router.get('/callManager/virtualReceptionist/update', virtualReceptionist.updateVirtualReceptionistGet);
 router.post('/callManager/virtualReceptionist/update', virtualReceptionist.updateVirtualReceptionistPost);
+router.post('/callManager/virtualReceptionist/delete', virtualReceptionist.deleteVirtualReceptionistPost);
 
 /**
  * Call Queue
  */
 router.get('/callManager/callQueue', callQueue.cqGet);
-router.get('/callManager/callQueue/addQueue', callQueue.addCallQueueGet);
+router.get('/callManager/callQueue/create', callQueue.addCallQueueGet);
+router.post('/callManager/callQueue/create', callQueue.addCallQueuePost);
+router.get('/callManager/callQueue/update', callQueue.updateCallQueueGet);
+router.post('/callManager/callQueue/update', callQueue.updateCallQueuePost);
+router.post('/callManager/callQueue/delete', callQueue.deleteCallQueuePost);
 
 /**
  * Conference
  */
 router.get('/callManager/conference', conference.coGet);
 router.get('/callManager/conference/addRoom', conference.addRoomGet);
+router.post('/callManager/conference/addRoom', conference.addRoomPost);
+router.get('/callManager/conference/participants', conference.participants);
 
 /**
  * Voice Mail
@@ -168,6 +180,10 @@ router.get('/callManager/voiceMain', voiceMail.vmGet);
  */
 router.get('/tenant', tenant.tenantGet);
 router.get('/tenant/addTenant', tenant.addTenantGet);
+router.post('/tenant/addTenant', tenant.addTenantPost);
+router.get('/tenant/updateTenant', tenant.updateTenantGet);
+router.post('/tenant/updateTenant', tenant.updateTenantPost);
+router.post('/tenant/deleteTenant', tenant.destroyTenantPost);
 /**
  * Recordings Management
  */
@@ -216,11 +232,11 @@ router.get('/profile', profile.profileGet);
 
 
 
-/**
- * APi Get 请求
- * 展示API页面
- */
-router.get('/api', api.apiGet);
+///**
+// * APi Get 请求
+// * 展示API页面
+// */
+//router.get('/api', api.apiGet);
 
 
 

@@ -1,12 +1,14 @@
 var access = require('./../tool/access');
 var languages = require('./../../config/language');
-//var zmanage = require('./../../zmq/zmqManage');
 
-
-//var emitter = require('../tool/emitter');
 var emitter = require('../tool/emitter');
 var ef = require('../tool/errors');
 var util = require('../tool/util');
+
+var EventProxy = require('eventproxy');
+
+var apiLogin = require('../api/apiLogin');
+
 
 /**
  * 根目录请求
@@ -15,16 +17,16 @@ function loginGet(req, res, next) {
 
 
 
-    /*
-     更目录“ / ” 请求拦截，这里应该做“是否已登陆”验证
-     */
+  /*
+   更目录“ / ” 请求拦截，这里应该做“是否已登陆”验证
+   */
 
 
-    var lg = req.cookies.lg || 'us';
-    var describe = languages.get('login', lg);
+  var lg = req.cookies.lg || 'us';
+  var describe = languages.get('login', lg);
 
 
-    res.render('login/login', {lg: describe});
+  res.render('login/login', {lg: describe});
 
 }
 
@@ -34,102 +36,128 @@ function loginGet(req, res, next) {
  */
 function loginPost(req, res, next) {
 
+  var ep = new EventProxy();
 
-    console.log('post body');
-    console.log(req.body);
-
-
-    var data = req.body;
-
-    var username = data.username;
-    var password = data.password;
-
-    //console.log('sayhi.get');
-    //sayhi.test(function(data){console.log(data);});
-    console.log('执行登陆');
-    console.log('/api/account/credentials/verify');
-
-    //emitter.port('/account/verify_credentials', function(req, res, next){
-    //
-    //});
-
-    //res.redirect('/account/verify_credentials');
+  ep.all('login', function(login){
 
 
-    emitter.local.post('/api/account/credentials/verify', req.body, function (data) {
+      access.register(req, res, {
+        access_token: login.access_token,
+        expires: login.expires,
+        role: login.role,
+      });
 
-        //console.log('22222');
-        //console.log(typeof data);
-        //console.log(data);
-        console.log('================');
-        console.log(data.length);
-        console.log(data);
+    req.log.info('login success');
+    req.log.info(req.body);
+    req.log.info('access_token : ' + login.access_token);
+      res.json({result: 'success', url: 'index', permissions: login.permissions});
+      res.end();
 
-        if(typeof data === 'undefined') {
-            ef.getError('500', '500', res);
-            return;
-        }
-
-
-        var dataJson = util.parseJSON(data);
-
-        if (dataJson.err_code) {
-            console.log('6646546321');
-            console.log(dataJson);
-            console.log(dataJson.msg);
-            console.log(dataJson.err_code);
-            res.json({result: 'error', url: 'login', message: dataJson.msg});
-            //ef.getError('400','')
-            return;
-        }
-
-        //console.log('session ====');
-        //console.log(req.session);
-
-        req.session.mysession = access.generate();
-        req.session.mysession.access_token = dataJson.access_token;
-        req.session.mysession.role = dataJson.role;
+  });
+  ep.fail(function(err){
+    //待完成
+    req.log.error('login error');
+    req.log.error('err : ' + err);
+    res.json({result: 'error', msg: err.msg});
+    res.end();
+  });
 
 
-        var expires = dataJson.expires;
-        var permissions = dataJson.permissions;
-        var role = dataJson.role;
-
-
-        res.cookie('token', dataJson.access_token);
-
-
-        console.log('------------');
-        console.log(req.session.mysession);
-
-        res.cookie('key', req.session.mysession.id, {maxAge: (1000 * 60 * 10)});
-        //res.cookie('key', req.session.mysession.id, {maxAge: (1000 * 10)});
-
-        res.json({result: 'success', url: 'index', permissions: dataJson.permissions});
-        res.end();
-        //
-        //if (typeof(data) === 'object') {
-        //}else{
-        //    ef.getError('500','500',res);
-        //    return;
-        //
-        //}
+  req.log.info('login');
+  apiLogin.login(req.body, util.done('login', ep, 'Login failed'));
 
 
 
-    });
+
+  //emitter.local.post('/api/account/credentials/verify', req.body, function (data) {
+  //
+  //  if (typeof data === 'undefined') {
+  //    ef.getError('500', '500', res);
+  //    return;
+  //  }
+  //  var dataJson = util.parseJSON(data);
+  //  if (dataJson.err_code) {
+  //    //console.log('6646546321');
+  //    //console.log(dataJson);
+  //    //console.log(dataJson.msg);
+  //    //console.log(dataJson.err_code);
+  //    res.json({result: 'error', url: 'login', message: dataJson.msg});
+  //    //ef.getError('400','')
+  //    return;
+  //  }
+  //
+  //  access.register(req, res, {
+  //    access_token: dataJson.access_token,
+  //    expires: dataJson.expires,
+  //    role: dataJson.role,
+  //  });
+  //
+  //  res.json({result: 'success', url: 'index', permissions: dataJson.permissions});
+  //  res.end();
+  //
+  //});
 
 
 
-    if (test(username, password)) {
+  //console.log('post body');
+  //console.log(req.body);
+  //
+  //
+  //var data = req.body;
+  //
+  //var username = data.username;
+  //var password = data.password;
+  //
+  ////console.log('sayhi.get');
+  ////sayhi.test(function(data){console.log(data);});
+  //console.log('执行登陆');
+  //console.log('/api/account/credentials/verify');
+  //
+  ////emitter.port('/account/verify_credentials', function(req, res, next){
+  ////
+  ////});
+  //
+  ////res.redirect('/account/verify_credentials');
+  //
+  //
+  //emitter.local.post('/api/account/credentials/verify', req.body, function (data) {
+  //
+  //  if (typeof data === 'undefined') {
+  //    ef.getError('500', '500', res);
+  //    return;
+  //  }
+  //  var dataJson = util.parseJSON(data);
+  //  if (dataJson.err_code) {
+  //    //console.log('6646546321');
+  //    //console.log(dataJson);
+  //    //console.log(dataJson.msg);
+  //    //console.log(dataJson.err_code);
+  //    res.json({result: 'error', url: 'login', message: dataJson.msg});
+  //    //ef.getError('400','')
+  //    return;
+  //  }
+  //
+  //  access.register(req, res, {
+  //    access_token: dataJson.access_token,
+  //    expires: dataJson.expires,
+  //    role: dataJson.role,
+  //  });
+  //
+  //  res.json({result: 'success', url: 'index', permissions: dataJson.permissions});
+  //  res.end();
+  //
+  //});
+  //
+  //
+  //if (test(username, password)) {
+  //
+  //
+  //} else {
+  //
+  //}
 
 
-    } else {
-
-    }
-
-
-    //res.end();
+  //res.end();
 
 
 }
@@ -140,12 +168,12 @@ function loginPost(req, res, next) {
  */
 function indexGet(req, res, next) {
 
-    var lg = req.cookies.lg || 'us';
-    var describe = languages.get('main', lg);
+  var lg = req.cookies.lg || 'us';
+  var describe = languages.get('main', lg);
 
-    console.log(describe);
-    console.log('show main page');
-    res.render('index', {lg: describe,role: req.session.mysession.role});
+  console.log(describe);
+  console.log('show main page');
+  res.render('index', {lg: describe, role: req.session.mysession.role});
 
 }
 
@@ -158,11 +186,11 @@ function indexGet(req, res, next) {
  * @returns {boolean}
  */
 function test(username, password) {
-    console.log(username + ':' + password);
-    if (username === 'admin' && password === 'admin')
-        return true;
-    else
-        return false;
+  console.log(username + ':' + password);
+  if (username === 'admin' && password === 'admin')
+    return true;
+  else
+    return false;
 }
 
 

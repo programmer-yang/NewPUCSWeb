@@ -34,13 +34,13 @@
               <tbody>
 
               <%
-              if(vrData && vrData.vrs) {
-              vrData.vrs.forEach(function(data, key){
+              if(data && data.vrsData && data.vrsData.virtual_receptionists) {
+              data.vrsData.virtual_receptionists.forEach(function(data, key) {
               %>
               <tr>
                 <td><%=(key+1) %></td>
                 <td><%=data.name %></td>
-                <td><%=data.vr_extension %></td>
+                <td><%=data.virtual_receptionist_number %></td>
                 <td>
                   <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                           data-toggle="tooltip" data-original-title="Edit" name="vr-edit"
@@ -48,7 +48,8 @@
                     <i class="icon wb-wrench" aria-hidden="true"></i>
                   </button>
                   <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
-                          data-toggle="tooltip" data-original-title="Delete" >
+                          data-toggle="tooltip" data-original-title="Delete"
+                          name="vr-btn-delete" data-value="<%=data.virtual_receptionist_number%>">
                     <i class="icon wb-close" aria-hidden="true"></i>
                   </button>
                 </td>

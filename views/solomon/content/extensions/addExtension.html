@@ -1,96 +1,97 @@
 <!-- Page -->
 <div class="page animsition">
 
-    <div class="page-header">
-        <ol class="breadcrumb">
-            <li><a href="javascript:void(0)" data-return="ex">Extensions</a></li>
-            <li class="active"><%=type=='add'?'Add':type=='update'?'Update':''%> Extension</li>
-        </ol>
-    </div>
-    <div class="page-content">
-        <div class="panel my-col-sm-8 my-setting-box">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    Edit Extension settings and click OK or Apply to save changes.
-                </h3>
-            </div>
-            <div class="panel-body">
+  <div class="page-header">
+    <ol class="breadcrumb">
+      <li><a href="javascript:void(0)" data-return="ex">Extensions</a></li>
+      <li class="active"><%=type=='add'?'Add':type=='update'?'Update':''%> Extension</li>
+    </ol>
+  </div>
+  <div class="page-content">
+    <div class="panel my-col-sm-8 my-setting-box">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Edit Extension settings and click OK or Apply to save changes.
+        </h3>
+      </div>
+      <div class="panel-body">
 
-                <!-- Example Horizontal Form -->
+        <!-- Example Horizontal Form -->
 
-                <div class="example">
-                    <form class="form-horizontal" id="form-extension-add">
+        <div class="example">
+          <form class="form-horizontal" id="form-extension-add">
 
-                        <div class="example-wrap">
-                            <div class="nav-tabs-horizontal">
-                                <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
-                                    <li class="active" role="presentation">
-                                        <a data-toggle="tab" href="#exampleTabsOne"
-                                           aria-controls="exampleTabsOne" role="tab">General</a>
-                                    </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#exampleTabsTwo"
-                                           aria-controls="exampleTabsTwo" role="tab">Voice
-                                            Mail</a>
-                                    </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#exampleTabsThree"
-                                           aria-controls="exampleTabsThree" role="tab">Forwarding
-                                            Rules</a>
-                                    </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#exampleTabsOptions"
-                                           aria-controls="exampleTabsOptions" role="tab">Options</a>
-                                    </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#exampleTabsOfficeHours"
-                                           aria-controls="exampleTabsOfficeHours" role="tab">Office Hours</a>
-                                    </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#exampleTabsProvisioning"
-                                           aria-controls="exampleTabsProvisioning" role="tab">Phone Provisioning</a>
-                                    </li>
-                                    <li role="presentation" style="display: block;">
-                                        <a data-toggle="tab" href="#exampleTabsBilling"
-                                           aria-controls="exampleTabsBilling" role="tab">billing</a>
-                                    </li>
+            <div class="example-wrap">
+              <div class="nav-tabs-horizontal">
+                <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
+                  <li class="active" role="presentation">
+                    <a data-toggle="tab" href="#exampleTabsOne"
+                       aria-controls="exampleTabsOne" role="tab">General</a>
+                  </li>
+                  <li role="presentation" style="display: block;">
+                    <a data-toggle="tab" href="#exampleTabsTwo"
+                       aria-controls="exampleTabsTwo" role="tab">Voice
+                      Mail</a>
+                  </li>
+                  <li role="presentation" style="display: block;">
+                    <a data-toggle="tab" href="#exampleTabsThree"
+                       aria-controls="exampleTabsThree" role="tab">Forwarding
+                      Rules</a>
+                  </li>
+                  <li role="presentation" style="display: block;">
+                    <a data-toggle="tab" href="#exampleTabsOptions"
+                       aria-controls="exampleTabsOptions" role="tab">Options</a>
+                  </li>
+                  <li role="presentation" style="display: block;">
+                    <a data-toggle="tab" href="#exampleTabsOfficeHours"
+                       aria-controls="exampleTabsOfficeHours" role="tab">Office Hours</a>
+                  </li>
+                  <li role="presentation" style="display: block;">
+                    <a data-toggle="tab" href="#exampleTabsProvisioning"
+                       aria-controls="exampleTabsProvisioning" role="tab">Phone Provisioning</a>
+                  </li>
+                  <li role="presentation" style="display: block;">
+                    <a data-toggle="tab" href="#exampleTabsBilling"
+                       aria-controls="exampleTabsBilling" role="tab">billing</a>
+                  </li>
 
-                                </ul>
-                                <div class="tab-content padding-top-10">
-                                    <% include addExtensionGeneral.html %>
-                                    <% include addExtensionVoiceMail.html %>
-                                    <% include addExtensionForwardingRules.html %>
-                                    <% include addExtensionOptions.html %>
-                                    <% include addExtensionOfficeHours.html %>
-                                    <% include addExtensionPhoneProvisioning.html %>
-                                    <% include addExtensionBilling.html %>
-                                </div>
-                            </div>
+                </ul>
+                <div class="tab-content padding-top-10">
+                  <% include addExtensionGeneral.html %>
+                  <% include addExtensionVoiceMail.html %>
+                  <% include addExtensionForwardingRules.html %>
 
-                            <div class="col-sm-8 col-sm-offset-4">
-                                <button type="button" class="btn btn-default btn-primary btn-outline" id="e-cancel" data-return="ex">
-                                    Cancel
-                                </button>
-                                <button type="reset" class="btn btn-default btn-outline btn-primary">
-                                    Reset
-                                </button>
-                                <button type="button" class="btn btn-default btn-outline btn-primary" id="extension-apply">
-                                    Apply
-                                </button>
-                                <input type="hidden" value="<%=type%>"/>
-                            </div>
-
-                        </div>
-
-                    </form>
+                  <% include addExtensionOptions.html %>
+                  <% include addExtensionOfficeHours.html %>
+                  <% include addExtensionPhoneProvisioning.html %>
+                  <% include addExtensionBilling.html %>
                 </div>
+              </div>
 
-                <!-- End Example Horizontal Form -->
+              <div class="col-sm-8 col-sm-offset-4">
+                <button type="button" class="btn btn-default btn-primary btn-outline" id="e-cancel" data-return="ex">
+                  Cancel
+                </button>
+                <button type="reset" class="btn btn-default btn-outline btn-primary">
+                  Reset
+                </button>
+                <button type="button" class="btn btn-default btn-outline btn-primary" id="extension-apply">
+                  Apply
+                </button>
+                <input type="hidden" value="<%=type%>"/>
+              </div>
 
             </div>
 
+          </form>
         </div>
+
+        <!-- End Example Horizontal Form -->
+
+      </div>
+
     </div>
+  </div>
 
 
 </div>
